@@ -1,0 +1,78 @@
+In living cells, most processes are regulated by networks of interacting molecules.
+Aberrations in these networks underlie a wide range of pathologies,
+which is a major driving force to understand the functioning of these networks.
+An understanding of the associated network dynamics is crucial for understanding
+their biological functioning and a thorough insight is only possibly by studying
+the ensemble of molecules involved, instead of individual molecules.
+The presence of both crosstalk between pathways and feedback loops further contributes to the complexity
+of these networks.
+The human brain is ill-suited to grasp the non-linear dynamics of these complex networks and
+the entailed emergent properties, which is why computational support has a growing role in molecular biology.
+
+The systems biology approach to understanding biological systems starts off from a
+scientific question and then follows an empirical cycle \--\ or rather a positive spiral \--\ of
+knowledge/theory $\rightarrow$ model $\rightarrow$ hypotheses $\rightarrow$ experiments $\rightarrow$
+observations $\rightarrow$ update and/or refinement of knowledge/theory,
+until an answer to the original question is found (Figure~\ref{fig:empirical-spiral}).
+The model plays a pivotal role in this cycle:
+\begin{enumerate}
+  \item to organize data and store knowledge,
+  \item to structure reasoning  and discussion
+  \item to perform in silico experiments and derive hypotheses.
+\end{enumerate}
+The model is always a simplified representation of biological reality and is never the aim in itself.
+Rather it is a powerful means in the process of gaining an understanding of the biological system
+under study. Given its role in the empirical cycle, the process of modelling is especially effective
+when applied by the experts with respect to a certain biological system. Biologists usually have a good
+sense of cause-and-effect relationships between molecules in the biological system they are studying.
+As they also have extensive knowledge on the network topology and the dynamics of the system, they
+would be the primary candidates to construct models of their research topic.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.35\textwidth]{images/empirical_spiral4}
+ \caption{The empirical spiral.}\label{fig:empirical-spiral}
+\end{figure}
+
+
+As models are a formalization of knowledge/theories, an underlying formalism is needed to express
+this knowledge. Different formal methods have been successfully applied to construct representations
+of biological systems. Among these methods are ordinary differential equations (ODEs, reviewed by~\citealp[]{hidde-review}),
+process calculi~\citep{blenx,bio-pepa}, interacting state machines~\citep{interacting-sm1,interacting-sm2},
+Petri nets~\citep{petri-nets,petri-nets2}, Boolean logic~\citep{boolean-networks-flower,boolean-networks2}.
+%and Timed Automata~\citep{ta-siebert,bartocci-oscillators,oded-ode-ta-discretization}.
+
+\tas\ have been previously suggested for application in a biological context.
+\cite{ta-siebert} present a way to extend a classical modeling paradigm
+that was introduced previously~\citep{thomas-formalism}, allowing to add time informations to gene network models.
+\cite{bartocci-oscillators} describe a model of oscillators that accounts for time
+dynamics and test synchronization properties of biological oscillators.
+A discretization of ODEs to \tas\ is proposed by~\citet{oded-ode-ta-discretization}, applying
+the formal translation to an example gene regulatory network. Two different approaches to transforming
+a Petri net~\citep{petri-nets} model into \tas\ are presented by~\citet{ta-giapponesi},
+where also the important issue of state space explosion is addressed.
+Finally, \cite{ta-radiazioni} propose an \emph{ad hoc} \tas\ model of a radiation treatment
+system, which is then validated through UPPAAL.\\
+Each of these approaches has been successfully validated and demonstrates the power of \tas,
+both on the theoretical level and in real biological applications. However, none of the listed approaches
+has led to a tool implementation of the proposed method, the application of which was often limited to simple
+or specific examples. The challenges of a broader applicability of \tas\ were not previously considered,
+nor was the usability of the approach evaluated from the point of view of a biologist.
+
+
+Most of the other cited formal methods have been implemented into software tools to aid the process of modelling.
+However, mastery of these tools requires
+training and experience in mathematical modelling. In this respect, a lack of tradition in quantitative
+reasoning and formal methods within the biological community at large is still a stumbling block for
+widespread application of modelling of biological systems. Here, we present an intuitive method for the
+construction of formal in silico models of the dynamics of molecular networks, supported by a novel,
+user friendly modelling tool, ANIMO (Analysis of Networks with Interactive MOdeling,~\citealp[]{animo-bibe}).
+
+In the Methods section, we will explain how choosing a suitable abstraction level can make the construction
+of models more intuitive. We will then show how ANIMO is designed to support the modelling process following
+this approach. Construction of a small model based on experimental data will exemplify the method that we
+propose. In the Results section, we first show an ANIMO model of the genes and proteins that constitute
+the circadian clock network in Drosophila Melanogaster. The remainder of that section is dedicated to
+illustrate how a single modelling iteration in the empirical cycle is used to compile prior knowledge and
+experimental data into a model and derive meaningful biological hypotheses from this model. These hypotheses
+find ample support in literature.

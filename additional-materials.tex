@@ -1,0 +1,1139 @@
+\appendix
+\clearpage
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{page}{1}
+\onecolumn
+
+
+% \setlength{\oddsidemargin}{1.875in}
+% \setlength{\evensidemargin}{1.875in}
+% \addtolength{\textwidth}{-3.75in}
+
+\newlength\addedmarginsingle
+\setlength\addedmarginsingle{0.875in}
+\newlength\addedmargintotal
+\setlength\addedmargintotal{2\addedmarginsingle}
+
+\addtolength{\oddsidemargin}{\addedmarginsingle}
+\addtolength{\evensidemargin}{\addedmarginsingle}
+\addtolength{\textwidth}{-\addedmargintotal}
+\addtolength{\linewidth}{-\addedmargintotal}
+\addtolength{\hsize}{-\addedmargintotal}
+\addtolength{\topmargin}{\addedmarginsingle}
+\addtolength{\textheight}{-\addedmargintotal}
+\addtolength{\vsize}{-\addedmargintotal}
+
+\pagestyle{plain}
+
+\clearpage
+% \thispagestyle{empty}\ \
+
+\thispagestyle{empty}
+\ \\ \ \\ \ \\ \ \\ \ \\
+\begin{center}
+ {\Huge Bringing biological networks}\\ \ \\ {\Huge to life with ANIMO}\\ \ \\ \ \\
+ {\huge Additional Materials}
+\end{center}
+\clearpage
+
+
+
+
+
+
+\makeatletter
+
+% Copied from the LaTeX sources
+\def\addcontentsline#1#2#3{%
+  \addtocontents{#1}{\protect\contentsline{#2}{#3}{\thepage}}}
+\long\def\addtocontents#1#2{%
+  \protected@write\@auxout
+    {\let\label\@gobble \let\index\@gobble \let\glossary\@gobble}%
+    {\string\@writefile{#1}{#2}}}
+\titlecontents{section} % set formatting for \section -
+                        % \subsection must be formatted separately
+[2.em]                 % adjust left margin
+{\bf}             % font formatting
+{\contentslabel{2.em}} % section label and offset
+{\hspace*{-2.em}}
+{\titlerule*[1pc]{}\contentspage}
+\titlecontents{subsection} % set formatting for \section -
+                        % \subsection must be formatted separately
+[4.5em]                 % adjust left margin
+{\rmfamily}             % font formatting
+{\contentslabel{2.5em}} % section label and offset
+{\hspace*{2.5em}}
+{\titlerule*[1pc]{.}\contentspage}
+% Copied from article.cls
+%\setcounter{tocdepth}{5}
+\newcommand\tableofcontents{%
+\begin{spacing}{1.3}
+    \section*{\contentsname
+        \@mkboth{%
+           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \@starttoc{toc}%
+\end{spacing}
+}
+% \newcommand*\l@paragraph{\@dottedtocline{4}{7.0em}{4.1em}}
+% \newcommand*\l@subparagraph{\@dottedtocline{5}{10em}{5em}}
+% \newcommand\listoffigures{%
+%     \section*{\listfigurename}%
+%       \@mkboth{\MakeUppercase\listfigurename}%
+%               {\MakeUppercase\listfigurename}%
+%     \@starttoc{lof}%
+%     }
+% \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
+% \newcommand\listoftables{%
+%     \section*{\listtablename}%
+%       \@mkboth{%
+%           \MakeUppercase\listtablename}%
+%          {\MakeUppercase\listtablename}%
+%     \@starttoc{lot}%
+%     }
+% \let\l@table\l@figure
+
+\makeatother
+
+
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{5}}
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+
+\setcounter{page}{1}
+\setcounter{section}{0}
+
+\renewcommand\figurename{Figure}
+\renewcommand*\thefigure{S\arabic{figure}}
+\renewcommand*\thetable{S\arabic{table}}
+
+\def\ta{TA}
+\def\tas{TA}
+
+
+
+
+\section{Requirements and installation}\label{sec:animo-installation}
+In order to run ANIMO, a desktop or laptop computer is needed with the following software installed:
+\begin{itemize}
+  \item Java: see Section~\ref{sec:install-java}
+  \item Cytoscape~\citep{cytoscape}: see Section~\ref{sec:install-cytoscape}
+  \item UPPAAL~\citep{uppaal}: see Section~\ref{sec:install-uppaal}
+\end{itemize}
+Each works under Windows~(\winsymbol), Mac-OS~(\macsymbol) and all most common GNU/Linux~(\linuxsymbol) distributions.
+If the requirements are already met, ANIMO can be directly installed following the instructions in Section~\ref{sec:install-animo}.\\
+\emph{Note}: when required to type something, the text to input will be represented ``{\tt like this}'': the quotation marks
+are not intended to be typed.
+
+\subsection{Java}\label{sec:install-java}
+\begin{enumerate}
+\item\label{step:open-console} In order to check that Java is installed, open a console
+\winmaclinux{Windows 7: press Windows button and type ``{\tt cmd}'', then press Return. Previous versions: in the Start
+menu find \emph{All programs} $\rightarrow$ \emph{Accessories} $\rightarrow$ \emph{Command Prompt}.}%
+{Go to \emph{Applications} $\rightarrow$ \emph{Utilities} $\rightarrow$ \emph{Terminal}.}%
+{Under Gnome, press Alt-F2, type ``{\tt gnome-terminal}'', then press Return. Under KDE, press the KMenu button, type
+``{\tt konsole}'' and click Konsole. Under Unity, press the home button (the one with the Ubuntu
+logo:~\ubuntusymbol), type ``{\tt terminal}'' and click the Terminal icon.}
+\item Type ``{\tt java}'' and press Return. If a brief error message like ``{\tt unknown command}'' is shown, Java needs to be
+installed: please proceed to step~\ref{step:install-java}. Otherwise, please continue to Section~\ref{sec:install-cytoscape}.
+\item\label{step:install-java}
+\winmaclinux{Point your web browser to \url{java.sun.com}.\\
+Click \emph{Downloads}, then on \emph{Java SE} (can be usually found under \emph{Popular Downloads}, or by performing
+a search inside the text of the web page).\\
+Choose \emph{Java Platform (JDK)}, and select \emph{Accept License Agreement}.\\
+Choose the correct package to download, based on your platform: if you have a 32 bit installation, choose the version
+named \emph{Windows x86}, otherwise
+choose the \emph{Windows x64} package.\\
+After the download, double click the installer and install Java. You don't need to register with Oracle, so you can
+close the browser when it opens at the end of the installation.\\
+To check that Java has been correctly installed, open the console (see the instructions of
+step~\ref{step:open-console} in Section~\ref{sec:install-java})
+and type ``{\tt java}'', followed by Return. If you get the message ``{\tt unknown command}'', read on.
+Otherwise, skip the rest of this
+section and continue with the installation of Cytoscape (Sec.~\ref{sec:install-cytoscape}).\\
+Open \emph{My Computer}, and enter the local disc (C). Usually, Java is installed in ``{\tt Program
+Files$\backslash{}$Java}''. In that directory,
+there should be a directory named {\tt jdk1.6.nnnn} with {\tt nnnn} = some numbers.
+Inside this directory, there is a {\tt bin} directory. Copy the complete path to that {\tt bin} directory (it should be
+something similar to
+``{\tt C:$\backslash{}$Program Files$\backslash{}$Java$\backslash{}$jdk1.6.0\_{}26$\backslash{}$bin}'').
+Go to Control Panel (Start $\rightarrow$ Settings $\rightarrow$ Control Panel) and look for the \emph{System} icon.
+In the System properties window, select the \emph{Advanced} tab, and then click the \emph{Environment variables}
+button.
+In the upper part of the new window, look for a property named \emph{PATH}. If present, double click it,
+otherwise click the button \emph{New} (pay attention that you focus on the {\bfseries upper} part of the window).
+Check that \emph{Variable name} says \emph{PATH}. If you have clicked \emph{New}, you must insert the word ``{\tt PATH}''
+yourself.
+\emph{Variable value} can correspond to an empty field, and in that case you have to paste the path you copied at
+the previous step.
+If there is something else in that field, go to the end of the field, add a ``{\tt ;}'' and paste the path after the ``{\tt ;}''.\\
+Click \emph{OK} in both the \emph{Environment variables} and \emph{System properties} windows.\\
+Open a {\bfseries new} console (using one that is already open will not update the PATH variable), and try again to type
+``{\tt java}'' and press Return. This time, a longer
+message should be shown instead of the ``{\tt unknown command}'' message. Java has been successfully installed.}%
+{Go to \emph{Applications} $\rightarrow$ \emph{Utilities} $\rightarrow$ \emph{Java Preferences}.\\
+If the Java Preferences window is shown, Java is already installed, otherwise the system will prompt you to install
+it. Follow the instructions and Java will be correctly installed at the end of the procedure.}%
+{If you run Ubuntu, open the Software center, search for ``java'' and select \emph{OpenJDK Java 6 Runtime}. An
+\emph{Install} button
+will appear next to the name of the package: click that button and Java will be correctly installed.\\
+If you run another distribution, use your package manager in a similar way. If you cannot find OpenJDK, there may be
+the possibility to install \emph{Sun Java Development Kit (JDK)} instead.}
+\end{enumerate}
+
+
+\subsection{Cytoscape}\label{sec:install-cytoscape}
+Cytoscape can be found at the address \url{www.cytoscape.org/download.html}: an automatic installer
+program can be downloaded. Please note that you need to accept Cytoscape's terms of use before being able to start the download.
+Choose the latest version (at least 2.8.3), possibly using a platform specific installer. For Windows, you can choose \emph{64bit} only
+if you know that your computer can run 64bit programs, otherwise it is safe to choose \emph{32bit}.
+% \begin{enumerate}
+% \item Point your browser to \url{www.cytoscape.org/download.html}.
+% \item Insert the required data and accept the terms of use.
+% \item Download the installer for the latest version, choosing the correct platform.
+% \item Once the download is finished, find the downloaded file and double click to start the installation.
+% \item Once the installation is complete, you should find a \emph{Cytoscape} menu item in your
+% \emph{Applications}/\emph{Programs} menu.
+% \end{enumerate}
+
+\subsection{UPPAAL}\label{sec:install-uppaal}
+\begin{enumerate}
+\item Point your browser to \url{www.uppaal.org}.\\
+\emph{Note}: UPPAAL is free only for
+academic use. Information and contacts for commercial licenses can be found on the web site.
+\item Click the \emph{Download} link, and choose the latest \emph{development} version (at least 4.1) for your operating system.
+\item Fill in the required contact information and click the \emph{Accept and download} button to download UPPAAL.\\
+\emph{Note}: problems with the registration on UPPAAL website have been reported when using some versions of Internet Explorer.
+If the registration is unsuccessful, please consider changing your web browser.
+\item Unzip the downloaded file to a known location: UPPAAL will be installed there.
+\item\label{step:mac-install-uppaal} Complete UPPAAL installation. \macpc{Open the UPPAAL installation location in Finder,
+drop the \emph{UPPAAL.App} icon in your \emph{Applications} folder,
+and copy the \emph{verifyta} executable file to a known location. The installation of UPPAAL is complete:
+go to Section~\ref{sec:install-animo}.}{Open a console (this was done in Sec.~\ref{sec:install-java}, step
+number~\ref{step:open-console}), type ``\url{cd} \url{PATH_TO_THE_UPPAAL_DIRECTORY}'' and press Return;
+\url{PATH_TO_THE_UPPAAL_DIRECTORY} is the path to the directory where you installed UPPAAL. It can be for example
+``\url{c:\Users\myuser\Desktop\uppaal-4.1.7}'',
+ or
+``\url{/home/myuser/programs/uppaal-4.1.7}''.\\
+\winsymbol\ \emph{Note}: some Windows users may have access only to specific partitions (D:, Z:,\dots): in that case,
+please first change to the corresponding
+drive letter where the downloaded file was extracted. For example: if UPPAAL is located in \url{d:\myuser\Programs\uppaal-4.1.7},
+the two commands to be entered are\\
+``\url{d:}''\\
+``\url{cd} \url{\user\Programs\uppaal-4.1.7}''}
+\item Type ``{\tt java -jar uppaal.jar}'' and press Return.
+\item The license for UPPAAL will be automatically acquired, and the main window of UPPAAL user interface will appear:
+you may now close that window.
+\end{enumerate}
+
+\subsection{Installing ANIMO}\label{sec:install-animo}
+\begin{enumerate}
+\item ANIMO is {\bfseries free only for academic use}. For commercial licenses, please contact us.
+\item Run Cytoscape.
+\item Click the menu command \emph{Plugins} $\rightarrow$ \emph{Manage Plugins}: the \emph{Manage Plugins}
+window will open.
+\item Select the \emph{Settings tab} and press the \emph{Add} button.
+\item Insert this \emph{Name}: ``{\tt ANIMO}'', and this \emph{URL}:
+``\url{http://fmt.cs.utwente.nl/tools/animo/plugins.xml}''
+(please note: the ``\url{http://}'' is required), then confirm with \emph{OK}.
+\item From the \emph{Download Sites} list in the upper part of the \emph{Manage Plugins} window, select \emph{ANIMO}
+(you may need to scroll down: it should appear after \emph{Cytoscape}).
+\item The panel on the left shows a smaller list of plugins: under \emph{Available for Install} $\rightarrow$
+\emph{Analysis},
+select \emph{ANIMO v1.28}.
+\item Click the \emph{Install} button. The ANIMO tool will be automatically downloaded and installed.
+\item The tool will ask you to indicate the position of the \emph{verifyta} executable, which is the tool to verify Timed Automata models.
+You can find it in the \emph{bin} (\emph{bin-Linux}, \emph{bin-Win32}, \dots\ depending on your operating system) directory inside the
+UPPAAL installation directory, or where it was copied at step~\ref{step:mac-install-uppaal} for \macsymbol\ in Section~\ref{sec:install-uppaal}.
+\item Click the \emph{Close} button to close the \emph{Manage Plugins} window.
+\item ANIMO is correctly installed and ready to be used.
+\end{enumerate}
+
+\clearpage
+\section{ANIMO user's manual}\label{sec:animo-manual}
+We will now present a step-by-step sequence to obtain an example model
+with ANIMO, which will allow us to illustrate the main features of the tool.
+
+\subsection{Modeling a small network}\label{sec:modeling-network-example}
+\begin{enumerate}
+\item Run Cytoscape.
+\item If Cytoscape is already running and there are open documents, please make sure that the current work is saved before proceeding.
+\item From the \emph{File} menu, select \emph{New} $\rightarrow$ \emph{Session}. Answer positively to the question
+``\emph{Current session (all networks/attributes) will be lost. Do you want to continue?}''.
+\item From the \emph{File} menu, select \emph{New} $\rightarrow$ \emph{Network} $\rightarrow$ \emph{Empty Network}.
+\item In the \emph{Control Panel} find the \emph{Editor} tab. If you cannot find it,
+click the black arrows on the top right of the panel to search through the available tabs. Click the name of the tab to activate it.
+\item\label{step:add-nodes} Add $5$ nodes to the empty network by Ctrl-clicking
+on empty areas of the \emph{Network} window.\\
+\emph{Note}: \emph{Ctrl-clicks} are obtained as follows. While
+holding the {\tt Ctrl} key down, click with the left mouse button, then release the {\tt Ctrl} key.
+The {\tt Ctrl} key is usually located in the lower left or lower right corner of the keyboard. Apple keyboards
+may have the \maccmd\ symbol instead of {\tt Ctrl}.
+\item The \emph{Edit reactant} dialog window is opened when a new node is added,
+or when you right click an existing node and then select the \emph{[ANIMO] Edit reactant\dots}
+item from the menu. Use that window to set the properties of the nodes as indicated in Table~\ref{tab:setting-nodes},
+taking the setting in Figure~\ref{fig:edit-reactant} for node A as reference. When
+the properties of a node have been inserted, confirm the choice with the \emph{Save} button.
+\newcounter{miocounterperenumerate}
+\setcounter{miocounterperenumerate}{\value{enumi}}
+\end{enumerate}\vspace{-2ex}
+
+\begin{table}[htbp]
+\begin{minipage}{\textwidth}
+\processtable{The settings for the nodes (signaling network components) in the example.\label{tab:setting-nodes}}
+{\begin{tabular}{llllll}%|c|c|c|c|c|c|}
+\ \\
+\hline\noalign{\vskip 2mm}
+  \multirow{2}{*}{{\bfseries Name}} & {\bfseries Total act.} & {\bfseries Initial act.} & \multirow{2}{*}{{\bfseries Molecule type}} &
+\multirow{2}{*}{{\bfseries Enabled?}} & \multirow{2}{*}{{\bfseries Plotted?}}\\
+& {\bfseries levels} & {\bfseries level} & & & \\[2mm]
+\hline\noalign{\vskip 2mm}
+  A & 15 & 15 & Cytokine & Yes & No\\[5mm]
+  B & 15 & 0 & Receptor & Yes & No\\[5mm]
+  C & 15 & 0 & Phosphatase & Yes & No\\[5mm]
+  D & 100 & 0 & Kinase & Yes & Yes\\[5mm]
+  E & 1 & 1 & Phosphatase & Yes & No\\[2mm]
+\hline
+\end{tabular}
+}{}
+\end{minipage}
+\end{table}
+
+\begin{figure}[htpb]
+\begin{minipage}{\textwidth}
+\begin{center}
+ \includegraphics[width=.5\textwidth]{images/edit_reactantA}\\
+ \caption{The \emph{Edit reactant} window: modifying the properties of node A.}\label{fig:edit-reactant}
+\end{center}
+\end{minipage}
+\end{figure}
+
+
+\begin{enumerate}
+\setcounter{enumi}{\value{miocounterperenumerate}}
+\item\label{step:add-edges} In order to add edges to the network, make sure that the \emph{Editor} tab is still active
+in the \emph{Control Panel}, and
+add the following edges by Ctrl-clicking the source and then clicking the target: A~$\rightarrow$~B, B~$\rightarrow$~C,
+C~$\rightarrow$~B, B~$\rightarrow$~D, E~$\rightarrow$~D.
+\item The \emph{Edit reaction} dialog window is opened when you add a new edge,
+or when you right click an existing edge and then select the \emph{[ANIMO] Edit reaction\dots} item
+from the menu. Use that window to set the parameters of the edges as indicated in Table~\ref{tab:setting-edges}. The settings
+for the edge A $\rightarrow$ B should reflect the ones shown in the \emph{Edit reaction} window in Figure~\ref{fig:edit-reaction}.\\
+\emph{Note}: In order to insert a qualitative parameter like the ones required by the example network,
+click once the slider in the \emph{parameter} box to activate it, and then move the slider to match the requested value.
+\setcounter{miocounterperenumerate}{\value{enumi}}
+\end{enumerate}
+
+\begin{table}[!ht]
+\begin{minipage}{\textwidth}
+\processtable{The settings for the edges (reactions) in the example.\label{tab:setting-edges}}
+{\begin{tabular}{llll}%|c|c|c|c|}
+\hline\noalign{\vskip 2mm}
+  {\bfseries Reaction} & {\bfseries Scenario} & {\bfseries Parameter value} & {\bfseries Influence}\\[2mm]
+\hline
+\noalign{\vskip 2mm}  A $\rightarrow$ B & 1 & Fast & Activation\\[5mm]
+\noalign{\vskip 2mm}  B $\rightarrow$ C & 1 & Medium & Activation\\[5mm]
+\noalign{\vskip 2mm}  C $\rightarrow$ B & 1 & V. Fast & Inhibition\\[5mm]
+\noalign{\vskip 2mm}  B $\rightarrow$ D & 1 & Medium & Activation\\[5mm]
+\noalign{\vskip 2mm}  E $\rightarrow$ D & 2 & 0.00015 & Inhibition\\[2mm]
+\hline
+\end{tabular}}{}
+\end{minipage}
+\end{table}\vspace{-2ex}
+
+\begin{figure}[!tpb]
+\begin{minipage}{\textwidth}
+\begin{center}
+\includegraphics[width=.5\textwidth]{images/edit_reactionAB}\\
+\caption{The \emph{Edit reaction} window: modifying the properties of edge A $\rightarrow$ B.}\label{fig:edit-reaction}
+\end{center}
+\end{minipage}
+\end{figure}
+
+\begin{enumerate}
+\setcounter{enumi}{\value{miocounterperenumerate}}
+\item In the \emph{Control Panel} activate the \emph{ANIMO} tab by clicking its title.
+\item Click the \emph{Choose seconds/step} button. A new dialog window will appear: you can
+%just click \emph{OK} to confirm that you request a time resolution of 12 seconds.
+safely choose a time resolution of 12 seconds per step and click \emph{OK}.
+\item Click the \emph{Analyze network} button.
+\item After a few seconds the \emph{Results Panel} should appear on the right,
+showing a plot of the activity level of reactant D over a time course of 240 minutes.
+Figure~\ref{fig:rete-esempio} shows the resulting network and graph plot.
+\end{enumerate}
+
+\begin{figure}[!tpb]
+\begin{minipage}{\textwidth}
+\begin{center}
+  \includegraphics[width=.9\textheight, angle=90]{images/esempio_uso_ANIMO3}
+\end{center}
+\caption{The completed example, where also the feature that allows to view the activity levels
+of reactants at chosen simulation times is demonstrated: the vertical red bar in the graph on the
+right can be moved through the slider under the graph, and indicates the point in the time series
+on which the coloring of the nodes in the \emph{Network} window is based.
+The legends for colors and shapes can be found in the \emph{Legend} panel.}\label{fig:rete-esempio}
+\end{minipage}
+\end{figure}
+
+
+\subsubsection{Managing simulation data and activity levels plots}
+Each time a simulation result is obtained, a new tab is added to the \emph{Results Panel} (see the right part of Fig.~\ref{fig:rete-esempio})
+in which we identify three buttons, a plot of the activity levels of the selected reactants and a time slider.
+
+Clicking on the button \emph{Change title} allows to select a new title for the tab: this can be useful e.g. when comparing different
+simulations made on similar configurations of the same network. Button \emph{Save simulation data\dots} allows to save
+the simulation data of the current tab on a \emph{.sim} file, which can then be loaded and inspected in the future.
+The \emph{Load simulation data\dots} button in the \emph{Control Panel} above the \emph{Simulation} box can be used for this purpose.
+Please note that the best results are obtained only when loading a \emph{.sim} file when the \emph{Network} window contains the same network
+on which the simulation data are based. If no network is currently opened, a network will \emph{not} be opened by loading a \emph{.sim} file.
+The \emph{Close} button is used to close the currently displayed results tab.
+
+Right clicking inside the graph area will bring up a menu that allows to perform some basic operations with the graph
+and its data:
+\begin{itemize}
+  \item \emph{Add data from CSV}: superpose the graph with other data series found in a \emph{.csv} (comma separated values) file. This file type can be
+obtained for example by exporting data from the default Excel format. If you want the data in the \emph{.csv} file to be rescaled so
+that its maximum Y value coincides with the maximum in the plot, the data file needs to contain a column named (exactly)
+\emph{Number\_{}of\_{}levels}, on the first row of which the maximum of the scale for the \emph{.csv} data needs to be put. For example,
+if the data in the \emph{.csv} file are on a 0-100 scale, the value for \emph{Number\_{}of\_{}levels} will be 100.
+  \item \emph{Save as PNG}: save the graph as it is shown in a \emph{.png} image file. This file format can be opened by most
+image editors.
+  \item \emph{Export visible as CSV}: export to a \emph{.csv} file all the series that are currently visible (i.e., not hidden)
+in the graph.
+  \item \emph{Clear Data}: clear the contents of the graph, removing all series. This can be useful for plotting
+a \emph{.csv} file without superposing it to the current graph, or for loading a file in which all hidden data where removed
+(exporting the visible graph to a \emph{.csv} with the previous command).
+  \item \emph{Graph interval}: change the lower and upper bounds for X and Y axes.
+  \item \emph{Zoom rectangle}: zoom the graph around a user-chosen rectangular area.
+    After selecting this command the shape of the mouse cursor changes into a cross. The area of the plot to be
+    zoomed can then be selected by dragging a rectangular selection around it (see the definition of \emph{rectangular
+    selection} on page~\pageref{nota:rectangular-selection}).
+  \item \emph{Zoom extents}: bring the zoom level back to default, canceling the effects of any \emph{Zoom rectangle}
+command.
+\end{itemize}
+
+Whenever the result of one or more simulations is shown as a graph, it is possible to use the slider under the graph to
+move through the entire simulation, showing the activity levels of all reactants represented with different node coloring in
+the \emph{Network} window on the left. For an example, see Figure~\ref{fig:rete-esempio}: the vertical red line in the
+graph represents the time instant on which the colors of the nodes in the \emph{Network} window are based, and can
+be moved with the slider over which the mouse cursor is drawn.
+
+
+
+
+\subsection{Additional tips}
+\subsubsection{Editing a network in Cytoscape}
+Nodes and arcs can be placed in the network as shown previously: with the \emph{Editor} tab selected in the
+\emph{Control Panel},
+Ctrl-click (click while holding the {\tt Ctrl} or \maccmd\ key) in an empty place to add a node; Ctrl-click the source
+node and click the target node to add an arc. It is also possible to drag and drop the node/arc icons from the \emph{Control Panel}
+into the \emph{Network} window.\\
+\emph{Note}: to perform \emph{drag and drop} move the mouse cursor over the icon in the \emph{Control Panel}, click with the left mouse
+button and, without releasing the button, drag the mouse cursor on the \emph{Network} window where you want to
+place the symbol; then release the left mouse button.
+
+In order to delete a node/edge, select it by clicking
+or grouping them in a larger rectangular selection, and then press the \emph{Delete} key on the keyboard
+or select the \emph{Edit} $\rightarrow$ \emph{Delete Selected Nodes and Edges} menu command.\\
+\emph{Note}: in order to obtain a \emph{rectangular selection}\label{nota:rectangular-selection},
+left click in the \emph{Network} window where the upper-left corner of the rectangle should be and,
+without releasing the left mouse button, drag the mouse cursor to where the lower-right corner of the
+rectangular selection should be; then release the left mouse button. All the entities which were
+\emph{even partially} touched by the rectangle are now selected.
+
+Navigation inside the \emph{Network} window can be performed by clicking and dragging the center mouse button,
+while zooming can be done by either rotating the mouse wheel or clicking and holding the right mouse button
+while moving the mouse in a vertical direction.
+
+Finally, note that the colors used to represent node activity can be changed using the \emph{VizMapper}
+interface provided by Cytoscape, changing the setting for \emph{Node color}, shown in Figure~\ref{fig:change-gradient}.
+To change the node colors, activate the \emph{VizMapper\texttrademark} tab in the \emph{Control Panel}, and
+find the entry named \emph{Node Color} in the \emph{Visual Mapping Browser} box. Click the arrow-shaped
+icon directly to the left of \emph{Node Color}: the current setting for the node colors should appear:
+click the colored bar to open the window shown in Figure~\ref{fig:change-gradient}.
+The \emph{activityRatio} on which the node coloring is based is the ratio between the current activity level
+of a node and its number of activity levels.
+The colored arrows pointing downward on the upper border of the colored rectangle can be dragged along the length of the $[0, 1]$
+interval, thus changing the point at which a particular color appears. New arrows can be added with the \emph{Add} button, while
+clicking an arrow and pressing the \emph{Delete} button will remove one. To change the color of a point in the interval,
+double click the corresponding arrow, and a new window will open, allowing you to choose a new color: clicking \emph{OK} will
+accept the new color. The modifications made in the \emph{Gradient Editor for Node Color} window should be automatically reflected in
+the model: when the gradient is as wanted, simply close the window. If the node colors seem not to have been updated, please move the
+slider under an existing graph in the \emph{Results Panel}.
+
+\begin{figure}[!tpb]
+\begin{minipage}{\textwidth}
+\centering
+  \includegraphics[width=.6\textwidth]{images/editing-gradient2}
+  \caption{Changing the colors used to represent node activity in an ANIMO model.}\label{fig:change-gradient}
+\end{minipage}
+\end{figure}
+
+
+\subsubsection{ANIMO features}
+Nodes and edges (and groups of nodes/edges highlighted via a rectangular selection)
+can be disabled by choosing \emph{[ANIMO] Enable/disable} from
+the right-click menu: they will be represented with less saturated colors and can be re-enabled by performing
+the same action. Moreover, a node can be enabled/disabled directly in its properties window, where it is
+also possible to add/remove the node from the list of series appearing in the graph resulting from a simulation
+of the network by selecting \emph{Plotted} or \emph{Hidden} (see also Figure~\ref{fig:edit-reactant}):
+nodes that will be plotted are circled in blue.
+Every enabled node will be taken into account when computing the evolution of the system,
+but only nodes marked as \emph{Plotted} will appear in a graph.
+
+Each plot in an \emph{ANIMO Results} tab contains by default a legend, which can be used to modify which series are
+displayed and how they are displayed. Clicking with the central mouse button on a series name will hide it from the
+graph, while the same center-click the colored line beside the series name will change the color of that series,
+cycling through a predefined set of available colors. The entire legend can be hidden by clicking with the
+central mouse button anywhere on the graph (not inside the legend), or it can be dragged around by clicking and holding the left
+mouse button, releasing it when the preferred position is reached. Rotating the mouse wheel will allow the thickness of all
+the graph lines, and the size of the text, to grow or decrease: this feature can be useful when the window containing
+the graph is very large.
+
+As the model is non-deterministic, i.e. its
+evolution will not be exactly the same for every single simulation run, it is possible to ask ANIMO to perform
+a number of simulation runs in a batch, plotting the averages of the activity levels over the runs together with a standard
+deviation value, or showing a so-called \emph{overlay plot} where all runs are plotted over each other. The controls
+that allow to ask for multiple simulation runs can be found in the \emph{Control Panel}, inside the \emph{Simulation} box.
+
+Standard deviation may be represented in the graph: it is normally shown as vertical bars, but its aspect can be
+cycled through five possibilities (vertical bars, shading, both bars and shading, bars and symbols, none) by right-clicking the
+corresponding line in the legend. Symbols associated to a representation of standard deviation can be changed by Shift-right-clicking
+(holding down the \emph{Shift} key, right click) on the corresponding line in the legend.
+Standard deviation values can be obtained when asking for multiple simulations in the network
+analysis, but they can also be present in a \emph{.csv} file, e.g. when the file contains averages of experimental data.
+In a \emph{.csv} file, the column containing the standard deviation values for column \emph{A}
+should be named \emph{A\_{}StdDev} for the program to recognize it and properly display the data series
+with the associated error values.
+
+
+
+\subsubsection{Parameter settings}
+The application of some basic strategies when setting the parameters for a network allows
+the less experienced users to considerably shorten the modeling time.
+First of all, it is important to proceed in a \emph{top-to-bottom} order, trying to match
+a component to the corresponding data before inserting the components downstream thereof.
+Second, when choosing the kinetic parameter for a reaction, we advise to first use the qualitative settings (very slow, slow, medium, fast, very fast):
+this allows to define the relative speeds of the reactions as soon as possible,
+leaving the more precise parameter setting procedure as a follow-up step. Finally, as can be seen from
+the parameter settings of Section~\ref{sec:modeling-network-example}, in order to obtain a peak
+behavior it is particularly important that
+a negative feedback is present (as an example, see the reactions involving B and C in Tab.~\ref{tab:setting-edges}),
+and that the inactivating reaction in the loop is faster than the ones activating the target node.
+
+A final note on the \emph{seconds/step} button. This button allows to define the time granularity
+of the simulations, but it is not strictly necessary to choose a very precise value.
+% As the time bounds in the \tas\ model are integers, rounding errors can make the model
+% behave differently from what the parameters define.
+If the current value for \emph{seconds/step}
+is too high (or too low) to allow the network to be properly simulated, ANIMO will automatically choose (respectively)
+the highest (lowest) value that still allows to avoid rounding problems. It will be possible to notice
+such a change in the value of time scale when the number on the \emph{seconds/step} button changes.
+
+
+\subsubsection{Updating ANIMO}
+To check whether a new version of ANIMO has been published, run Cytoscape and ask for an update of all
+plug-ins via the menu command \emph{Plugins} $\rightarrow$ \emph{Update Plugins}. After some seconds
+during which Cytoscape will contact all the providers of the installed plug-ins,
+the system should report the list of updatable plug-ins.\\
+\emph{Note}: a window with the message \emph{Attempting to connect to XYZ\dots} may appear and disappear multiple times:
+it is the normal behavior.
+
+If an updated version of ANIMO is available, it will appear
+under the category \emph{Updatable Plugins} $\rightarrow$
+\emph{Analysis} $\rightarrow$ \emph{ANIMO v1.28}. If no plug-in can be updated, a message stating \emph{No
+updates available for currently installed plug-ins.} will be shown.
+
+
+
+
+
+
+
+
+\clearpage
+\section{Additional notes}
+
+\subsection{Simulating the day-night cycle}\label{suppl:repressilator}
+The model presented in Figure~\ref{subfig:drosophila-model} contains a node
+labelled {\sf Day/Night}. That node abstracts our representation
+of the cyclic alternance of day and night, which causes the variations
+in cryptochrome ({\sf cry}): these oscillations allow the network
+to synchronize to a time zone. Note that the network oscillates
+also when the node {\sf cry} is not included in the model.
+
+The alternance between day and night is represented in our model with a
+repressilator-like~\citep{repressilator} subnetwork, as can be seen in Figure~\ref{fig:repressilator}.
+In the model by~\cite{drosophila-ode-model} a specific function
+was introduced in the equations to approximate the experimental data from~\cite{drosophila-cry-data}.
+
+\begin{figure}[!htb]
+\begin{minipage}{\textwidth}
+  \centering
+  \includegraphics[width=0.35\textwidth]{images/drosophila_model_repressilator}
+\caption{The repressilator-like subnetwork used to represent the alternance
+between day and night that cause the oscillations in {\sf cry} concentrations in the
+network modelled in Section~\ref{sec:animo-drosophila}.}\label{fig:repressilator}
+\end{minipage}
+\end{figure}
+
+
+
+\subsection{Note on the parameters in the TNF$\alpha$-EGF model}\label{suppl:parameters-tnf-egf}
+The parameters in the model in Figure~\ref{fig:large-model-complete}
+have been set by fitting the model to the experimental data for conditions with 100 ng/ml TNF$\alpha$.
+In the model we have set the starting level of TNF$\alpha$ at 100 out of 100 for these conditions.
+This level is a dimensionless quantity that indicates the maximum activity level in the data set.
+We found that setting the initial level of TNF$\alpha$ at level 8 out of 100 gave slightly better results for the
+condition with 5 ng/ml TNF$\alpha$ than level 5 out of 100. We believe that this has to do with the fact that
+100 ng/ml is a highly supra-physiological concentration of TNF$\alpha$, that will rapidly cause activation of all
+receptors present. Fitting the model to this experimental condition may have resulted in slight deviations
+in the parameter values. Nevertheless, the modeling results illustrate that building a model with basic
+kinetic rate laws can give useful predictions over a range of concentrations. Figures~\ref{fig:large-model-graph3} and~\ref{fig:large-model-graph4}
+show the modeling results with TNF set at 8 out of 100.
+
+\clearpage
+\section{How ANIMO uses Timed Automata to model pathway dynamics}\label{suppl-sec:animo-ta}
+
+
+% \subsection{From biochemical reactions to activity-based interactions}
+% ANIMO models are based on the concept of \emph{activity level},
+% which is a discrete representation of the active fraction of a molecular species.
+% We consider a molecule to be \emph{active} when it has undergone a modification
+% that entails a new function: e.g. a phosphorylated kinase is usually considered
+% active. Each node in an ANIMO model represents a molecular species,
+% and its color is determined by the current activity level of the species.
+% Biochemical reactions are represented as
+% abstract interactions similarly to the traditional representation of signaling networks.
+
+
+
+% \subsection{From interactions to Timed Automata}\label{subsec:timed-automata}
+% \def\ta{TA}
+% \def\tas{TA}
+% A Timed Automaton (\ta) consists of states and transitions between these states (Figs.~\ref{subfig:erk}, \ref{subfig:mek}).
+% Each automaton has local clocks associated to it that allow to control residence in its states, and transitions between states.
+% Communication channels enable synchronization of transitions in different automata. The synchronization between two
+% automata on channel $c$ requires one automaton to send a message: $c!$ while the other automaton performs the
+% corresponding action: $c?$ to receive the message. A simplified \tas\ model of the activation of extracellular
+% regulated kinase (ERK) by MAPK ERK kinase (MEK) illustrates these basic properties of \tas\
+% (Fig.~\ref{fig:abstraction-mek-erk}). In this example, MEK activity is not regulated and ERK has only two activity levels,
+% completely inactive or completely active. In the network visualization, each molecular species (e.g. ERK) is depicted as a single node,
+% colored according to its activity (Fig.~\ref{subfig:mek-erk}).
+%
+%
+%
+%
+% \def\mekTA{\includegraphics[scale=.098]{images/abstraction_ta_erk}}
+% \newlength\mekTAheight
+% \setlength\mekTAheight{\heightof{\mekTA}}
+% \begin{figure}[!hb]
+% \begin{minipage}{\textwidth}
+% \begin{center}
+% \subfloat[\label{subfig:mek-erk}]{\begin{minipage}[c][\mekTAheight]{0.13\textwidth}\begin{center}\includegraphics[scale=.098]{images/abstraction_ta_mek-erk3}\end{center}\end{minipage}}
+% \ \
+% \subfloat[\label{subfig:erk}]{\begin{minipage}[c][\mekTAheight]{0.18\textwidth}\begin{center}\mekTA\end{center}\end{minipage}}
+% \ \
+% \subfloat[\label{subfig:mek}]{\begin{minipage}[c][\mekTAheight]{0.14\textwidth}\begin{center}\includegraphics[scale=.098]{images/abstraction_ta_mek}\end{center}\end{minipage}}
+% \end{center}
+% \caption{Abstraction of a biochemical reaction to a \tas\ model.
+% {\bf \protect\subref{subfig:mek-erk}}~Classical depiction of a well-studied intracellular signal transduction reaction: protein
+% MAPK-ERK kinase (MEK) activates downstream protein extracellular-regulated kinase (ERK).
+% {\bf \protect\subref{subfig:erk}}~A \ta\ model of ERK, consisting of two states (circles), {\sf inactive\_ERK} and {\sf active\_ERK},
+% and one transition (arrow) between the states. This transition will take place when it is possible to synchronize with
+% the corresponding action {\sf activate\_ERK!} in the MEK automaton.
+% {\bf \protect\subref{subfig:mek}}~A \ta\ model of active MEK, consisting of one state and one
+% transition. ${\sf t} < 20$ is termed an invariant on the state, allowing residence in this state as long as local
+% clock time {\sf t} is smaller than $20$ units. ${\sf t} > 18$ is termed a guard on the transition, allowing the
+% transition to take place when local clock {\sf t} is greater than $18$ units. Together, the invariant and guard in this
+% example ensure that the transition must take place in the (continuous) time interval $18 < {\sf t} < 20$. When the
+% transition takes place, the action {\sf activate\_Erk!} is performed (thus allowing the ERK automaton to reach the {\sf
+% active\_ERK} state) and the local clock coupled to this automaton is reset, ${\sf t} := 0$.}\label{fig:abstraction-mek-erk}
+% \end{minipage}
+% \end{figure}
+%
+%
+% When building an ANIMO model, the user can choose the number of discrete activity levels for each node, ranging
+% between 2 and 100, depending for example on the quality of experimental data.
+% Coarse-grained models have a low number of activity levels and are less precise,
+% whereas fine-grained models have a higher number of activity levels and behave more like continuous models (see Fig.~\ref{fig:levels}).
+%
+% Variable reaction rates are accounted for by having variable time constraints to transitions, fast
+% reactions being reflected by small time values. These values depend on the current activity level of the involved reactants.
+% Using basic kinetic rate laws, time constraints are pre-computed for all possible activity levels and stored in a pair of tables.
+% When the activity level of one of the input variables to a reaction changes, the tables are used to
+% update the reaction rates for all reactions involving this reactant (see Fig.~\ref{fig:ta-diagram}).
+% A more detailed account on the \tas\ model underlying ANIMO can be found in Suppl. Sect.~\ref{suppl-sec:animo-ta}.
+
+
+
+
+
+
+\subsection{Timed Automata model}
+The Timed Automata (\tas) model underlying an ANIMO network is generated whenever an analysis is requested by the user.
+Starting from the network represented in the Cytoscape-based user interface, ANIMO automatically generates a \tas\ model
+to be used with UPPAAL. The analysis result is then parsed and properly represented to the user, for example
+as a graph of reactant activity levels.
+
+The behavior of all reactions in an ANIMO model is based on the same \ta\ template: Figure~\ref{fig:ta-model-simpler}
+shows UPPAAL's graphical representation of such template. An instance of the reaction template is generated for each
+of the reactions present in the ANIMO model, and is equipped with a local clock {\sf c} to measure the time until
+the next reaction step. Moreover, a global clock is defined for the whole model, to keep track of the current experiment time
+in a simulation. To represent the activity level of the molecular species included in the ANIMO model, each
+reactant R is associated to an integer variable {\sf R}.
+The automaton in Figure~\ref{fig:ta-model-simpler} uses {\sf MEK} to refer to the activity level of MEK, from which the reaction speed depends.
+The initial activity level of each node is chosen by the user when modifying the node
+in the ANIMO model: these settings define the starting state for the \tas\ model.
+Each reactant R is also associated to a channel named {\sf R\_reacting}, which is
+used to communicate between automata when the activity level of a reactant is changed.
+
+
+
+\tikzstyle{decision} = [rectangle, draw, fill=yellow!20, text width=.45\textwidth, text badly centered]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=.45\textwidth, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, thick, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=blue!20, minimum height=2em]
+\def\svgwidth{.8\textwidth}
+\definecolor{lowActivity}{rgb}{0.8,0,0}
+\definecolor{highActivity}{rgb}{0,0.8,0}%{1,0.8,0}
+\newsavebox{\mysquareLow}
+\savebox{\mysquareLow}{%
+  \raisebox{-0.08em}{%
+    \textcolor{black}{%
+      \rule{.7em}{.7em}%
+    }%
+    \hspace{-.65em}%
+    \raisebox{.05em}{%
+      \textcolor{lowActivity}{%
+	\rule{.6em}{.6em}%
+      }%
+    }%
+  }%
+}
+\newsavebox{\mysquareHigh}
+\savebox{\mysquareHigh}{%
+  \raisebox{-0.08em}{%
+    \textcolor{black}{%
+      \rule{.7em}{.7em}%
+    }%
+    \hspace{-.65em}%
+    \raisebox{.05em}{%
+      \textcolor{highActivity}{%
+	\rule{.6em}{.6em}%
+      }%
+    }%
+  }%
+}
+
+\begin{figure}[!ht]
+\begin{minipage}{\textwidth}
+\centering
+
+\begin{tikzpicture}[node distance = 2cm, auto, scale=0.8, every node/.style={scale=0.8}]
+    % Place nodes
+    \node [block] (init) {
+\begingroup
+  \makeatletter
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}
+    \renewcommand\color[2][]{}%
+  }
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty'
+is not loaded}
+    \renewcommand\transparent[1]{}%
+  }
+  \providecommand\rotatebox[2]{#2}
+  \ifx\svgwidth\undefined
+    \setlength{\unitlength}{1974.66679688pt}
+  \else
+    \setlength{\unitlength}{\svgwidth}
+  \fi
+  \global\let\svgwidth\undefined
+  \makeatother
+  \begin{picture}(1,0.37)%26031697)%
+    \put(0,0){\includegraphics[width=\unitlength]{images/mek_activity_time_tables2.pdf}}%
+    \put(0.02042129,0.20182345){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$R_{\mbox{\scriptsize lowerBound}}$}}}%
+    \put(0.02042129,0.07442319){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$R_{\mbox{\scriptsize upperBound}}$}}}%
+    \put(0.45,0.325)%23815501)
+	{\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\mbox{MEK}_{\mbox{\scriptsize
+activity}}$}}}%
+  \end{picture}%
+\endgroup
+};
+    \node [block, above of=init, node distance=2.5cm] (reset) {Reset the internal clock: ${\sf t} \!\!:= \!\!0$};
+    \node [cloud, above of=reset, node distance=1.5cm] (start) {Start};
+\node [block, below of=init, node distance=2.5cm] (choose) {$R$ will occur when
+\raisebox{-0.3ex}{\pgfuseimage{lower-bound}} $\leq\!\!\! {\sf t}\!\!\! \leq$
+\raisebox{-0.3ex}{\pgfuseimage{upper-bound}}
+    };
+    \node [block, below of=choose] (increase) {Increase $\mbox{ERK}_{\mbox{\scriptsize activity}}$
+by $+1$ level};
+    \node [block, below of=increase] (inform) {Inform reactions depending on $\mbox{ERK}_{\mbox{\scriptsize
+activity}}$\\
+    of the change};
+    % Draw edges
+    \path [line] (start) -- (reset);
+    \path [line] (reset) -- (init);
+    \path [line] (init) -- (choose);
+    \path [line] (choose.west) -| +(-0.5, 2) node [pos=0.78, sloped, above, align=left] {$\mbox{MEK}_{\mbox{\scriptsize activity}}$ was changed} |- (init.west);
+    \path [line] (choose) -- (increase);
+    \path [line] (increase) -- (inform);
+    \path [line] (inform.east) -| +(1, 4) |- (reset.east);
+\end{tikzpicture}
+\caption{Schematic overview of the steps taken during a simulation run by a Timed Automaton modeling a reaction $R$ that increases $\mbox{ERK}_{\mbox{\scriptsize activity}}$ and depends only on $\mbox{MEK}_{\mbox{\scriptsize activity}}$.
+In this example, MEK has 10 activity levels. After resetting the internal clock {\sf t}, the automaton sets the time constraints for the reaction.
+$\mbox{MEK}_{\mbox{\scriptsize activity}}$ is used as the index inside the time
+tables $R_{\mbox{\scriptsize lowerBound}}$ and $R_{\mbox{\scriptsize upperBound}}$.
+Once the bounds have been identified, %the internal clock {\sf t} begins counting.
+$R$ can occur when {\sf t} reaches a value
+inside the continuous time interval~$[\,\usebox{\mysquareLow}, \usebox{\mysquareHigh}\,]$. When it occurs, $R$ increases the value of
+$\mbox{ERK}_{\mbox{\scriptsize activity}}$ by $1$. All reactions that depend on
+$\mbox{ERK}_{\mbox{\scriptsize activity}}$ are notified of the change, and the associated time bounds are updated accordingly.
+After resetting the clock {\sf t}, the reaction process can restart.
+If $\mbox{MEK}_{\mbox{\scriptsize activity}}$ was changed by another reaction before the occurrence of $R$, the automaton needs to update the correct
+time bounds based on the new activity level of MEK.}\label{fig:ta-diagram}
+\end{minipage}
+\end{figure}
+
+
+
+The abstract behavior of a reaction in the \tas\ model is described in Figure~\ref{fig:ta-diagram}:
+after choosing the correct time bounds, the automaton waits for the reaction to complete, then updates the values of the output variable
+and is ready to restart.
+If an intervening event has changed the value of a reactant from which the reaction time bounds depend, the
+bounds are updated at run-time. Referring to the \ta\ template in Figure~\ref{fig:ta-model-simpler},
+we will now give a less abstract description of the behavior of the formal model.
+
+
+\begin{figure}[htpb]
+\begin{minipage}{\textwidth}
+  \centering
+  \includegraphics[width=.65\textwidth]{images/Reaction_MEK_ERK2}%ta_model_simpler}
+  \caption{Timed Automaton representing a reaction where the activity level of ERK is changed with a speed depending on
+the activity level of MEK. The template shown here has been simplified only to improve readability, while keeping the
+same behavior as the one actually generated by ANIMO.}\label{fig:ta-model-simpler}
+\end{minipage}
+\end{figure}
+
+We will call \emph{input variables} the variables representing the activity levels the reactants from which the automaton instance
+depends, while the \emph{output variable} is the variable updated at each occurrence of the reaction. In the
+example of Figure~\ref{fig:ta-model-simpler}, {\sf MEK} is the only input variable, and {\sf ERK} is the output variable.
+
+The initial location, from which the evolution of the automaton begins, is marked with an additional circle and labeled
+{\sf start}. Here the decision on whether the reaction can actually occur is made: if
+the current values for the input variables determine a reaction rate of $0$,
+the time needed for the reaction to complete is marked as {\sf INFINITE}, thus preventing the reaction to occur. If the
+reaction cannot occur, the automaton switches to the location labeled {\sf not\_reacting}, otherwise it switches
+to the location labeled {\sf reacting}. The {\sf C} present in a location (see locations {\sf start} and
+{\sf resetting}) marks that location as \emph{committed}: when there are any automata in a committed location, the
+evolution of the whole system is stalled (i.e., time is not allowed to pass) until all committed locations have been
+abandoned. This ensures that no reaction occurs before all applicability conditions have been checked for all reactions in
+the system, performing the necessary configuration adjustments.
+
+When in the {\sf not\_reacting} location, the automaton is waiting for one of its input variables
+to change, possibly changing the time settings for the current reaction.
+As any change to reactant R is communicated through the
+channel {\sf R\_reacting}, the automaton waits for changes in input variables by
+waiting for a communication on their corresponding channels. Whenever such a communication is received,
+the automaton switches to the {\sf resetting} location.
+
+If the automaton is in the {\sf reacting} location, it may update its output variable when the internal reaction clock {\sf c}
+is inside the allowed interval $[{\sf timeL}, {\sf timeU}]$: this means that the reaction can occur
+\emph{at any moment} inside the interval.
+The condition that allows the reaction to occur is described in the model by the
+invariant for the {\sf reacting} location, which requires that {\sf c} must never exceed the upper bound {\sf timeU}, and by the guard
+for updating the output variable, where {\sf c} is required to be greater than or equal to the lower
+bound {\sf timeL}. If the reaction occurs, the output reactant is updated, signaling that the update has been performed via the
+respective channel, and the automaton moves to the {\sf resetting} location. The same location is also reached if another
+reaction happens that modifies the value of any input variable, because the conditions for the applicability
+of the reaction at hand need to be verified again.
+
+When in the {\sf resetting} location, the \ta\ performs a number of checks to identify the current situation, which
+can be one of three possible states:
+\begin{enumerate}
+  \item\label{enum:cond1} the reaction can still occur
+    and the clock is inside the allowed bounds (in Figure~\ref{fig:ta-model-simpler},
+    this condition corresponds to guard {\sf timeL[MEK] != INFINITE \&\& (timeU[MEK] == INFINITE \textbar\textbar\ (timeU[MEK] != INFINITE \&\& c $<$= timeU[MEK]))}),
+  \item\label{enum:cond2} the reaction can occur, but the changed conditions require an update to the clock in order to
+    respect the invariant of location {\sf reacting} (guard {\sf timeL[MEK] != INFINITE \&\& timeU[MEK] != INFINITE \&\& c $>$ timeU[MEK]}),
+  \item\label{enum:cond3} the reaction cannot occur (guard {\sf timeL[MEK] == INFINITE}).
+\end{enumerate}
+In case~\ref{enum:cond1}, the automaton returns to location {\sf reacting} without performing any change.
+If the clock is larger than the upper time bound (case~\ref{enum:cond2}), it is updated accordingly before
+moving to {\sf reacting}. Finally, if the conditions of applicability of the reaction do not hold anymore (case~\ref{enum:cond3}),
+the automaton moves to location {\sf not\_reacting}, where it waits for a change in the current conditions.
+
+
+
+
+
+\subsection{Simplified kinetic rate laws}\label{subsec:kinetic-scenarios}
+Each reaction in our model is based on its two tables {\sf timeL} and {\sf timeU}. These represent
+respectively the lower and upper bound for the time taken by the reaction to change its output variable by 1.
+The time tables are indexed by the current value of the input variables for that reaction, and are pre-computed
+based on all possible values of those inputs. Thus, if a reaction has two input variables with
+5 and 13 possible activity levels respectively, the two time tables {\sf timeL} and
+{\sf timeU} will contain $5 \times 13 = 65$ elements each.
+
+In order to compute the reaction times,
+ANIMO provides three different simplified kinetic rate laws that rely on a single parameter to facilitate model construction.
+Since many reactions in signal transduction are enzyme-substrate reactions,
+we abbreviate concentrations of upstream proteins with $E$, and of downstream proteins with $S$.
+The three simplified kinetic scenarios are defined as follows.
+
+\begin{enumerate}
+  \item {\bf Scenario 1:} $r = k \times [E]$\\ Reaction rate $r$ depends only on the activity level of the upstream reactant (i.e., the one from which
+the interaction arrow starts). Thus, if the upstream reactant $E$ is completely inactive, the reaction rate is zero.
+Increasing the activity level of $E$ will make the reaction rate increase, thus decreasing the reaction time.
+In this scenario $E$ is the only input variable of the reaction, so the time tables {\sf timeL} and {\sf timeU} are unidimensional.\\
+This is the simplest scenario: in the case of a constantly active upstream reactant, the downstream reactant will be activated
+with constant rate.
+  \item {\bf Scenario 2:} $r = k \times [E] \times [S]$\\ $r$ depends on the activity level of two reactants, where $E$ represents the
+upstream reactant and $S$ is linked to the downstream reactant (the one where the interaction arrow arrives).
+If the reaction activates the downstream reactant, $S$ represents the concentration of inactive downstream reactant, thus the reaction rate increases with decreasing activity of $S$.
+If the reaction inhibits the downstream reactant, $S$ represents the active fraction of the downstream reactant and the reaction rate increases with increasing activity level of $S$.
+The dependence from the upstream component $E$ is the same as for Scenario 1.\\
+This scenario can be used to describe activations or inhibitions that flatten off near complete activity or inactivity of $S$, respectively. % (Fig.~\ref{fig:small-model-third-graph}).
+  \item {\bf Scenario 3:} $r = k \times [E_1] \times [E_2]$\\ $r$ depends on two user-chosen reactants, and influences the activity of
+the reactant downstream of the reaction. The dependence from the active or inactive
+fraction of $E_1$ and $E_2$ is set by the user. This scenario can be seen as the kinetic equivalent of the logical \emph{AND-gate}:
+when either $E_1$ or $E_2$ is completely inactive, the reaction rate is zero.\\
+As an example of application of Scenario 3, see the relation between {\sf c-Jun}, {\sf c-Fos} and {\sf AP-1} in the model of Figure~\ref{fig:large-model-complete}:
+both {\sf c-Jun} and {\sf c-Fos} need to be active in order to activate {\sf AP-1}. This information is inserted in the kinetics associated to the edge
+{\sf c-Jun} $\rightarrow$ {\sf AP-1}, setting $E_1 = ${\sf c-Jun} and $E_2 = ${\sf c-Fos}. The edge {\sf c-Fos} $\rightarrow$ {\sf AP-1} has a kinetic
+constant $k = 0$ and is used as a reminder that also {\sf c-Fos} takes part to the reaction.
+\end{enumerate}
+
+
+\subsection{Translation of kinetic rate laws to time constants}\label{subsec:kinetics}
+
+The time (in seconds) needed for a particular reaction step to complete is
+computed by the formula
+$$
+t = \frac{1}{r} \times \mbox{\sf granularityScale} \times \mbox{\sf timeScale}.
+$$
+If $r = 0$, then the time is defined to be infinite (cf. the {\sf INFINITE} in Figure~\ref{fig:ta-model-simpler}),
+meaning that the reaction cannot take place.
+The scale factor {\sf granularityScale} is used to ensure that the values used to compute the
+reaction rate $r$ are independent from the granularity (number of activity levels)
+of each reactant.
+Factor {\sf timeScale} (measured in $\frac{\mbox{\scriptsize TA time units}}{s}$)
+is applied in order to translate seconds into \tas\ time units.
+Hence, the time constants present in the time tables are given in $\frac{\mbox{\scriptsize TA time
+units}}{\mbox{\scriptsize activity level}}$. Intuitively, each entry in the time tables can be thought of as
+the answer to the question ``How many \tas\ time units are needed to increase/decrease the output variable
+of this reaction with the current value of the input variables?''.
+
+Finally,
+we generalize time constants to time intervals, introducing a $5\%$ variability:
+the exact duration $t$ of a reaction computed via the kinetic formula becomes the interval $[0.95\times t, 1.05\times t]$.
+The two extremes of the interval are saved each in its own table, thus obtaining a lower bound and an upper bound table,
+both indexed by the current activity levels of the input variables of the reaction at hand.
+The two time bounds correspond to the ones identified by the constants $18$ and $20$ in Figure~\ref{subfig:mek}.
+The tables where those bounds are stored are called $R_{\mbox{\scriptsize lowerBound}}$ and $R_{\mbox{\scriptsize upperBound}}$
+in Figure~\ref{fig:ta-diagram} and {\sf timeL}, {\sf timeU} in Figure~\ref{fig:ta-model-simpler}.
+
+
+
+\subsection{Different choices for the number of levels of a node}
+Figure~\ref{fig:levels} shows the differences between different choices for the
+number of levels of a node. This allows to adapt a model to the quality of experimental data.
+
+\begin{figure}[htpb]
+\begin{minipage}{\textwidth}
+\centering
+\subfloat[\label{suppl:fig1-1level}]{\includegraphics[width=.45\textwidth]{images/JNK1_1level2}} \qquad
+\subfloat[\label{suppl:fig1-10levels}]{\includegraphics[width=.45\textwidth]{images/JNK1_10levels2}} \\
+\subfloat[\label{suppl:fig1-50levels}]{\includegraphics[width=.45\textwidth]{images/JNK1_50levels2}} \qquad
+\subfloat[\label{suppl:fig1-100levels}]{\includegraphics[width=.45\textwidth]{images/JNK1_100levels2}}
+\caption{Comparing different reactant granularity settings. {\bfseries (\protect\subref*{suppl:fig1-1level})} 2 levels, {\bfseries (\protect\subref*{suppl:fig1-10levels})} 10 levels,  {\bfseries (\protect\subref*{suppl:fig1-50levels})} 50 levels, {\bfseries (\protect\subref*{suppl:fig1-100levels})} 100 levels. The {\sf JNK1} series is computed from the model presented in Figure~\ref{fig:large-model-complete}, considering 100 ng/ml TNF$\alpha$ as treatment condition over a period of 60 minutes.}\label{fig:levels}
+\end{minipage}
+\end{figure}
+
+
+
+\section{Comparison between ANIMO and other modeling tools}\label{suppl:comparison-table}
+Different formalisms are in use in the field of computational
+modeling of biological systems, each with their specific characteristics.
+Many of these formalisms have been implemented into
+software tools to support modelling efforts. In order to compare
+ANIMO with existing tools, we have selected a number of mathematical formalisms,
+each connected to a supporting tool. With an emphasis on the modeling
+process rather than the final model, we compared these tools on
+the basis of the following parameters:
+
+\begin{enumerate}
+  \item {\bf Hidden formalism:} a knowledge of the underlying formalism is not required in order to use the tool
+  \item {\bf Visual modeling:} the tool allows the user to model using a visual interface, and is not exclusively
+      founded on formula-, text- or table-based input forms
+  \item {\bf Qualitative parameters:} parameters for reactions can be input as approximated estimations, and not exclusively as numbers
+  \item {\bf Tight coupling with topology:} models are tightly and clearly coupled to the networks they represent, showing the visual
+      representation of the model in a shape similar or comparable to the representation currently used by biologists
+      for signaling pathways
+  \item {\bf User-chosen granularity:} if discretization is applied during the modeling process, the user can change the granularity
+      with which such discretization is made, possibly for each component of the model separately
+\end{enumerate}
+Table~\ref{tab:tool-comparison} shows the comparison between ANIMO and the selected tools.
+
+\newcolumntype{x}[1]{%
+>{\centering\hspace{0pt}}p{#1}}%
+\savenotes
+\begin{table}[!hbt]
+\begin{minipage}{\textwidth}
+\processtable{Comparison between ANIMO and some existing approaches to modeling biological systems.
+A ``Yes'' under a column indicates that the modeling tool (mostly) fulfills the parameter, ``No'' indicates very limited or no fulfillment.
+\label{tab:tool-comparison}}
+{\begin{tabular}{p{4cm}p{1.8cm}p{1.8cm}p{1.5cm}p{1.8cm}p{1.8cm}p{2cm}}
+\toprule
+{\bfseries Tool} & {\bfseries Formalism} & {\bfseries Hidden formalism} & {\bfseries Visual modeling} & {\bfseries Qualitative parameters} & {\bfseries Tight coupling with topology} & {\bfseries User-chosen granularity}  \\[5mm]
+\midrule
+\noalign{\vskip 2mm} ANIMO~\citep{animo-bibe} & Timed \ \ \ Automata & Yes & Yes & Yes & Yes & Yes
+      \\[5mm]
+\noalign{\vskip 2mm} Bio-PEPA Workbench~\citep{biopepa-interface} & Bio-PEPA & No & No & No & No & Yes
+      \\[5mm]
+\noalign{\vskip 2mm} Cell Illustrator~\citep{cell-illustrator} & Petri Nets & Yes & Yes & No & Yes & No
+     \\[5mm]
+\noalign{\vskip 2mm} COPASI~\citep{copasi} & ODE, stochastic models & No & No & No & No & No
+      \\[5mm]
+\noalign{\vskip 2mm} COSBI LAB~$^1$
+ & BlenX & Yes & Yes & No & Yes & No
+      \\[5mm]
+\noalign{\vskip 2mm} GINsim~\citep{ginsim} & Boolean Networks & No & Yes & Yes & Yes & Yes~$^2$
+      \\[5mm]
+\noalign{\vskip 2mm} GNA~\citep{gna}    & ODE & No & Yes & Yes & Yes & No~$^3$
+      \\
+\noalign{\vskip 2mm} Rhapsody~$^4$
+ & Statecharts & No & Yes & Yes & No~$^5$ & No
+      \\[5mm]
+\botrule
+\end{tabular}}{$^1$ {COSBILab} web page \url{http://www.cosbi.eu/index.php/research/cosbi-lab}\\
+$^2$ The user can choose the number of levels for each reactant, allowing to define
+multi-level models based on Boolean reaction dynamics.\\
+$^3$ When discretizing an ODE model, the granularity depends on the mathematical
+features of the model, and not directly on the user's choice.\\
+$^4$ {IBM Rational Rhapsody} web page \url{http://www-01.ibm.com/software/rational/products/rhapsody/designer}\\
+$^5$ Statecharts represent more closely the so-called
+\emph{transition system} of the model as opposed to the components and interactions occurring among them.}
+\end{minipage}
+\end{table}
+
+
+
+% \addcontentsline{toc}{section}{References}
+% \begin{thebibliography}{}
+% ...
+% \end{thebibliography}
+
+
+
+
+\clearpage
+
+\section{Supplementary figures}\label{sec:supplementary-figures}
+
+
+\begin{figure}[htpb]
+\begin{minipage}{\textwidth}
+\centering
+  \includegraphics[width=.7\textwidth]{images/large_network_tnfa2}
+\caption{The model for the TNF$\alpha$ pathway in isolation. Node colors represent the activity level of the
+corresponding modeled reactants at time $t = 10$ minutes after a stimulation of 100 ng/ml TNF$\alpha$.}\label{fig:large-model-tnf}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!tpb]
+\begin{minipage}{\textwidth}
+\centering
+  \includegraphics[width=.7\textwidth]{images/large_network_egf3}
+\caption{The model for the EGF pathway in isolation. Node colors represent the
+activity level of the corresponding modeled reactants at time $t = 5$ minutes after
+a stimulation of 100 ng/ml EGF.}\label{fig:large-model-egf}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}[!tpb]
+\begin{minipage}{\textwidth}
+\centering
+  \includegraphics[width=\textwidth]{images/large_network_tnf_egf_merged_no_hyp_bis2}
+\caption{The model for the merged TNF$\alpha$ and EGF pathways before
+adding the hypotheses in Figure~\ref{fig:large-model-hypotheses}. Node colors represent the
+activity level of the corresponding modeled reactants at time $t = 15$ minutes after
+a stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.}\label{fig:large-model-tnf-egf-merged}
+\end{minipage}
+\end{figure}
+
+
+\renewcommand*\thesubfigure{}
+\begin{figure}[!tpb]
+\begin{minipage}{\textwidth}
+\begin{tabularx}{\textwidth}{XXX}
+\subfloat[MK2 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/MK2}} &
+\subfloat[JNK1 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/JNK1}} &
+\subfloat[IKK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IKK_120}} \\
+\subfloat[IKK]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IKK_1440}} &
+\subfloat[caspase-8]{\includegraphics[width=0.29\textwidth]{images/TNFa100/casp8}} &
+\subfloat[caspase-3]{\includegraphics[width=0.29\textwidth]{images/TNFa100/casp3}} \\
+\subfloat[MEK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/MEK}} &
+\subfloat[ERK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/ERK}} &
+\subfloat[Akt]{\includegraphics[width=0.29\textwidth]{images/TNFa100/Akt}} \\
+\subfloat[IRS-1(S) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IRS1s_120}} &
+\subfloat[IRS-1(Y) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IRS1y_120}} &
+\subfloat[FKHR (12 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/FKHR_720}}
+\end{tabularx}
+\caption{Comparison between the ANIMO model in Figure~\ref{fig:large-model-complete} and experimental data. Treatment condition: 100 ng/ml TNF$\alpha$.
+If not specified, the time span is 24 hours.}\label{fig:differences1}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}[!tpb]
+\begin{minipage}{\textwidth}
+\begin{tabularx}{\textwidth}{XXX}
+\subfloat[MK2 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/MK2}} &
+\subfloat[JNK1 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/JNK1}} &
+\subfloat[IKK]{\includegraphics[width=0.29\textwidth]{images/EGF100/IKK}} \\
+\subfloat[caspase-8]{\includegraphics[width=0.29\textwidth]{images/EGF100/casp8}} &
+\subfloat[caspase-3]{\includegraphics[width=0.29\textwidth]{images/EGF100/casp3}} &
+\subfloat[MEK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/MEK}} \\
+\subfloat[ERK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/ERK}} &
+\subfloat[Akt (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/Akt_120}} &
+\subfloat[Akt]{\includegraphics[width=0.29\textwidth]{images/EGF100/Akt_1440}} \\
+\subfloat[IRS-1(S) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/IRS1s_120}} &
+\subfloat[IRS-1(Y) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/IRS1y_120}} &
+\subfloat[IRS-1(Y) (12 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/IRS1y_720}} \\
+\subfloat[FKHR (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/FKHR_120}} &
+\subfloat[FKHR (12 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/FKHR_720}}
+\end{tabularx}
+\caption{Comparison between the ANIMO model in Figure~\ref{fig:large-model-complete} and experimental data. Treatment condition: 100 ng/ml EGF.
+If not specified, the time span is 24 hours.}\label{fig:differences2}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}[!tpb]
+\begin{minipage}{\textwidth}
+\begin{tabularx}{\textwidth}{XXX}
+\subfloat[MK2 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/MK2}} &
+\subfloat[JNK1 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/JNK1}} &
+\subfloat[IKK]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/IKK}} \\
+\subfloat[caspase-8]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/casp8}} &
+\subfloat[caspase-3]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/casp3}} &
+\subfloat[MEK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/MEK}} \\
+\subfloat[ERK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/ERK}} &
+\subfloat[Akt (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/Akt}} &
+\subfloat[IRS-1(S) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/IRS1s_120}} \\
+\subfloat[IRS-1(S) (12 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/IRS1s_720}} &
+\subfloat[IRS-1(Y) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/IRS1y}} &
+\subfloat[FKHR (4 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/FKHR_240}}
+\end{tabularx}
+\caption{Comparison between the ANIMO model in Figure~\ref{fig:large-model-complete} and experimental data. Treatment condition: 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
+If not specified, the time span is 24 hours.}\label{fig:differences3}
+\end{minipage}
+\end{figure}

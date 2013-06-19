@@ -1,0 +1,159 @@
+\documentclass{bioinfo}
+\copyrightyear{}
+\pubyear{}
+%\usepackage{scicite}
+%\usepackage[blocks]{authblk}
+%\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[font=scriptsize,labelfont={bf}]{caption}
+\usepackage[justification=raggedright,nearskip=10pt,farskip=0pt]{subfig}%[FIGTOPCAP, raggedright, hang, nooneline]{subfigure}
+%\usepackage{subfig}
+\usepackage{calc}
+\usepackage{url}
+\usepackage{array}
+\usepackage{rotating}
+\usepackage{tabularx}
+%\usepackage{wasysym}
+\usepackage{multirow}
+%\usepackage[title]{appendix}
+%\usepackage[authoryear]{natbib}
+%\usepackage{cite}
+%\usepackage{named}
+%\usepackage{setspace}
+\usepackage{layouts}
+%\usepackage{titlesec}
+%\usepackage[multiple]{footmisc}
+%\usepackage{enumitem}
+\usepackage{titletoc}
+\usepackage{setspace}
+
+\hbadness=9999999 %avoid complaining for underfull h/vbox
+\vbadness=9999999
+
+% \setlength{\columnwidth}{86mm}
+ \captionsetup[subfloat]{position=top, justification=raggedright, singlelinecheck=false, labelformat=simple, font={scriptsize,sf,bf}}
+ \renewcommand*\thesubfigure{\Alph{subfigure}}
+ \setlength{\belowcaptionskip}{0mm}
+ %\setlength{\abovecaptionskip}{0mm}
+%\addtolength{\abovecaptionskip}{-3mm}
+
+%\subfiguretopcaptrue
+
+\pdfminorversion=5
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\usepackage{footnote}
+
+\pgfdeclareimage[height=3ex]{win-logo}{images/win_logo}
+\pgfdeclareimage[height=3ex]{mac-logo}{images/mac_logo}
+\pgfdeclareimage[height=3ex]{linux-logo}{images/linux_logo}
+\pgfdeclareimage[height=3ex]{ubuntu-logo}{images/ubuntu_logo}
+\pgfdeclareimage[height=2ex]{mac-command}{images/mac_command}
+\pgfdeclareimage[height=2ex]{lower-bound}{images/lowerbound}
+\pgfdeclareimage[height=2ex]{upper-bound}{images/upperbound_green}
+
+\newcommand{\winsymbol}{\raisebox{-0.8ex}{\pgfuseimage{win-logo}}}
+\newcommand{\macsymbol}{\raisebox{-0.5ex}{\pgfuseimage{mac-logo}}}
+\newcommand{\linuxsymbol}{\raisebox{-0.8ex}{\pgfuseimage{linux-logo}}}
+\newcommand{\ubuntusymbol}{\raisebox{-0.9ex}{\pgfuseimage{ubuntu-logo}}}
+\newcommand{\winmaclinux}[3]{\begin{itemize}
+    \item[\winsymbol] #1
+    \item[\macsymbol] #2
+    \item[\linuxsymbol] #3
+\end{itemize}}
+\newcommand{\macpc}[2]{\begin{itemize}
+    \item[\macsymbol] #1
+    \item[\winsymbol\ \  \linuxsymbol] #2
+\end{itemize}}
+
+\newcommand{\maccmd}{\raisebox{-0.35ex}{\pgfuseimage{mac-command}}}
+
+\setlength{\abovecaptionskip}{1.3mm}
+%\setlength{\belowcaptionskip}{1mm}
+
+\def\ta{Timed Automaton}
+\def\tas{Timed Automata}
+
+
+\makeindex
+
+\begin{document}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\firstpage{1}
+
+
+\title[Bringing biological networks to life with ANIMO]{Bringing biological networks to life with ANIMO}
+
+\author[Schivo, Scholma \textit{et~al}]{Stefano Schivo\,$^{1,*}$, Jetse Scholma\,$^{2,*}$, Brend Wanders\,$^3$, Ricardo A. Urquidi Camacho\,$^2$, Paul E. van der Vet\,$^3$, Marcel Karperien\,$^2$, Rom Langerak\,$^1$, Jaco van de Pol\,$^{1,\ddag}$ and Janine N. Post\,$^{2,\ddag}$}
+
+\address{$^{1}$Formal Methods and Tools, Faculty of EEMCS, University of Twente, 7522NH Enschede, The~Netherlands;
+$^{2}$Developmental BioEngineering, MIRA Institute for Biomedical Technology and Technical Medicine, University of Twente, 7522NH Enschede, The~Netherlands;
+$^{3}$Human Media Interaction, Faculty of EEMCS, University of Twente, 7522NH Enschede, The~Netherlands}
+
+
+\history{}%Received on XXXXX; revised on XXXXX; accepted on XXXXX}
+
+\editor{}%Associate Editor: XXXXXXX}
+
+\maketitle
+
+
+\begin{abstract}
+\input{abstract.tex}
+\end{abstract}
+
+\let\oldthefootnote\thefootnote
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnotetext[1]{These authors contributed equally to this work.}
+\footnotetext[3]{To whom correspondence should be addressed.}
+\let\thefootnote\oldthefootnote
+
+
+\section{Introduction}\label{sec:introduction}
+\input{introduction.tex}
+
+
+\begin{methods}
+\section{Methods}
+\input{methods.tex}
+\end{methods}
+
+
+
+
+\section{Results}\label{sec:results}
+\input{results.tex}
+
+
+
+
+\section{Discussion}
+\input{discussion.tex}
+
+\subsection*{Acknowledgements}
+\paragraph*{Funding\textcolon} we acknowledge support from Netherlands Organization for Scientific Research (NWO) CASIMIR to J.S.
+\paragraph*{Conflict of interest\textcolon} none declared.
+
+
+
+\bibliographystyle{apalike}
+{\scriptsize
+\bibliography{Paper}
+}
+% \begin{thebibliography}{}
+% ...
+% \end{thebibliography}
+
+
+
+
+% \end{document}
+
+\input{additional-materials.tex}
+
+\end{document}
