@@ -570,13 +570,19 @@ repressilator-like~\citep{repressilator} subnetwork, as can be seen in Figure~\r
 In the model by~\cite{drosophila-ode-model} a specific function
 was introduced in the equations to approximate the experimental data from~\cite{drosophila-cry-data}.
 
+\def\reprGraph{\includegraphics[scale=0.15]{images/drosophila_model_repressilator}}
+\newlength\reprGraphHeight
+\setlength\reprGraphHeight{\heightof{\reprGraph}}
 \begin{figure}[!htb]
 \begin{minipage}{\textwidth}
   \centering
-  \includegraphics[width=0.35\textwidth]{images/drosophila_model_repressilator}
-\caption{The repressilator-like subnetwork used to represent the alternance
-between day and night that cause the oscillations in {\sf cry} concentrations in the
-network modelled in Section~\ref{sec:animo-drosophila}.}\label{fig:repressilator}
+  \subfloat[\label{subfig:repressilator-model}]{\begin{minipage}[c][\reprGraphHeight]{0.35\textwidth}\begin{center}\reprGraph\end{center}\end{minipage}}\qquad
+  \subfloat[\label{subfig:repressilator-graph}]{\begin{minipage}[c][\reprGraphHeight]{0.6\textwidth}\begin{center}\includegraphics[width=\textwidth]{images/CRY_oscillations}\end{center}\end{minipage}}
+\caption{{\bf \protect\subref{subfig:repressilator-model}} The repressilator-like subnetwork used to represent the alternance
+between day and night that cause the oscillations in {\sf CRY} concentrations in the
+network modelled in Section~\ref{sec:animo-drosophila}.
+{\bf \protect\subref{subfig:repressilator-graph}} A graph plotting the oscillations in {\sf CRY} during
+a period of three days.}\label{fig:repressilator}
 \end{minipage}
 \end{figure}
 
@@ -1077,18 +1083,18 @@ a stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.}\label{fig:large-model-t
 \subfloat[MK2 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/MK2}} &
 \subfloat[JNK1 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/JNK1}} &
 \subfloat[IKK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IKK_120}} \\
-\subfloat[IKK]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IKK_1440}} &
-\subfloat[caspase-8]{\includegraphics[width=0.29\textwidth]{images/TNFa100/casp8}} &
-\subfloat[caspase-3]{\includegraphics[width=0.29\textwidth]{images/TNFa100/casp3}} \\
+\subfloat[IKK (24 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IKK_1440}} &
+\subfloat[caspase-8 (24 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/casp8}} &
+\subfloat[caspase-3 (24 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/casp3}} \\
 \subfloat[MEK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/MEK}} &
 \subfloat[ERK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/ERK}} &
-\subfloat[Akt]{\includegraphics[width=0.29\textwidth]{images/TNFa100/Akt}} \\
+\subfloat[Akt (24 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/Akt}} \\
 \subfloat[IRS-1(S) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IRS1s_120}} &
 \subfloat[IRS-1(Y) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/IRS1y_120}} &
 \subfloat[FKHR (12 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100/FKHR_720}}
 \end{tabularx}
 \caption{Comparison between the ANIMO model in Figure~\ref{fig:large-model-complete} and experimental data. Treatment condition: 100 ng/ml TNF$\alpha$.
-If not specified, the time span is 24 hours.}\label{fig:differences1}
+In order to ease the comparison for earlier responses, the time span for those cases is less than 24 hours.}\label{fig:differences1}
 \end{minipage}
 \end{figure}
 
@@ -1098,13 +1104,13 @@ If not specified, the time span is 24 hours.}\label{fig:differences1}
 \begin{tabularx}{\textwidth}{XXX}
 \subfloat[MK2 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/MK2}} &
 \subfloat[JNK1 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/JNK1}} &
-\subfloat[IKK]{\includegraphics[width=0.29\textwidth]{images/EGF100/IKK}} \\
-\subfloat[caspase-8]{\includegraphics[width=0.29\textwidth]{images/EGF100/casp8}} &
-\subfloat[caspase-3]{\includegraphics[width=0.29\textwidth]{images/EGF100/casp3}} &
+\subfloat[IKK (24 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/IKK}} \\
+\subfloat[caspase-8 (24 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/casp8}} &
+\subfloat[caspase-3 (24 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/casp3}} &
 \subfloat[MEK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/MEK}} \\
 \subfloat[ERK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/ERK}} &
 \subfloat[Akt (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/Akt_120}} &
-\subfloat[Akt]{\includegraphics[width=0.29\textwidth]{images/EGF100/Akt_1440}} \\
+\subfloat[Akt (24 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/Akt_1440}} \\
 \subfloat[IRS-1(S) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/IRS1s_120}} &
 \subfloat[IRS-1(Y) (2 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/IRS1y_120}} &
 \subfloat[IRS-1(Y) (12 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/IRS1y_720}} \\
@@ -1112,7 +1118,7 @@ If not specified, the time span is 24 hours.}\label{fig:differences1}
 \subfloat[FKHR (12 hours)]{\includegraphics[width=0.29\textwidth]{images/EGF100/FKHR_720}}
 \end{tabularx}
 \caption{Comparison between the ANIMO model in Figure~\ref{fig:large-model-complete} and experimental data. Treatment condition: 100 ng/ml EGF.
-If not specified, the time span is 24 hours.}\label{fig:differences2}
+In order to ease the comparison for earlier responses, the time span for those cases is less than 24 hours.}\label{fig:differences2}
 \end{minipage}
 \end{figure}
 
@@ -1122,9 +1128,9 @@ If not specified, the time span is 24 hours.}\label{fig:differences2}
 \begin{tabularx}{\textwidth}{XXX}
 \subfloat[MK2 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/MK2}} &
 \subfloat[JNK1 (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/JNK1}} &
-\subfloat[IKK]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/IKK}} \\
-\subfloat[caspase-8]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/casp8}} &
-\subfloat[caspase-3]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/casp3}} &
+\subfloat[IKK (24 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/IKK}} \\
+\subfloat[caspase-8 (24 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/casp8}} &
+\subfloat[caspase-3 (24 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/casp3}} &
 \subfloat[MEK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/MEK}} \\
 \subfloat[ERK (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/ERK}} &
 \subfloat[Akt (2 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/Akt}} &
@@ -1134,6 +1140,6 @@ If not specified, the time span is 24 hours.}\label{fig:differences2}
 \subfloat[FKHR (4 hours)]{\includegraphics[width=0.29\textwidth]{images/TNFa100_EGF100/FKHR_240}}
 \end{tabularx}
 \caption{Comparison between the ANIMO model in Figure~\ref{fig:large-model-complete} and experimental data. Treatment condition: 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
-If not specified, the time span is 24 hours.}\label{fig:differences3}
+In order to ease the comparison for earlier responses, the time span for those cases is less than 24 hours.}\label{fig:differences3}
 \end{minipage}
 \end{figure}

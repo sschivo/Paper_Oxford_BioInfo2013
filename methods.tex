@@ -79,14 +79,12 @@ Our model is based on the abstraction presented in Sect.~\ref{subsec:abstraction
 and uses the clock mechanism of \tas\ to represent interaction rates:
 a faster interaction will take less time than a slower interaction to perform one activation/inhibition step.
 
-% Figure~\ref{fig:abstraction-mek-erk} contains a first example of \tas\ which we use to explain
-% the basic features of the formalism on which our models are founded.
 Figure~\ref{fig:abstraction-mek-erk} contains a simplified \tas\ model of the activation of extracellular
 regulated kinase (ERK) by MAPK ERK kinase (MEK) that illustrates the basic properties of \tas.
 
 
 
-\def\mekTA{\includegraphics[scale=.098]{images/abstraction_ta_erk2}}
+\def\mekTA{\includegraphics[scale=.098]{images/abstraction_ta_erk3}}
 \newlength\mekTAheight
 \setlength\mekTAheight{\heightof{\mekTA}}
 \begin{figure}[!hb]
@@ -101,21 +99,22 @@ regulated kinase (ERK) by MAPK ERK kinase (MEK) that illustrates the basic prope
 \caption{Parallel between an abstract activation interaction and its \tas\ model.
 {\bf \protect\subref{subfig:mek-erk}}~Classical depiction of a well-studied intracellular signal transduction interaction: protein
 MAPK-ERK kinase (MEK, active) activates downstream protein extracellular-regulated kinase (ERK, initially inactive).
-In this example, MEK activity is not regulated and ERK has only two activity levels,
-completely inactive or completely active.
+In this example, MEK activity is not regulated and ERK has three activity levels,
+completely inactive, halfway active and completely active.
 {\bf \protect\subref{subfig:mek}}~A \ta\ model of active MEK, consisting of one location (circle) and one
 transition (arrow). ${\sf t} < 20$ is termed an invariant on the location, allowing residence in this location as long as local
 clock time {\sf t} is smaller than $20$ units. ${\sf t} > 18$ is termed a guard on the transition, allowing the
 transition to take place when local clock {\sf t} is greater than $18$ units. Together, the invariant and guard in this
 example ensure that the transition must take place within the (continuous) time interval $18 < {\sf t} < 20$. When the
 transition takes place, the action {\sf activate\_Erk!} is performed (thus allowing the ERK automaton to reach the {\sf
-active\_ERK} location) and the local clock coupled to this automaton is reset, ${\sf t} := 0$.
-{\bf \protect\subref{subfig:erk}}~A \ta\ model of ERK, consisting of two locations, {\sf inactive\_ERK}
-(the starting location) and {\sf active\_ERK},
-and one transition between the locations. This transition will take place when it is possible to synchronize with
+50\%\_active\_ERK} location) and the local clock coupled to this automaton is reset, ${\sf t} := 0$.
+This allows the reaction to occur another time, fully activating ERK.
+{\bf \protect\subref{subfig:erk}}~A \ta\ model of ERK, consisting of three locations, {\sf inactive\_ERK}
+(the starting location), {\sf 50\%\_active\_ERK} and {\sf 100\%\_active\_ERK},
+and two transitions between the locations. A transition will take place when it is possible to synchronize with
 the corresponding action {\sf activate\_ERK!} in the MEK automaton.
-The synchronization on channel {\sf activate\_ERK} represents the occurrence of the activating
-interaction between MEK and ERK, and allows ERK to become completely active.}\label{fig:abstraction-mek-erk}
+Each synchronization on channel {\sf activate\_ERK} represents the occurrence of the activating
+interaction between MEK and ERK, and allows ERK to eventually become completely active.}\label{fig:abstraction-mek-erk}
 %\end{minipage}
 \end{figure}
 
