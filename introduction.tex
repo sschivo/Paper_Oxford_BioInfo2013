@@ -58,18 +58,19 @@ a Petri net model into \tas\ are presented by~\citet{ta-giapponesi},
 who also address the important issue of state space explosion in their paper.
 Finally, \cite{ta-radiazioni} propose an \emph{ad hoc} \tas\ model of a radiation treatment
 system, which is then validated through UPPAAL.\\
-Each of these approaches has been successfully validated and demonstrates the power of \tas,
-both on the theoretical level and in real biological applications. However, none of the listed approaches
-has led to a tool implementation of the proposed method, the application of which was often limited to simple
-or specific examples. The challenges of a broader applicability of \tas\ were not previously considered,
-nor was the usability of the approach evaluated from the point of view of a biologist.
+Each of these approaches has been successfully validated, demonstrating the potential of \tas\
+in biological applications. However, these approaches were all limited to simple
+or specific examples and none of these modeling methods
+has led to a tool implementation of the proposed method to encourage a broader use
+of \tas\ in molecular biology.
 
-However, mastery of these tools requires
-training and experience in mathematical modelling. In this respect, a lack of tradition in quantitative
+Mastery of most existing modeling tools requires training and experience in mathematical modelling. 
+In this respect, a lack of tradition in quantitative
 reasoning and formal methods within the biological community at large is still a stumbling block for
 widespread application of modelling of biological systems. Here, we present an intuitive method for the
 construction of formal in silico models of the dynamics of molecular networks, supported by a novel,
-user friendly modelling tool, ANIMO (Analysis of Networks with Interactive MOdeling,~\citealp[]{animo-bibe}).
+user friendly modelling tool, ANIMO (Analysis of Networks with Interactive 
+MOdeling,~\citealp[]{animo-bibe}).
 
 In the Methods section, we will explain how choosing a suitable abstraction level can make the construction
 of models more intuitive. We will then show how ANIMO is designed to support the modelling process following
@@ -77,5 +78,5 @@ this approach. Construction of a small model based on experimental data will exe
 propose. In the Results section, we first show an ANIMO model of the genes and proteins that constitute
 the circadian clock network in Drosophila Melanogaster. The remainder of that section is dedicated to
 illustrate how a single modelling iteration in the empirical cycle is used to compile prior knowledge and
-experimental data into a model and derive meaningful biological hypotheses from this model. These hypotheses
-find ample support in literature.
+experimental data into a model, perform \emph{in silico} simulations and derive meaningful testable 
+hypotheses. These hypotheses are supported by literature on interactions in different cell types.
