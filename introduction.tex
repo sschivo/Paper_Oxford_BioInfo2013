@@ -1,12 +1,12 @@
 In living cells, processes are regulated by networks of interacting molecules.
-Aberrations in these networks underlie a wide range of pathologies. To develop new therapies,
-a thorough insight in the functioning of these networks is a prerequisite. Such insight can only be obtained
-by studying the ensemble of molecules involved, rather than individual molecules. Feedback loops and 
-crosstalk between pathways contribute to the complexity of network topologies. However, it is not only 
-the topology, but also the associated dynamic behavior that are crucial for understanding 
-the biological functioning.
-The human brain is ill-suited to grasp the non-linear dynamics of these complex networks and
-the entailed emergent properties, which is why computational modeling has a growing role in molecular biology.
+Aberrations in these networks underlie a wide range of pathologies. The development of new therapies
+requires obtaining a thorough insight in the functioning of these networks, which is a challenging task.
+Feedback loops and crosstalk between pathways lead to an intricate wiring of the network.
+Hence, it is necessary to study the ensemble of molecules involved, because the 
+behavior of individual molecules is not sufficient for a complete understanding. 
+Since the human brain is ill-suited to grasp the non-linear dynamics of these complex networks and
+the entailed emergent properties, computational support has a growing role 
+in molecular biology.
 
 The systems biology approach to understanding biological systems starts off from a
 scientific question and then follows an empirical cycle \--\ or rather a positive spiral \--\ of
@@ -16,7 +16,7 @@ until an answer to the original question is found (Figure~\ref{fig:empirical-spi
 A model plays a pivotal role in this cycle:
 \begin{enumerate}
   \item to organize data and store knowledge,
-  \item to structure reasoningand discussion
+  \item to structure reasoning and discussion
   \item to perform \emph{in silico} experiments and derive hypotheses.
 \end{enumerate}
 An \emph{in silico} model is always a simplified representation of biological reality and is never the 
@@ -24,10 +24,10 @@ aim in itself.
 Rather, it is a powerful means in the process of gaining an understanding of the biological system.
 Given its role in the empirical cycle, the process of modelling is especially effective
 when applied by the experts with respect to a certain biological system. Biologists usually have a good sense 
-of cause-and-effect relationships of molecular interactions and an extensive knowledge 
+of cause-and-effect relationships of molecular interactions. In addition, they are the most knowledgeable
 on the network topology and the dynamics of the biological system they are studying.
-Since they also benefit most from the generation of hypotheses and from an efficient experimental design, they 
-would be the primary candidates to construct models of their research topic.
+Since they also benefit most from the generation of hypotheses and from an efficient experimental design, 
+biologists would be the primary candidates to construct models of their research topic.
 
 \begin{figure}[!htb]
   \centering
@@ -36,23 +36,26 @@ would be the primary candidates to construct models of their research topic.
 \end{figure}
 
 
-As models are a formalization of knowledge/theories, an underlying formalism is needed to express
+As models are a formalization of knowledge or theories, an underlying formalism is needed to express
 this knowledge. Different formal methods have been successfully applied to construct representations
 of biological systems. Among these methods are Boolean logic~\citep{boolean-networks-flower,boolean-networks2},
 ordinary differential equations (ODEs, reviewed by~\citealp[]{hidde-review}),
 interacting state machines~\citep{interacting-sm1,interacting-sm2},
-process calculi~\citep{blenx,bio-pepa} and Petri nets~\citep{petri-nets,petri-nets2}.
-%and Timed Automata~\citep{ta-siebert,bartocci-oscillators,oded-ode-ta-discretization}.
+process calculi~\citep{blenx,bio-pepa}, Timed Automata~\citep{ta-siebert,bartocci-oscillators,
+oded-ode-ta-discretization} and Petri nets~\citep{petri-nets,petri-nets2}.
+Most of these formal methods have been implemented into software tools to aid the process
+of modelling. Due to the lack of such a supporting tool, \tas\ have remained a less 
+frequently applied method.
 
-\tas\ have been previously suggested for application in a biological context.
-\cite{ta-siebert} present a way to extend a classical modeling paradigm
-that was introduced previously~\citep{thomas-formalism}, allowing to add temporal dynamics to gene network models.
-\cite{bartocci-oscillators} describe a model of oscillators that accounts for time
-dynamics and test synchronization properties of biological oscillators.
+\cite{ta-siebert} use \tas to extend a classical modeling paradigm
+~\citep{thomas-formalism}, allowing to add temporal dynamics to gene network models.
+\cite{bartocci-oscillators} describe a model of biological oscillators and test 
+synchronization properties in this dynamic system.
 A discretization of ODEs to \tas\ is proposed by~\citet{oded-ode-ta-discretization}, applying
-the formal translation to an example gene regulatory network. Two different approaches to transforming
-a Petri net~\citep{petri-nets} model into \tas\ are presented by~\citet{ta-giapponesi},
-where also the important issue of state space explosion is addressed.
+this translation between the two formalisms to an example gene regulatory network. Two 
+different approaches to transforming
+a Petri net model into \tas\ are presented by~\citet{ta-giapponesi},
+who also address the important issue of state space explosion in their paper.
 Finally, \cite{ta-radiazioni} propose an \emph{ad hoc} \tas\ model of a radiation treatment
 system, which is then validated through UPPAAL.\\
 Each of these approaches has been successfully validated and demonstrates the power of \tas,
@@ -61,7 +64,6 @@ has led to a tool implementation of the proposed method, the application of whic
 or specific examples. The challenges of a broader applicability of \tas\ were not previously considered,
 nor was the usability of the approach evaluated from the point of view of a biologist.
 
-Most of the other cited formal methods have been implemented into software tools to aid the process of modelling.
 However, mastery of these tools requires
 training and experience in mathematical modelling. In this respect, a lack of tradition in quantitative
 reasoning and formal methods within the biological community at large is still a stumbling block for
