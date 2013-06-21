@@ -602,102 +602,32 @@ kinetic rate laws can give useful predictions over a range of concentrations. Fi
 show the modeling results with TNF set at 8 out of 100.
 
 \clearpage
-\section{How ANIMO uses Timed Automata to model pathway dynamics}\label{suppl-sec:animo-ta}
-
-
-% \subsection{From biochemical reactions to activity-based interactions}
-% ANIMO models are based on the concept of \emph{activity level},
-% which is a discrete representation of the active fraction of a molecular species.
-% We consider a molecule to be \emph{active} when it has undergone a modification
-% that entails a new function: e.g. a phosphorylated kinase is usually considered
-% active. Each node in an ANIMO model represents a molecular species,
-% and its color is determined by the current activity level of the species.
-% Biochemical reactions are represented as
-% abstract interactions similarly to the traditional representation of signaling networks.
-
-
-
-% \subsection{From interactions to Timed Automata}\label{subsec:timed-automata}
-% \def\ta{TA}
-% \def\tas{TA}
-% A Timed Automaton (\ta) consists of states and transitions between these states (Figs.~\ref{subfig:erk}, \ref{subfig:mek}).
-% Each automaton has local clocks associated to it that allow to control residence in its states, and transitions between states.
-% Communication channels enable synchronization of transitions in different automata. The synchronization between two
-% automata on channel $c$ requires one automaton to send a message: $c!$ while the other automaton performs the
-% corresponding action: $c?$ to receive the message. A simplified \tas\ model of the activation of extracellular
-% regulated kinase (ERK) by MAPK ERK kinase (MEK) illustrates these basic properties of \tas\
-% (Fig.~\ref{fig:abstraction-mek-erk}). In this example, MEK activity is not regulated and ERK has only two activity levels,
-% completely inactive or completely active. In the network visualization, each molecular species (e.g. ERK) is depicted as a single node,
-% colored according to its activity (Fig.~\ref{subfig:mek-erk}).
-%
-%
-%
-%
-% \def\mekTA{\includegraphics[scale=.098]{images/abstraction_ta_erk}}
-% \newlength\mekTAheight
-% \setlength\mekTAheight{\heightof{\mekTA}}
-% \begin{figure}[!hb]
-% \begin{minipage}{\textwidth}
-% \begin{center}
-% \subfloat[\label{subfig:mek-erk}]{\begin{minipage}[c][\mekTAheight]{0.13\textwidth}\begin{center}\includegraphics[scale=.098]{images/abstraction_ta_mek-erk3}\end{center}\end{minipage}}
-% \ \
-% \subfloat[\label{subfig:erk}]{\begin{minipage}[c][\mekTAheight]{0.18\textwidth}\begin{center}\mekTA\end{center}\end{minipage}}
-% \ \
-% \subfloat[\label{subfig:mek}]{\begin{minipage}[c][\mekTAheight]{0.14\textwidth}\begin{center}\includegraphics[scale=.098]{images/abstraction_ta_mek}\end{center}\end{minipage}}
-% \end{center}
-% \caption{Abstraction of a biochemical reaction to a \tas\ model.
-% {\bf \protect\subref{subfig:mek-erk}}~Classical depiction of a well-studied intracellular signal transduction reaction: protein
-% MAPK-ERK kinase (MEK) activates downstream protein extracellular-regulated kinase (ERK).
-% {\bf \protect\subref{subfig:erk}}~A \ta\ model of ERK, consisting of two states (circles), {\sf inactive\_ERK} and {\sf active\_ERK},
-% and one transition (arrow) between the states. This transition will take place when it is possible to synchronize with
-% the corresponding action {\sf activate\_ERK!} in the MEK automaton.
-% {\bf \protect\subref{subfig:mek}}~A \ta\ model of active MEK, consisting of one state and one
-% transition. ${\sf t} < 20$ is termed an invariant on the state, allowing residence in this state as long as local
-% clock time {\sf t} is smaller than $20$ units. ${\sf t} > 18$ is termed a guard on the transition, allowing the
-% transition to take place when local clock {\sf t} is greater than $18$ units. Together, the invariant and guard in this
-% example ensure that the transition must take place in the (continuous) time interval $18 < {\sf t} < 20$. When the
-% transition takes place, the action {\sf activate\_Erk!} is performed (thus allowing the ERK automaton to reach the {\sf
-% active\_ERK} state) and the local clock coupled to this automaton is reset, ${\sf t} := 0$.}\label{fig:abstraction-mek-erk}
-% \end{minipage}
-% \end{figure}
-%
-%
-% When building an ANIMO model, the user can choose the number of discrete activity levels for each node, ranging
-% between 2 and 100, depending for example on the quality of experimental data.
-% Coarse-grained models have a low number of activity levels and are less precise,
-% whereas fine-grained models have a higher number of activity levels and behave more like continuous models (see Fig.~\ref{fig:levels}).
-%
-% Variable reaction rates are accounted for by having variable time constraints to transitions, fast
-% reactions being reflected by small time values. These values depend on the current activity level of the involved reactants.
-% Using basic kinetic rate laws, time constraints are pre-computed for all possible activity levels and stored in a pair of tables.
-% When the activity level of one of the input variables to a reaction changes, the tables are used to
-% update the reaction rates for all reactions involving this reactant (see Fig.~\ref{fig:ta-diagram}).
-% A more detailed account on the \tas\ model underlying ANIMO can be found in Suppl. Sect.~\ref{suppl-sec:animo-ta}.
-
-
-
-
-
+\section{ANIMO and Timed Automata}\label{suppl-sec:animo-ta}
 
 \subsection{Timed Automata model}
 The Timed Automata (\tas) model underlying an ANIMO network is generated whenever an analysis is requested by the user.
 Starting from the network represented in the Cytoscape-based user interface, ANIMO automatically generates a \tas\ model
-to be used with UPPAAL. The analysis result is then parsed and properly represented to the user, for example
-as a graph of reactant activity levels.
+to be used with UPPAAL. The analysis result is then parsed and properly presented to the user, for example
+as a graph of reactant activity levels. This workflow is described in Figure~\ref{fig:animo-sim-workflow}.
 
-The behavior of all reactions in an ANIMO model is based on the same \ta\ template: Figure~\ref{fig:ta-model-simpler}
-shows UPPAAL's graphical representation of such template. An instance of the reaction template is generated for each
-of the reactions present in the ANIMO model, and is equipped with a local clock {\sf c} to measure the time until
-the next reaction step. Moreover, a global clock is defined for the whole model, to keep track of the current experiment time
-in a simulation. To represent the activity level of the molecular species included in the ANIMO model, each
-reactant R is associated to an integer variable {\sf R}.
-The automaton in Figure~\ref{fig:ta-model-simpler} uses {\sf MEK} to refer to the activity level of MEK, from which the reaction speed depends.
-The initial activity level of each node is chosen by the user when modifying the node
-in the ANIMO model: these settings define the starting state for the \tas\ model.
-Each reactant R is also associated to a channel named {\sf R\_reacting}, which is
-used to communicate between automata when the activity level of a reactant is changed.
+\begin{figure}[htb]
+\begin{minipage}{\textwidth}
+  \includegraphics[width=\textwidth]{images/animo_simulation_workflow}
+\caption{The passages intercurring between the pression of the \emph{Analyze network} button
+and the generation of an activity level graph.}\label{fig:animo-sim-workflow}
+\end{minipage}
+\end{figure}
 
+Each \tas\ model generated by ANIMO contains one automaton for each interaction (activation or inhibition) in the network.
+A \ta\ representing an interaction performs a cyclic series of steps, continuously updating
+the target of the interaction it represents, and adapting the timing of the next update according to
+the user-defined dynamics. Synchronizations between different automata occur when the activity level of a network component (e.g. ERK)
+changes: this allows the automata depending on that component to update their time settings.
 
+The abstract behavior of the interaction $\mbox{MEK} \rightarrow \mbox{ERK}$ in the \tas\ model used in ANIMO is described in Figure~\ref{fig:ta-diagram}.
+There, the activity levels of MEK and ERK are represented by variables called, respectively, $\mbox{MEK}_{\mbox{\scriptsize activity}}$
+and $\mbox{ERK}_{\mbox{\scriptsize activity}}$. A more detailed description of the \tas\ model underlying ANIMO has been presented
+at the IEEE conference BIBE 2012~\citep{animo-bibe}.
 
 \tikzstyle{decision} = [rectangle, draw, fill=yellow!20, text width=.45\textwidth, text badly centered]
 \tikzstyle{block} = [rectangle, draw, fill=blue!20,
@@ -764,8 +694,8 @@ is not loaded}
   \makeatother
   \begin{picture}(1,0.37)%26031697)%
     \put(0,0){\includegraphics[width=\unitlength]{images/mek_activity_time_tables2.pdf}}%
-    \put(0.02042129,0.20182345){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$R_{\mbox{\scriptsize lowerBound}}$}}}%
-    \put(0.02042129,0.07442319){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$R_{\mbox{\scriptsize upperBound}}$}}}%
+    \put(0.005,0.20182345){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$R_{\mbox{\scriptsize lowerBound}}$}}}%
+    \put(0.005,0.07442319){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$R_{\mbox{\scriptsize upperBound}}$}}}%
     \put(0.45,0.325)%23815501)
 	{\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\mbox{MEK}_{\mbox{\scriptsize
 activity}}$}}}%
@@ -792,162 +722,28 @@ activity}}$\\
     \path [line] (increase) -- (inform);
     \path [line] (inform.east) -| +(1, 4) |- (reset.east);
 \end{tikzpicture}
-\caption{Schematic overview of the steps taken during a simulation run by a Timed Automaton modeling a reaction $R$ that increases $\mbox{ERK}_{\mbox{\scriptsize activity}}$ and depends only on $\mbox{MEK}_{\mbox{\scriptsize activity}}$.
-In this example, MEK has 10 activity levels. After resetting the internal clock {\sf t}, the automaton sets the time constraints for the reaction.
+\caption{Schematic overview of the steps taken during a simulation run by a Timed Automaton modeling an interaction $R$ that
+increases $\mbox{ERK}_{\mbox{\scriptsize activity}}$ and depends only on $\mbox{MEK}_{\mbox{\scriptsize activity}}$.
+In this example, MEK has 10 activity levels.\\
+After resetting the internal clock {\sf t}, the automaton sets the time constraints for the interaction.
 $\mbox{MEK}_{\mbox{\scriptsize activity}}$ is used as the index inside the time
-tables $R_{\mbox{\scriptsize lowerBound}}$ and $R_{\mbox{\scriptsize upperBound}}$.
+tables $R_{\mbox{\scriptsize lowerBound}}$ and $R_{\mbox{\scriptsize upperBound}}$, which contain pre-computed lower- and upper-bounds
+for the interaction timing.
 Once the bounds have been identified, %the internal clock {\sf t} begins counting.
 $R$ can occur when {\sf t} reaches a value
 inside the continuous time interval~$[\,\usebox{\mysquareLow}, \usebox{\mysquareHigh}\,]$. When it occurs, $R$ increases the value of
 $\mbox{ERK}_{\mbox{\scriptsize activity}}$ by $1$. All reactions that depend on
-$\mbox{ERK}_{\mbox{\scriptsize activity}}$ are notified of the change, and the associated time bounds are updated accordingly.
-After resetting the clock {\sf t}, the reaction process can restart.
-If $\mbox{MEK}_{\mbox{\scriptsize activity}}$ was changed by another reaction before the occurrence of $R$, the automaton needs to update the correct
-time bounds based on the new activity level of MEK.}\label{fig:ta-diagram}
+$\mbox{ERK}_{\mbox{\scriptsize activity}}$ are notified of the change (via a synchronization on a specific channel),
+so that the associated time bounds are updated accordingly.
+After resetting the clock {\sf t}, the process can restart.
+If $\mbox{MEK}_{\mbox{\scriptsize activity}}$ was changed by another automaton before the occurrence of $R$, 
+the time bounds are updated according to the new activity level of MEK.}\label{fig:ta-diagram}
 \end{minipage}
 \end{figure}
 
 
 
-The abstract behavior of a reaction in the \tas\ model is described in Figure~\ref{fig:ta-diagram}:
-after choosing the correct time bounds, the automaton waits for the reaction to complete, then updates the values of the output variable
-and is ready to restart.
-If an intervening event has changed the value of a reactant from which the reaction time bounds depend, the
-bounds are updated at run-time. Referring to the \ta\ template in Figure~\ref{fig:ta-model-simpler},
-we will now give a less abstract description of the behavior of the formal model.
-
-
-\begin{figure}[htpb]
-\begin{minipage}{\textwidth}
-  \centering
-  \includegraphics[width=.65\textwidth]{images/Reaction_MEK_ERK2}%ta_model_simpler}
-  \caption{Timed Automaton representing a reaction where the activity level of ERK is changed with a speed depending on
-the activity level of MEK. The template shown here has been simplified only to improve readability, while keeping the
-same behavior as the one actually generated by ANIMO.}\label{fig:ta-model-simpler}
-\end{minipage}
-\end{figure}
-
-We will call \emph{input variables} the variables representing the activity levels the reactants from which the automaton instance
-depends, while the \emph{output variable} is the variable updated at each occurrence of the reaction. In the
-example of Figure~\ref{fig:ta-model-simpler}, {\sf MEK} is the only input variable, and {\sf ERK} is the output variable.
-
-The initial location, from which the evolution of the automaton begins, is marked with an additional circle and labeled
-{\sf start}. Here the decision on whether the reaction can actually occur is made: if
-the current values for the input variables determine a reaction rate of $0$,
-the time needed for the reaction to complete is marked as {\sf INFINITE}, thus preventing the reaction to occur. If the
-reaction cannot occur, the automaton switches to the location labeled {\sf not\_reacting}, otherwise it switches
-to the location labeled {\sf reacting}. The {\sf C} present in a location (see locations {\sf start} and
-{\sf resetting}) marks that location as \emph{committed}: when there are any automata in a committed location, the
-evolution of the whole system is stalled (i.e., time is not allowed to pass) until all committed locations have been
-abandoned. This ensures that no reaction occurs before all applicability conditions have been checked for all reactions in
-the system, performing the necessary configuration adjustments.
-
-When in the {\sf not\_reacting} location, the automaton is waiting for one of its input variables
-to change, possibly changing the time settings for the current reaction.
-As any change to reactant R is communicated through the
-channel {\sf R\_reacting}, the automaton waits for changes in input variables by
-waiting for a communication on their corresponding channels. Whenever such a communication is received,
-the automaton switches to the {\sf resetting} location.
-
-If the automaton is in the {\sf reacting} location, it may update its output variable when the internal reaction clock {\sf c}
-is inside the allowed interval $[{\sf timeL}, {\sf timeU}]$: this means that the reaction can occur
-\emph{at any moment} inside the interval.
-The condition that allows the reaction to occur is described in the model by the
-invariant for the {\sf reacting} location, which requires that {\sf c} must never exceed the upper bound {\sf timeU}, and by the guard
-for updating the output variable, where {\sf c} is required to be greater than or equal to the lower
-bound {\sf timeL}. If the reaction occurs, the output reactant is updated, signaling that the update has been performed via the
-respective channel, and the automaton moves to the {\sf resetting} location. The same location is also reached if another
-reaction happens that modifies the value of any input variable, because the conditions for the applicability
-of the reaction at hand need to be verified again.
-
-When in the {\sf resetting} location, the \ta\ performs a number of checks to identify the current situation, which
-can be one of three possible states:
-\begin{enumerate}
-  \item\label{enum:cond1} the reaction can still occur
-    and the clock is inside the allowed bounds (in Figure~\ref{fig:ta-model-simpler},
-    this condition corresponds to guard {\sf timeL[MEK] != INFINITE \&\& (timeU[MEK] == INFINITE \textbar\textbar\ (timeU[MEK] != INFINITE \&\& c $<$= timeU[MEK]))}),
-  \item\label{enum:cond2} the reaction can occur, but the changed conditions require an update to the clock in order to
-    respect the invariant of location {\sf reacting} (guard {\sf timeL[MEK] != INFINITE \&\& timeU[MEK] != INFINITE \&\& c $>$ timeU[MEK]}),
-  \item\label{enum:cond3} the reaction cannot occur (guard {\sf timeL[MEK] == INFINITE}).
-\end{enumerate}
-In case~\ref{enum:cond1}, the automaton returns to location {\sf reacting} without performing any change.
-If the clock is larger than the upper time bound (case~\ref{enum:cond2}), it is updated accordingly before
-moving to {\sf reacting}. Finally, if the conditions of applicability of the reaction do not hold anymore (case~\ref{enum:cond3}),
-the automaton moves to location {\sf not\_reacting}, where it waits for a change in the current conditions.
-
-
-
-
-
-\subsection{Simplified kinetic rate laws}\label{subsec:kinetic-scenarios}
-Each reaction in our model is based on its two tables {\sf timeL} and {\sf timeU}. These represent
-respectively the lower and upper bound for the time taken by the reaction to change its output variable by 1.
-The time tables are indexed by the current value of the input variables for that reaction, and are pre-computed
-based on all possible values of those inputs. Thus, if a reaction has two input variables with
-5 and 13 possible activity levels respectively, the two time tables {\sf timeL} and
-{\sf timeU} will contain $5 \times 13 = 65$ elements each.
-
-In order to compute the reaction times,
-ANIMO provides three different simplified kinetic rate laws that rely on a single parameter to facilitate model construction.
-Since many reactions in signal transduction are enzyme-substrate reactions,
-we abbreviate concentrations of upstream proteins with $E$, and of downstream proteins with $S$.
-The three simplified kinetic scenarios are defined as follows.
-
-\begin{enumerate}
-  \item {\bf Scenario 1:} $r = k \times [E]$\\ Reaction rate $r$ depends only on the activity level of the upstream reactant (i.e., the one from which
-the interaction arrow starts). Thus, if the upstream reactant $E$ is completely inactive, the reaction rate is zero.
-Increasing the activity level of $E$ will make the reaction rate increase, thus decreasing the reaction time.
-In this scenario $E$ is the only input variable of the reaction, so the time tables {\sf timeL} and {\sf timeU} are unidimensional.\\
-This is the simplest scenario: in the case of a constantly active upstream reactant, the downstream reactant will be activated
-with constant rate.
-  \item {\bf Scenario 2:} $r = k \times [E] \times [S]$\\ $r$ depends on the activity level of two reactants, where $E$ represents the
-upstream reactant and $S$ is linked to the downstream reactant (the one where the interaction arrow arrives).
-If the reaction activates the downstream reactant, $S$ represents the concentration of inactive downstream reactant, thus the reaction rate increases with decreasing activity of $S$.
-If the reaction inhibits the downstream reactant, $S$ represents the active fraction of the downstream reactant and the reaction rate increases with increasing activity level of $S$.
-The dependence from the upstream component $E$ is the same as for Scenario 1.\\
-This scenario can be used to describe activations or inhibitions that flatten off near complete activity or inactivity of $S$, respectively. % (Fig.~\ref{fig:small-model-third-graph}).
-  \item {\bf Scenario 3:} $r = k \times [E_1] \times [E_2]$\\ $r$ depends on two user-chosen reactants, and influences the activity of
-the reactant downstream of the reaction. The dependence from the active or inactive
-fraction of $E_1$ and $E_2$ is set by the user. This scenario can be seen as the kinetic equivalent of the logical \emph{AND-gate}:
-when either $E_1$ or $E_2$ is completely inactive, the reaction rate is zero.\\
-As an example of application of Scenario 3, see the relation between {\sf c-Jun}, {\sf c-Fos} and {\sf AP-1} in the model of Figure~\ref{fig:large-model-complete}:
-both {\sf c-Jun} and {\sf c-Fos} need to be active in order to activate {\sf AP-1}. This information is inserted in the kinetics associated to the edge
-{\sf c-Jun} $\rightarrow$ {\sf AP-1}, setting $E_1 = ${\sf c-Jun} and $E_2 = ${\sf c-Fos}. The edge {\sf c-Fos} $\rightarrow$ {\sf AP-1} has a kinetic
-constant $k = 0$ and is used as a reminder that also {\sf c-Fos} takes part to the reaction.
-\end{enumerate}
-
-
-\subsection{Translation of kinetic rate laws to time constants}\label{subsec:kinetics}
-
-The time (in seconds) needed for a particular reaction step to complete is
-computed by the formula
-$$
-t = \frac{1}{r} \times \mbox{\sf granularityScale} \times \mbox{\sf timeScale}.
-$$
-If $r = 0$, then the time is defined to be infinite (cf. the {\sf INFINITE} in Figure~\ref{fig:ta-model-simpler}),
-meaning that the reaction cannot take place.
-The scale factor {\sf granularityScale} is used to ensure that the values used to compute the
-reaction rate $r$ are independent from the granularity (number of activity levels)
-of each reactant.
-Factor {\sf timeScale} (measured in $\frac{\mbox{\scriptsize TA time units}}{s}$)
-is applied in order to translate seconds into \tas\ time units.
-Hence, the time constants present in the time tables are given in $\frac{\mbox{\scriptsize TA time
-units}}{\mbox{\scriptsize activity level}}$. Intuitively, each entry in the time tables can be thought of as
-the answer to the question ``How many \tas\ time units are needed to increase/decrease the output variable
-of this reaction with the current value of the input variables?''.
-
-Finally,
-we generalize time constants to time intervals, introducing a $5\%$ variability:
-the exact duration $t$ of a reaction computed via the kinetic formula becomes the interval $[0.95\times t, 1.05\times t]$.
-The two extremes of the interval are saved each in its own table, thus obtaining a lower bound and an upper bound table,
-both indexed by the current activity levels of the input variables of the reaction at hand.
-The two time bounds correspond to the ones identified by the constants $18$ and $20$ in Figure~\ref{subfig:mek}.
-The tables where those bounds are stored are called $R_{\mbox{\scriptsize lowerBound}}$ and $R_{\mbox{\scriptsize upperBound}}$
-in Figure~\ref{fig:ta-diagram} and {\sf timeL}, {\sf timeU} in Figure~\ref{fig:ta-model-simpler}.
-
-
-
-\subsection{Different choices for the number of levels of a node}
+\subsection{Granularity of an ANIMO network node}
 Figure~\ref{fig:levels} shows the differences between different choices for the
 number of levels of a node. This allows to adapt a model to the quality of experimental data.
 
