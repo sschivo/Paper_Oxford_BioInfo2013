@@ -1,5 +1,5 @@
 
-\subsection{Modeling abstractions}\label{subsec:abstractions}
+\subsection{Modelling abstractions}\label{subsec:abstractions}
 The values of the kinetic parameters for specific reactions are often unknown and
 difficult to collect.
 This lack of facts limits the applicability of parameter-intensive models,
@@ -7,16 +7,16 @@ which require precise estimation of many biological quantities.
 Nevertheless, the most useful biological models contain an important quantitative part, which in turn pushes for some
 level of parameter precision.
 Therefore, when choosing an abstraction level we do not only need to keep a balance between model comprehensiveness and synthesis,
-but also to consider the current availability of knowledge and data. In order to provide an intuitive modeling
+but also to consider the current availability of knowledge and data. In order to provide an intuitive modelling
 experience while retaining enough descriptiveness for a meaningful representation of the biological system, we base
-our models of signaling networks on a series of abstractions.
+our models of signalling networks on a series of abstractions.
 %Our objective is to avoid relying too heavily on (often unavailable) quantitative measurements,
 %while retaining enough descriptive power to be an asset in the study of biological networks.
 
 In our models, each network component is visually represented by a single node, in a way similar to traditional
-signaling network representations.
+signalling network representations.
 Each of these nodes is characterized by its \emph{activity level}, which
-is a discrete representation of the percentage of \emph{active} molecules of that species. In signaling networks,
+is a discrete representation of the percentage of \emph{active} molecules of that species. In signalling networks,
 a molecule is usually considered active when it has undergone a modification (e.g. phosphorylation) that
 allows it to perform a reaction. If a kinase is active, it can phosphorylate another molecule, activating it
 in turn, thus letting an hypothetical signal travel on its next step along the network. Activity levels are discretized
@@ -26,7 +26,7 @@ to the quality and nature of experimental data and to the biological questions a
 becomes particularly large, the availability of different discretization choices gives the user
 the possibility to trade-off level of detail for computational performance. As the activity level is the
 defining feature of each node of our networks, and the changes in such activities define the
-dynamic behavior of the network, we call our models \emph{activity-based}.
+dynamic behaviour of the network, we call our models \emph{activity-based}.
 
 Reactions are abstracted by \emph{interactions} intended as cause-and-effect relations. Thus,
 similarly to what happens in traditional pathway representations, arrows in
@@ -48,7 +48,7 @@ $$
 \mbox{\it E} \rightarrow \mbox{\it S}.
 $$
 Each occurrence of the interaction $E \rightarrow S$ will increase the activity level of $S$ by one discrete step.
-The rate $R$ of occurrence of an interaction is defined by the user, who choses a simplified interaction scenario
+The rate $R$ of occurrence of an interaction is defined by the user, who chooses a simplified interaction scenario
 and a scale factor $k$.
 The three available scenarios are based on abstract kinetic formulae:
 \begin{enumerate}
@@ -67,14 +67,14 @@ We will show in Section~\ref{sec:results} that the abstraction proposed here pre
 descriptiveness to capture experimental data in meaningful models.
 
 
-\subsection{Modeling interactions with Timed Automata}\label{subsec:timed-automata}
+\subsection{Modelling interactions with Timed Automata}\label{subsec:timed-automata}
 \def\ta{TA}
 \def\tas{TA}
 
 The formal model we propose here is based on Timed Automata~(\tas, \citealt{timed-automata-alur-dill}), which is a
-formalism developed for modeling dynamic concurrent systems in computer science where timing plays a central role.
+formalism developed for modelling dynamic concurrent systems in computer science where timing plays a central role.
 Being compositional in nature, \tas\ have been shown to be a suitable solution for
-modeling biological processes~\citep{ta-siebert,bartocci-oscillators,oded-ode-ta-discretization}.
+modelling biological processes~\citep{ta-siebert,bartocci-oscillators,oded-ode-ta-discretization}.
 Our model is based on the abstraction presented in Sect.~\ref{subsec:abstractions}
 and uses the clock mechanism of \tas\ to represent interaction rates:
 a faster interaction will take less time than a slower interaction to perform one activation/inhibition step.
@@ -123,15 +123,15 @@ interaction between MEK and ERK, and allows ERK to eventually become completely 
 
 
 \subsection{ANIMO}
-The modeling approach described in Section~\ref{subsec:abstractions} is implemented in the
-software tool ANIMO (Analysis of Networks with Interactive MOdeling, \citealt{animo-bibe}),
+The modelling approach described in Section~\ref{subsec:abstractions} is implemented in the
+software tool ANIMO (Analysis of Networks with Interactive MOdelling, \citealt{animo-bibe}),
 a plug-in to the network visualization tool Cytoscape~\citep{cytoscape}. The visual interface of ANIMO
 is designed to allow the user to intuitively construct activity-based models, making the expansion
 and rewiring of a network a fast and user-friendly process (see Suppl. Video 1). An ANIMO model can
-be analyzed through simulation, with the results automatically plotted as a graph.
-The dynamic behavior of a model can then be interactively explored by
+be analysed through simulation, with the results automatically plotted as a graph.
+The dynamic behaviour of a model can then be interactively explored by
 acting on a slider to highlight time points in a simulation. The selected simulation
-point defines the appearance of the network: each node will be colored depending on its activity level
+point defines the appearance of the network: each node will be coloured depending on its activity level
 at the selected simulation instant. Moreover, experimental data can be matched against
 the predictions of a model, superposing time-based activity series to a graph produced from the model.
 
@@ -146,7 +146,7 @@ or prior knowledge on the use of \tas\ or UPPAAL is needed in order to benefit f
 Nevertheless, the translation process can be followed in a transparent manner if
 desired by the user.
 
-The tecnical foundations of ANIMO have been described by us elsewere~\citep{animo-bibe}. 
+The technical foundations of ANIMO have been described by us elsewhere~\citep{animo-bibe}. 
 An abstract overview on the \tas\ model can be found in Supplementary Section~\ref{suppl-sec:animo-ta}.
 
 
@@ -154,7 +154,7 @@ An abstract overview on the \tas\ model can be found in Supplementary Section~\r
 To illustrate the process of model building in ANIMO, we consider now an example based on a literature compendium of
 signal transduction events in HT-29 human colon carcinoma cells~\citep{pathway-compendium}. This data set comprises triplicate
 measurements of 11 different protein activities or post-translational modification states at 13 time points after
-treatment with different combinations of tumor necrosis factor-$\alpha$ (TNF$\alpha$), epidermal growth factor (EGF) and insulin.
+treatment with different combinations of tumour necrosis factor-$\alpha$ (TNF$\alpha$), epidermal growth factor (EGF) and insulin.
 The data set contains relative protein levels and activities, and no absolute quantities, which is the typical situation in biochemistry.
 
 As a first step, we normalized measurements for each protein to the
@@ -188,17 +188,17 @@ Incremental construction of an ANIMO model of signal transduction
 events in human colon carcinoma cells upon stimulation with 100 ng/ml TNF$\alpha$.
 Each construction step (top to bottom) is simulated in ANIMO, giving intermediate feedback
 useful for the piecewise refinement of the model.
-The graphs on the right show the dynamic behavior of the corresponding models on the left, comparing it to the measured
+The graphs on the right show the dynamic behaviour of the corresponding models on the left, comparing it to the measured
 activity values by~\cite{pathway-compendium} (error bars represent the standard deviation).
 On the vertical axis, ``100'' represents the maximum protein activity in the complete experiment.
 A red vertical line in each graph highlights a selected time point in the time course:
-nodes in the corresponding model are colored according to their activity at that time point.
+nodes in the corresponding model are coloured according to their activity at that time point.
 {\bf (\protect\subref*{fig:small-model-first}, \protect\subref*{fig:small-model-first-graph})}~Basic model showing direct activation of JNK1 and MK2 by TNF$\alpha$.
 No peak dynamics are observed because no inactivating processes are present.
 {\bf (\protect\subref*{fig:small-model-third}, \protect\subref*{fig:small-model-third-graph})}~The model after addition of inactivating phosphatases and a
 negative feedback loop that down-regulates TNFR (TNF receptor). Note that adding TNFR internalization or phosphatases alone would not be enough to reproduce activity peaks.
 {\bf (\protect\subref*{fig:small-model-fourth}, \protect\subref*{fig:small-model-fourth-graph})}~The model after addition of IKK, IL1-secretion (abstracting
-the autocrine IL-1 signaling described by~\citealp{pathway-autocrine}), Casp8 and Casp3, showing the late response to TNF$\alpha$ signaling.
+the autocrine IL-1 signalling described by~\citealp{pathway-autocrine}), Casp8 and Casp3, showing the late response to TNF$\alpha$ signalling.
 As the data set did not contain values for cleaved caspase-3, but only for its non-cleaved precursor pro-caspase-3,
 we computed the {\sf Casp3\_{}data} series as $100\% - [\mbox{\sf pro-Casp3}]$.}\label{fig:small-model}
 \end{figure}

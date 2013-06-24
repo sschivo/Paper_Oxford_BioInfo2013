@@ -1,26 +1,26 @@
 In research projects, the ultimate aim is to solve a problem or get
 the answer to a scientific question. An in-depth understanding of
 the biological system is often an important step towards this goal.
-In this process, the role of modeling is not to produce a model, but
+In this process, the role of modelling is not to produce a model, but
 to assist in gaining more insight in the system. We developed a new
-modeling approach and show here how ANIMO allows effective use of
+modelling approach and show here how ANIMO allows effective use of
 this approach in the intuitive construction of formal models.
 
 The novelty of ANIMO is not limited to providing an interface
-for a modeling formalism: that is already successfully done in many other tools.
-ANIMO is made to make modeling easier for the biology experts
+for a modelling formalism: that is already successfully done in many other tools.
+ANIMO is made to make modelling easier for the biology experts
 without requiring them to acquire additional training. This
 is done by providing a visual interface that represents a network
 similarly to the networks normally found in biology books.
 Moreover, the lack of precise knowledge on biochemical parameters
-is tackled by modeling reactions in a less detailed way,
+is tackled by modelling reactions in a less detailed way,
 while keeping enough precision to provide useful feedback on the
-evolutions of a modeled network.
+evolutions of a modelled network.
 In Supplementary Section~\ref{suppl:comparison-table} we show a
-comparison between ANIMO and other tools for modeling biological networks.
+comparison between ANIMO and other tools for modelling biological networks.
 
 In Section~\ref{sec:animo-drosophila}, we described the construction of an ANIMO
-model with a behavior similar to an ODE model that had been
+model with a behaviour similar to an ODE model that had been
 published previously~\citep{drosophila-ode-model}. The biggest
 difference between the construction of these models is that the latter
 is constructed by writing a system of mathematical equations, together
@@ -28,33 +28,33 @@ with an algorithm for simulation. Drawing a number of network
 nodes for the molecules involved and linking these nodes with directed
 cause-and-effect relationships is a more intuitive way of model
 construction. A single parameter then defines the strength of each
-interaction. Further contributing to an interactive modeling process
+interaction. Further contributing to an interactive modelling process
 is the compositionality of the model. Each node in the network
 can be disabled at any time by the user, or extra nodes can be added,
 without having to change any of the existing interactions.
 
 In Section~\ref{subsec:case-study-larger}, we showed the construction of an executable model
-of signaling events downstream of
+of signalling events downstream of
 TNF$\alpha$ and EGF in human colon carcinoma cells. The same data set has been used for
-previous modeling studies, based on partial least-squares regression and fuzzy logic~\citep{pathway-leastsquare,pathway-fuzzy}.
+previous modelling studies, based on partial least-squares regression and fuzzy logic~\citep{pathway-leastsquare,pathway-fuzzy}.
 The partial least-squares regression model describes an abstract data-driven model that uses statistical correlations
-to relate signal transduction events to various cellular decisions. This type of modeling is
+to relate signal transduction events to various cellular decisions. This type of modelling is
 very useful in uncovering new and unexpected relations. It is also successful in making
-predictions, but gives little direct insight in dynamic behavior. Fuzzy
-logic analysis led to a model that gave a better fit to the dynamic network behavior than
+predictions, but gives little direct insight in dynamic behaviour. Fuzzy
+logic analysis led to a model that gave a better fit to the dynamic network behaviour than
 discrete logic (Boolean) models. Inspection of the inputs to the logical gates that were used
-to model protein behavior led to the prediction of novel interactions between proteins,
+to model protein behaviour led to the prediction of novel interactions between proteins,
 showing the usefulness of this approach. For most of the proteins, such as JNK1, time was
 used as an input parameter. For example, the logical gates ``if TNF$\alpha$ is high
 \emph{AND} time is low, then JNK1 is high'' and ``if TNF$\alpha$ is high \emph{AND} time is
 high, then JNK1 is low'' were used to
-describe the dynamic behavior of JNK1. Although this leads to a useful and representative
-description of the dynamic behavior of JNK1, it gives no insight in the dynamics
+describe the dynamic behaviour of JNK1. Although this leads to a useful and representative
+description of the dynamic behaviour of JNK1, it gives no insight in the dynamics
 of activation and inactivation. Furthermore, in many cases peaks in protein activity were
 not reproduced by the fuzzy logic model.
 
 In contrast with the two approaches described above, ANIMO is aimed at the construction of
-more mechanistic models, mimicking biochemical interactions \emph{in silico}. This way of modeling
+more mechanistic models, mimicking biochemical interactions \emph{in silico}. This way of modelling
 gives a different type of insight. In the process of model construction, we extended a
 prior-knowledge network with time-dependent extracellular crosstalk that has been reported
 previously~\citep{pathway-autocrine}. We then introduced two additional layers of
@@ -68,7 +68,7 @@ provide a starting point for further investigation.
 ANIMO is leading to a new paradigm for interactive
 representation of biological networks. Networks in digital textbooks and articles can be
 displayed as animations amenable to modifications by readers. Repositories of formal
-descriptions of signaling modules could be used to put together executable signaling
+descriptions of signalling modules could be used to put together executable signalling
 networks. A more user-friendly way of interacting with dynamic network models will lead to a
 more thorough understanding of biological networks and will accelerate hypothesis-driven
 research.

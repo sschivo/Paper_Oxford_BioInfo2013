@@ -177,7 +177,7 @@ message should be shown instead of the ``{\tt unknown command}'' message. Java h
 {Go to \emph{Applications} $\rightarrow$ \emph{Utilities} $\rightarrow$ \emph{Java Preferences}.\\
 If the Java Preferences window is shown, Java is already installed, otherwise the system will prompt you to install
 it. Follow the instructions and Java will be correctly installed at the end of the procedure.}%
-{If you run Ubuntu, open the Software center, search for ``java'' and select \emph{OpenJDK Java 6 Runtime}. An
+{If you run Ubuntu, open the Software centre, search for ``java'' and select \emph{OpenJDK Java 6 Runtime}. An
 \emph{Install} button
 will appear next to the name of the package: click that button and Java will be correctly installed.\\
 If you run another distribution, use your package manager in a similar way. If you cannot find OpenJDK, there may be
@@ -257,7 +257,7 @@ UPPAAL installation directory, or where it was copied at step~\ref{step:mac-inst
 We will now present a step-by-step sequence to obtain an example model
 with ANIMO, which will allow us to illustrate the main features of the tool.
 
-\subsection{Modeling a small network}\label{sec:modeling-network-example}
+\subsection{Modelling a small network}\label{sec:modeling-network-example}
 \begin{enumerate}
 \item Run Cytoscape.
 \item If Cytoscape is already running and there are open documents, please make sure that the current work is saved before proceeding.
@@ -272,7 +272,7 @@ on empty areas of the \emph{Network} window.\\
 holding the {\tt Ctrl} key down, click with the left mouse button, then release the {\tt Ctrl} key.
 The {\tt Ctrl} key is usually located in the lower left or lower right corner of the keyboard. Apple keyboards
 may have the \maccmd\ symbol instead of {\tt Ctrl}.
-\item The \emph{Edit reactant} dialog window is opened when a new node is added,
+\item The \emph{Edit reactant} dialogue window is opened when a new node is added,
 or when you right click an existing node and then select the \emph{[ANIMO] Edit reactant\dots}
 item from the menu. Use that window to set the properties of the nodes as indicated in Table~\ref{tab:setting-nodes},
 taking the setting in Figure~\ref{fig:edit-reactant} for node A as reference. When
@@ -283,7 +283,7 @@ the properties of a node have been inserted, confirm the choice with the \emph{S
 
 \begin{table}[htbp]
 \begin{minipage}{\textwidth}
-\processtable{The settings for the nodes (signaling network components) in the example.\label{tab:setting-nodes}}
+\processtable{The settings for the nodes (signalling network components) in the example.\label{tab:setting-nodes}}
 {\begin{tabular}{llllll}%|c|c|c|c|c|c|}
 \ \\
 \hline\noalign{\vskip 2mm}
@@ -318,7 +318,7 @@ the properties of a node have been inserted, confirm the choice with the \emph{S
 in the \emph{Control Panel}, and
 add the following edges by Ctrl-clicking the source and then clicking the target: A~$\rightarrow$~B, B~$\rightarrow$~C,
 C~$\rightarrow$~B, B~$\rightarrow$~D, E~$\rightarrow$~D.
-\item The \emph{Edit reaction} dialog window is opened when you add a new edge,
+\item The \emph{Edit reaction} dialogue window is opened when you add a new edge,
 or when you right click an existing edge and then select the \emph{[ANIMO] Edit reaction\dots} item
 from the menu. Use that window to set the parameters of the edges as indicated in Table~\ref{tab:setting-edges}. The settings
 for the edge A $\rightarrow$ B should reflect the ones shown in the \emph{Edit reaction} window in Figure~\ref{fig:edit-reaction}.\\
@@ -356,10 +356,10 @@ click once the slider in the \emph{parameter} box to activate it, and then move 
 \begin{enumerate}
 \setcounter{enumi}{\value{miocounterperenumerate}}
 \item In the \emph{Control Panel} activate the \emph{ANIMO} tab by clicking its title.
-\item Click the \emph{Choose seconds/step} button. A new dialog window will appear: you can
+\item Click the \emph{Choose seconds/step} button. A new dialogue window will appear: you can
 %just click \emph{OK} to confirm that you request a time resolution of 12 seconds.
 safely choose a time resolution of 12 seconds per step and click \emph{OK}.
-\item Click the \emph{Analyze network} button.
+\item Click the \emph{Analyse network} button.
 \item After a few seconds the \emph{Results Panel} should appear on the right,
 showing a plot of the activity level of reactant D over a time course of 240 minutes.
 Figure~\ref{fig:rete-esempio} shows the resulting network and graph plot.
@@ -373,8 +373,8 @@ Figure~\ref{fig:rete-esempio} shows the resulting network and graph plot.
 \caption{The completed example, where also the feature that allows to view the activity levels
 of reactants at chosen simulation times is demonstrated: the vertical red bar in the graph on the
 right can be moved through the slider under the graph, and indicates the point in the time series
-on which the coloring of the nodes in the \emph{Network} window is based.
-The legends for colors and shapes can be found in the \emph{Legend} panel.}\label{fig:rete-esempio}
+on which the colouring of the nodes in the \emph{Network} window is based.
+The legends for colours and shapes can be found in the \emph{Legend} panel.}\label{fig:rete-esempio}
 \end{minipage}
 \end{figure}
 
@@ -411,14 +411,14 @@ a \emph{.csv} file without superposing it to the current graph, or for loading a
     After selecting this command the shape of the mouse cursor changes into a cross. The area of the plot to be
     zoomed can then be selected by dragging a rectangular selection around it (see the definition of \emph{rectangular
     selection} on page~\pageref{nota:rectangular-selection}).
-  \item \emph{Zoom extents}: bring the zoom level back to default, canceling the effects of any \emph{Zoom rectangle}
+  \item \emph{Zoom extents}: bring the zoom level back to default, cancelling the effects of any \emph{Zoom rectangle}
 command.
 \end{itemize}
 
 Whenever the result of one or more simulations is shown as a graph, it is possible to use the slider under the graph to
-move through the entire simulation, showing the activity levels of all reactants represented with different node coloring in
+move through the entire simulation, showing the activity levels of all reactants represented with different node colouring in
 the \emph{Network} window on the left. For an example, see Figure~\ref{fig:rete-esempio}: the vertical red line in the
-graph represents the time instant on which the colors of the nodes in the \emph{Network} window are based, and can
+graph represents the time instant on which the colours of the nodes in the \emph{Network} window are based, and can
 be moved with the slider over which the mouse cursor is drawn.
 
 
@@ -444,31 +444,31 @@ without releasing the left mouse button, drag the mouse cursor to where the lowe
 rectangular selection should be; then release the left mouse button. All the entities which were
 \emph{even partially} touched by the rectangle are now selected.
 
-Navigation inside the \emph{Network} window can be performed by clicking and dragging the center mouse button,
+Navigation inside the \emph{Network} window can be performed by clicking and dragging the centre mouse button,
 while zooming can be done by either rotating the mouse wheel or clicking and holding the right mouse button
 while moving the mouse in a vertical direction.
 
-Finally, note that the colors used to represent node activity can be changed using the \emph{VizMapper}
-interface provided by Cytoscape, changing the setting for \emph{Node color}, shown in Figure~\ref{fig:change-gradient}.
-To change the node colors, activate the \emph{VizMapper\texttrademark} tab in the \emph{Control Panel}, and
-find the entry named \emph{Node Color} in the \emph{Visual Mapping Browser} box. Click the arrow-shaped
-icon directly to the left of \emph{Node Color}: the current setting for the node colors should appear:
-click the colored bar to open the window shown in Figure~\ref{fig:change-gradient}.
-The \emph{activityRatio} on which the node coloring is based is the ratio between the current activity level
+Finally, note that the colours used to represent node activity can be changed using the \emph{VizMapper}
+interface provided by Cytoscape, changing the setting for \emph{Node colour}, shown in Figure~\ref{fig:change-gradient}.
+To change the node colours, activate the \emph{VizMapper\texttrademark} tab in the \emph{Control Panel}, and
+find the entry named \emph{Node Colour} in the \emph{Visual Mapping Browser} box. Click the arrow-shaped
+icon directly to the left of \emph{Node Colour}: the current setting for the node colours should appear:
+click the coloured bar to open the window shown in Figure~\ref{fig:change-gradient}.
+The \emph{activityRatio} on which the node colouring is based is the ratio between the current activity level
 of a node and its number of activity levels.
-The colored arrows pointing downward on the upper border of the colored rectangle can be dragged along the length of the $[0, 1]$
-interval, thus changing the point at which a particular color appears. New arrows can be added with the \emph{Add} button, while
-clicking an arrow and pressing the \emph{Delete} button will remove one. To change the color of a point in the interval,
-double click the corresponding arrow, and a new window will open, allowing you to choose a new color: clicking \emph{OK} will
-accept the new color. The modifications made in the \emph{Gradient Editor for Node Color} window should be automatically reflected in
-the model: when the gradient is as wanted, simply close the window. If the node colors seem not to have been updated, please move the
+The coloured arrows pointing downward on the upper border of the coloured rectangle can be dragged along the length of the $[0, 1]$
+interval, thus changing the point at which a particular colour appears. New arrows can be added with the \emph{Add} button, while
+clicking an arrow and pressing the \emph{Delete} button will remove one. To change the colour of a point in the interval,
+double click the corresponding arrow, and a new window will open, allowing you to choose a new colour: clicking \emph{OK} will
+accept the new colour. The modifications made in the \emph{Gradient Editor for Node Colour} window should be automatically reflected in
+the model: when the gradient is as wanted, simply close the window. If the node colours seem not to have been updated, please move the
 slider under an existing graph in the \emph{Results Panel}.
 
 \begin{figure}[!tpb]
 \begin{minipage}{\textwidth}
 \centering
   \includegraphics[width=.6\textwidth]{images/editing-gradient2}
-  \caption{Changing the colors used to represent node activity in an ANIMO model.}\label{fig:change-gradient}
+  \caption{Changing the colours used to represent node activity in an ANIMO model.}\label{fig:change-gradient}
 \end{minipage}
 \end{figure}
 
@@ -476,7 +476,7 @@ slider under an existing graph in the \emph{Results Panel}.
 \subsubsection{ANIMO features}
 Nodes and edges (and groups of nodes/edges highlighted via a rectangular selection)
 can be disabled by choosing \emph{[ANIMO] Enable/disable} from
-the right-click menu: they will be represented with less saturated colors and can be re-enabled by performing
+the right-click menu: they will be represented with less saturated colours and can be re-enabled by performing
 the same action. Moreover, a node can be enabled/disabled directly in its properties window, where it is
 also possible to add/remove the node from the list of series appearing in the graph resulting from a simulation
 of the network by selecting \emph{Plotted} or \emph{Hidden} (see also Figure~\ref{fig:edit-reactant}):
@@ -486,8 +486,8 @@ but only nodes marked as \emph{Plotted} will appear in a graph.
 
 Each plot in an \emph{ANIMO Results} tab contains by default a legend, which can be used to modify which series are
 displayed and how they are displayed. Clicking with the central mouse button on a series name will hide it from the
-graph, while the same center-click the colored line beside the series name will change the color of that series,
-cycling through a predefined set of available colors. The entire legend can be hidden by clicking with the
+graph, while the same centre-click the coloured line beside the series name will change the colour of that series,
+cycling through a predefined set of available colours. The entire legend can be hidden by clicking with the
 central mouse button anywhere on the graph (not inside the legend), or it can be dragged around by clicking and holding the left
 mouse button, releasing it when the preferred position is reached. Rotating the mouse wheel will allow the thickness of all
 the graph lines, and the size of the text, to grow or decrease: this feature can be useful when the window containing
@@ -513,14 +513,14 @@ with the associated error values.
 
 \subsubsection{Parameter settings}
 The application of some basic strategies when setting the parameters for a network allows
-the less experienced users to considerably shorten the modeling time.
+the less experienced users to considerably shorten the modelling time.
 First of all, it is important to proceed in a \emph{top-to-bottom} order, trying to match
 a component to the corresponding data before inserting the components downstream thereof.
 Second, when choosing the kinetic parameter for a reaction, we advise to first use the qualitative settings (very slow, slow, medium, fast, very fast):
 this allows to define the relative speeds of the reactions as soon as possible,
 leaving the more precise parameter setting procedure as a follow-up step. Finally, as can be seen from
 the parameter settings of Section~\ref{sec:modeling-network-example}, in order to obtain a peak
-behavior it is particularly important that
+behaviour it is particularly important that
 a negative feedback is present (as an example, see the reactions involving B and C in Tab.~\ref{tab:setting-edges}),
 and that the inactivating reaction in the loop is faster than the ones activating the target node.
 
@@ -540,7 +540,7 @@ plug-ins via the menu command \emph{Plugins} $\rightarrow$ \emph{Update Plugins}
 during which Cytoscape will contact all the providers of the installed plug-ins,
 the system should report the list of updatable plug-ins.\\
 \emph{Note}: a window with the message \emph{Attempting to connect to XYZ\dots} may appear and disappear multiple times:
-it is the normal behavior.
+it is the normal behaviour.
 
 If an updated version of ANIMO is available, it will appear
 under the category \emph{Updatable Plugins} $\rightarrow$
@@ -554,52 +554,6 @@ updates available for currently installed plug-ins.} will be shown.
 
 
 
-\clearpage
-\section{Additional notes}
-
-\subsection{Simulating the day-night cycle}\label{suppl:repressilator}
-The model presented in Figure~\ref{subfig:drosophila-model} contains a node
-labelled {\sf Day/Night}. That node abstracts our representation
-of the cyclic alternance of day and night, which causes the variations
-in cryptochrome ({\sf cry}): these oscillations allow the network
-to synchronize to a time zone. Note that the network oscillates
-also when the node {\sf cry} is not included in the model.
-
-The alternance between day and night is represented in our model with a
-repressilator-like~\citep{repressilator} subnetwork, as can be seen in Figure~\ref{fig:repressilator}.
-In the model by~\cite{drosophila-ode-model} a specific function
-was introduced in the equations to approximate the experimental data from~\cite{drosophila-cry-data}.
-
-\def\reprGraph{\includegraphics[scale=0.15]{images/drosophila_model_repressilator}}
-\newlength\reprGraphHeight
-\setlength\reprGraphHeight{\heightof{\reprGraph}}
-\begin{figure}[!htb]
-\begin{minipage}{\textwidth}
-  \centering
-  \subfloat[\label{subfig:repressilator-model}]{\begin{minipage}[c][\reprGraphHeight]{0.35\textwidth}\begin{center}\reprGraph\end{center}\end{minipage}}\qquad
-  \subfloat[\label{subfig:repressilator-graph}]{\begin{minipage}[c][\reprGraphHeight]{0.6\textwidth}\begin{center}\includegraphics[width=\textwidth]{images/CRY_oscillations}\end{center}\end{minipage}}
-\caption{{\bf \protect\subref{subfig:repressilator-model}} The repressilator-like subnetwork used to represent the alternance
-between day and night that cause the oscillations in {\sf CRY} concentrations in the
-network modelled in Section~\ref{sec:animo-drosophila}.
-{\bf \protect\subref{subfig:repressilator-graph}} A graph plotting the oscillations in {\sf CRY} along
-a period of three days.}\label{fig:repressilator}
-\end{minipage}
-\end{figure}
-
-
-
-\subsection{Note on the parameters in the TNF$\alpha$-EGF model}\label{suppl:parameters-tnf-egf}
-The parameters in the model in Figure~\ref{fig:large-model-complete}
-have been set by fitting the model to the experimental data for conditions with 100 ng/ml TNF$\alpha$.
-In the model we have set the starting level of TNF$\alpha$ at 100 out of 100 for these conditions.
-This level is a dimensionless quantity that indicates the maximum activity level in the data set.
-We found that setting the initial level of TNF$\alpha$ at level 8 out of 100 gave slightly better results for the
-condition with 5 ng/ml TNF$\alpha$ than level 5 out of 100. We believe that this has to do with the fact that
-100 ng/ml is a highly supra-physiological concentration of TNF$\alpha$, that will rapidly cause activation of all
-receptors present. Fitting the model to this experimental condition may have resulted in slight deviations
-in the parameter values. Nevertheless, the modeling results illustrate that building a model with basic
-kinetic rate laws can give useful predictions over a range of concentrations. Figures~\ref{fig:large-model-graph3} and~\ref{fig:large-model-graph4}
-show the modeling results with TNF set at 8 out of 100.
 
 \clearpage
 \section{ANIMO and Timed Automata}\label{suppl-sec:animo-ta}
@@ -613,7 +567,7 @@ as a graph of reactant activity levels. This workflow is described in Figure~\re
 \begin{figure}[htb]
 \begin{minipage}{\textwidth}
   \includegraphics[width=\textwidth]{images/animo_simulation_workflow}
-\caption{The passages intercurring between the pression of the \emph{Analyze network} button
+\caption{The passages intercurring between the press of the \emph{Analyse network} button
 and the generation of an activity level graph.}\label{fig:animo-sim-workflow}
 \end{minipage}
 \end{figure}
@@ -624,14 +578,14 @@ the target of the interaction it represents, and adapting the timing of the next
 the user-defined dynamics. Synchronizations between different automata occur when the activity level of a network component (e.g. ERK)
 changes: this allows the automata depending on that component to update their time settings.
 
-The abstract behavior of the interaction $\mbox{MEK} \rightarrow \mbox{ERK}$ in the \tas\ model used in ANIMO is described in Figure~\ref{fig:ta-diagram}.
+The abstract behaviour of the interaction $\mbox{MEK} \rightarrow \mbox{ERK}$ in the \tas\ model used in ANIMO is described in Figure~\ref{fig:ta-diagram}.
 There, the activity levels of MEK and ERK are represented by variables called, respectively, $\mbox{MEK}_{\mbox{\scriptsize activity}}$
 and $\mbox{ERK}_{\mbox{\scriptsize activity}}$. A more detailed description of the \tas\ model underlying ANIMO has been presented
 at the IEEE conference BIBE 2012~\citep{animo-bibe}.
 
-\tikzstyle{decision} = [rectangle, draw, fill=yellow!20, text width=.45\textwidth, text badly centered]
+\tikzstyle{decision} = [rectangle, draw, fill=yellow!20, text width=.45\textwidth, text badly centred]
 \tikzstyle{block} = [rectangle, draw, fill=blue!20,
-    text width=.45\textwidth, text centered, rounded corners, minimum height=4em]
+    text width=.45\textwidth, text centred, rounded corners, minimum height=4em]
 \tikzstyle{line} = [draw, thick, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=blue!20, minimum height=2em]
 \def\svgwidth{.8\textwidth}
@@ -722,7 +676,7 @@ activity}}$\\
     \path [line] (increase) -- (inform);
     \path [line] (inform.east) -| +(1, 4) |- (reset.east);
 \end{tikzpicture}
-\caption{Schematic overview of the steps taken during a simulation run by a Timed Automaton modeling an interaction $R$ that
+\caption{Schematic overview of the steps taken during a simulation run by a Timed Automaton modelling an interaction $R$ that
 increases $\mbox{ERK}_{\mbox{\scriptsize activity}}$ and depends only on $\mbox{MEK}_{\mbox{\scriptsize activity}}$.
 In this example, MEK has 10 activity levels.\\
 After resetting the internal clock {\sf t}, the automaton sets the time constraints for the interaction.
@@ -760,25 +714,74 @@ number of levels of a node. This allows to adapt a model to the quality of exper
 
 
 
-\section{Comparison between ANIMO and other modeling tools}\label{suppl:comparison-table}
+\clearpage
+\section{Additional notes}
+
+\subsection{Simulating the day-night cycle}\label{suppl:repressilator}
+The model presented in Figure~\ref{subfig:drosophila-model} contains a node
+labelled {\sf Day/Night}. That node abstracts our representation
+of the cyclic alternation of day and night, which causes the variations
+in cryptochrome ({\sf cry}): these oscillations allow the network
+to synchronize to a time zone. Note that the network oscillates
+also when the node {\sf cry} is not included in the model.
+
+The alternation between day and night is represented in our model with a
+repressilator-like~\citep{repressilator} subnetwork, as can be seen in Figure~\ref{fig:repressilator}.
+In the model by~\cite{drosophila-ode-model} a specific function
+was introduced in the equations to approximate the experimental data from~\cite{drosophila-cry-data}.
+
+\def\reprGraph{\includegraphics[scale=0.15]{images/drosophila_model_repressilator}}
+\newlength\reprGraphHeight
+\setlength\reprGraphHeight{\heightof{\reprGraph}}
+\begin{figure}[!htb]
+\begin{minipage}{\textwidth}
+  \centering
+  \subfloat[\label{subfig:repressilator-model}]{\begin{minipage}[c][\reprGraphHeight]{0.35\textwidth}\begin{center}\reprGraph\end{center}\end{minipage}}\qquad
+  \subfloat[\label{subfig:repressilator-graph}]{\begin{minipage}[c][\reprGraphHeight]{0.6\textwidth}\begin{center}\includegraphics[width=\textwidth]{images/CRY_oscillations}\end{center}\end{minipage}}
+\caption{{\bf \protect\subref{subfig:repressilator-model}} The repressilator-like subnetwork used to represent the alternation
+between day and night that cause the oscillations in {\sf CRY} concentrations in the
+network modelled in Section~\ref{sec:animo-drosophila}.
+{\bf \protect\subref{subfig:repressilator-graph}} A graph plotting the oscillations in {\sf CRY} along
+a period of three days.}\label{fig:repressilator}
+\end{minipage}
+\end{figure}
+
+
+
+\subsection{Note on the parameters in the TNF$\alpha$-EGF model}\label{suppl:parameters-tnf-egf}
+The parameters in the model in Figure~\ref{fig:large-model-complete}
+have been set by fitting the model to the experimental data for conditions with 100 ng/ml TNF$\alpha$.
+In the model we have set the starting level of TNF$\alpha$ at 100 out of 100 for these conditions.
+This level is a dimensionless quantity that indicates the maximum activity level in the data set.
+We found that setting the initial level of TNF$\alpha$ at level 8 out of 100 gave slightly better results for the
+condition with 5 ng/ml TNF$\alpha$ than level 5 out of 100. We believe that this has to do with the fact that
+100 ng/ml is a highly supra-physiological concentration of TNF$\alpha$, that will rapidly cause activation of all
+receptors present. Fitting the model to this experimental condition may have resulted in slight deviations
+in the parameter values. Nevertheless, the modelling results illustrate that building a model with basic
+kinetic rate laws can give useful predictions over a range of concentrations. Figures~\ref{fig:large-model-graph3} and~\ref{fig:large-model-graph4}
+show the modelling results with TNF set at 8 out of 100.
+
+
+\clearpage
+\section{Comparison between ANIMO and other modelling tools}\label{suppl:comparison-table}
 Different formalisms are in use in the field of computational
-modeling of biological systems, each with their specific characteristics.
+modelling of biological systems, each with their specific characteristics.
 Many of these formalisms have been implemented into
 software tools to support modelling efforts. In order to compare
 ANIMO with existing tools, we have selected a number of mathematical formalisms,
-each connected to a supporting tool. With an emphasis on the modeling
+each connected to a supporting tool. With an emphasis on the modelling
 process rather than the final model, we compared these tools on
 the basis of the following parameters:
 
 \begin{enumerate}
   \item {\bf Hidden formalism:} a knowledge of the underlying formalism is not required in order to use the tool
-  \item {\bf Visual modeling:} the tool allows the user to model using a visual interface, and is not exclusively
+  \item {\bf Visual modelling:} the tool allows the user to model using a visual interface, and is not exclusively
       founded on formula-, text- or table-based input forms
   \item {\bf Qualitative parameters:} parameters for reactions can be input as approximated estimations, and not exclusively as numbers
   \item {\bf Tight coupling with topology:} models are tightly and clearly coupled to the networks they represent, showing the visual
       representation of the model in a shape similar or comparable to the representation currently used by biologists
-      for signaling pathways
-  \item {\bf User-chosen granularity:} if discretization is applied during the modeling process, the user can change the granularity
+      for signalling pathways
+  \item {\bf User-chosen granularity:} if discretization is applied during the modelling process, the user can change the granularity
       with which such discretization is made, possibly for each component of the model separately
 \end{enumerate}
 Table~\ref{tab:tool-comparison} shows the comparison between ANIMO and the selected tools.
@@ -788,12 +791,12 @@ Table~\ref{tab:tool-comparison} shows the comparison between ANIMO and the selec
 \savenotes
 \begin{table}[!hbt]
 \begin{minipage}{\textwidth}
-\processtable{Comparison between ANIMO and some existing approaches to modeling biological systems.
-A ``Yes'' under a column indicates that the modeling tool (mostly) fulfills the parameter, ``No'' indicates very limited or no fulfillment.
+\processtable{Comparison between ANIMO and some existing approaches to modelling biological systems.
+A ``Yes'' under a column indicates that the modelling tool (mostly) fulfils the parameter, ``No'' indicates very limited or no fulfilment.
 \label{tab:tool-comparison}}
 {\begin{tabular}{p{4cm}p{1.8cm}p{1.8cm}p{1.5cm}p{1.8cm}p{1.8cm}p{2cm}}
 \toprule
-{\bfseries Tool} & {\bfseries Formalism} & {\bfseries Hidden formalism} & {\bfseries Visual modeling} & {\bfseries Qualitative parameters} & {\bfseries Tight coupling with topology} & {\bfseries User-chosen granularity}  \\[5mm]
+{\bfseries Tool} & {\bfseries Formalism} & {\bfseries Hidden formalism} & {\bfseries Visual modelling} & {\bfseries Qualitative parameters} & {\bfseries Tight coupling with topology} & {\bfseries User-chosen granularity}  \\[5mm]
 \midrule
 \noalign{\vskip 2mm} ANIMO~\citep{animo-bibe} & Timed \ \ \ Automata & Yes & Yes & Yes & Yes & Yes
       \\[5mm]
@@ -844,8 +847,8 @@ $^5$ Statecharts represent more closely the so-called
 \begin{minipage}{\textwidth}
 \centering
   \includegraphics[width=.7\textwidth]{images/large_network_tnfa2}
-\caption{The model for the TNF$\alpha$ pathway in isolation. Node colors represent the activity level of the
-corresponding modeled reactants at time $t = 10$ minutes after a stimulation of 100 ng/ml TNF$\alpha$.}\label{fig:large-model-tnf}
+\caption{The model for the TNF$\alpha$ pathway in isolation. Node colours represent the activity level of the
+corresponding modelled reactants at time $t = 10$ minutes after a stimulation of 100 ng/ml TNF$\alpha$.}\label{fig:large-model-tnf}
 \end{minipage}
 \end{figure}
 
@@ -853,8 +856,8 @@ corresponding modeled reactants at time $t = 10$ minutes after a stimulation of 
 \begin{minipage}{\textwidth}
 \centering
   \includegraphics[width=.7\textwidth]{images/large_network_egf3}
-\caption{The model for the EGF pathway in isolation. Node colors represent the
-activity level of the corresponding modeled reactants at time $t = 5$ minutes after
+\caption{The model for the EGF pathway in isolation. Node colours represent the
+activity level of the corresponding modelled reactants at time $t = 5$ minutes after
 a stimulation of 100 ng/ml EGF.}\label{fig:large-model-egf}
 \end{minipage}
 \end{figure}
@@ -865,8 +868,8 @@ a stimulation of 100 ng/ml EGF.}\label{fig:large-model-egf}
 \centering
   \includegraphics[width=\textwidth]{images/large_network_tnf_egf_merged_no_hyp_bis2}
 \caption{The model for the merged TNF$\alpha$ and EGF pathways before
-adding the hypotheses in Figure~\ref{fig:large-model-hypotheses}. Node colors represent the
-activity level of the corresponding modeled reactants at time $t = 15$ minutes after
+adding the hypotheses in Figure~\ref{fig:large-model-hypotheses}. Node colours represent the
+activity level of the corresponding modelled reactants at time $t = 15$ minutes after
 a stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.}\label{fig:large-model-tnf-egf-merged}
 \end{minipage}
 \end{figure}
