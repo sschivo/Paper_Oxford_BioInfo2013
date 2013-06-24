@@ -9,27 +9,18 @@ As a solution to this problem, we propose the construction of models at a higher
 thereby reducing the number of parameters involved. In choosing a suitable abstraction level, it is important to 
 retain enough descriptive power to be an asset in the study of biological networks.
 
-
-In our models, each network component is visually represented by a single node, in a way similar to traditional
-signalling network representations.
+As a first abstraction in ANIMO models, the active and inactive forms of each network component 
+are represented together by a single node in the network.
 Each of these nodes is characterized by its \emph{activity level}, which
-is a discrete representation of the percentage of \emph{active} molecules of that species. Activity levels are discretized
-into integer variables with a user-defined granularity, ranging from Boolean (2 levels) to near-continuous (100 levels).
-This discretization gives the user the flexibility to adjust the model to the level of prior knowledge,
-to the quality and nature of experimental data and to the biological questions at hand. Moreover, if a model
-becomes particularly large, the availability of different discretization choices gives the user
-the possibility to trade-off level of detail for computational performance. As the activity level is the
-defining feature of each node of our networks, and the changes in such activities define the
-dynamic behaviour of the network, we call our models \emph{activity-based}.
+is a representation of the fraction of active molecules of that species. Activity levels are 
+discretized into integer variables with a user-defined granularity, ranging from Boolean (2 levels) to 
+near-continuous (100 levels).
 
-Reactions are abstracted by \emph{interactions} intended as cause-and-effect relations. Thus,
-similarly to what happens in traditional pathway representations, arrows in
-our models represent either activation ($\rightarrow$) or inhibition ($\dashv$\,) relations.
-Such symbols do not represent biochemical reactions, but more abstract activating/inhibiting interactions.
-The effect of such interactions is (respectively)
-to raise or lower the activity level of the downstream node by one discrete step for each occurrence of
-the interaction. In our abstraction, elementary reactions are aggregated into single interaction steps,
-reducing the number of kinetic parameters involved, while preserving cause-and-effect relationships.
+Detailed biochemical reaction mechanisms are abstracted to \emph{interactions}. These interactions preserve 
+cause-and-effect relationships between molecules and can represent either activations ($\rightarrow$) 
+or inhibitions ($\dashv$\,). Each occurrence of the interaction raises or lowers the activity level 
+of the downstream node by one discrete step, respectively. This aggregation of elementary reactions 
+into single interaction steps, reducesing the number of kinetic parameters involved, while preserving cause-and-effect relationships.
 For example, consider a reaction in which enzyme $E$ activates substrate kinase $S$, transferring
 a phosphate group from a molecule of ATP to a molecule of $S$. In biochemical
 terms, the reaction can be represented as
