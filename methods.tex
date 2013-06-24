@@ -1,25 +1,19 @@
-
 \subsection{Modelling abstractions}\label{subsec:abstractions}
-The values of the kinetic parameters for specific reactions are often unknown and
-difficult to collect.
-This lack of facts limits the applicability of parameter-intensive models,
-which require precise estimation of many biological quantities.
-Nevertheless, the most useful biological models contain an important quantitative part, which in turn pushes for some
-level of parameter precision.
-Therefore, when choosing an abstraction level we do not only need to keep a balance between model comprehensiveness and synthesis,
-but also to consider the current availability of knowledge and data. In order to provide an intuitive modelling
-experience while retaining enough descriptiveness for a meaningful representation of the biological system, we base
-our models of signalling networks on a series of abstractions.
-%Our objective is to avoid relying too heavily on (often unavailable) quantitative measurements,
-%while retaining enough descriptive power to be an asset in the study of biological networks.
+
+In molecular networks in the cell, cascades of chemical and physical interactions enable propagation of 
+signals through the network. In this process, the activity of upstream molecules induces a change in the 
+concentration or activity of downstream molecules. For many reactions, the values of the kinetic parameters 
+are unknown or difficult to collect. This lack of knowledge hampers the feasibility 
+of computational models that describe molecular networks in fine mechanistic detail, especially for larger networks.
+As a solution to this problem, we propose the construction of models at a higher level of abstraction, 
+thereby reducing the number of parameters involved. In choosing a suitable abstraction level, it is important to 
+retain enough descriptive power to be an asset in the study of biological networks.
+
 
 In our models, each network component is visually represented by a single node, in a way similar to traditional
 signalling network representations.
 Each of these nodes is characterized by its \emph{activity level}, which
-is a discrete representation of the percentage of \emph{active} molecules of that species. In signalling networks,
-a molecule is usually considered active when it has undergone a modification (e.g. phosphorylation) that
-allows it to perform a reaction. If a kinase is active, it can phosphorylate another molecule, activating it
-in turn, thus letting an hypothetical signal travel on its next step along the network. Activity levels are discretized
+is a discrete representation of the percentage of \emph{active} molecules of that species. Activity levels are discretized
 into integer variables with a user-defined granularity, ranging from Boolean (2 levels) to near-continuous (100 levels).
 This discretization gives the user the flexibility to adjust the model to the level of prior knowledge,
 to the quality and nature of experimental data and to the biological questions at hand. Moreover, if a model
