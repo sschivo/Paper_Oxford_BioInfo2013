@@ -710,7 +710,7 @@ activity}}$}}}%
     };
     \node [block, below of=choose] (increase) {Increase $\mbox{ERK}_{\mbox{\scriptsize activity}}$
 by $+1$ level};
-    \node [block, below of=increase] (inform) {Inform reactions depending on $\mbox{ERK}_{\mbox{\scriptsize
+    \node [block, below of=increase] (inform) {Inform interactions depending on $\mbox{ERK}_{\mbox{\scriptsize
 activity}}$\\
     of the change};
     % Draw edges
@@ -732,7 +732,7 @@ for the interaction timing.
 Once the bounds have been identified, %the internal clock {\sf t} begins counting.
 $R$ can occur when {\sf t} reaches a value
 inside the continuous time interval~$[\,\usebox{\mysquareLow}, \usebox{\mysquareHigh}\,]$. When it occurs, $R$ increases the value of
-$\mbox{ERK}_{\mbox{\scriptsize activity}}$ by $1$. All reactions that depend on
+$\mbox{ERK}_{\mbox{\scriptsize activity}}$ by $1$. All interactions that depend on
 $\mbox{ERK}_{\mbox{\scriptsize activity}}$ are notified of the change (via a synchronization on a specific channel),
 so that the associated time bounds are updated accordingly.
 After resetting the clock {\sf t}, the process can restart.
