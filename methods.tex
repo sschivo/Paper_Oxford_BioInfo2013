@@ -7,49 +7,50 @@ are unknown or difficult to collect. This lack of knowledge hampers the feasibil
 of computational models that describe molecular networks in fine mechanistic detail, especially for larger networks.
 As a solution to this problem, we propose the construction of models at a higher level of abstraction, 
 thereby reducing the number of parameters involved. In choosing a suitable abstraction level, it is important to 
-retain enough descriptive power to be an asset in the study of biological networks.
+retain enough descriptive power to give a meaningful formal description of the topology and the 
+associated dynamic behavior of biological networks.
 
 As a first abstraction in ANIMO models, the active and inactive forms of each network component 
 are represented together by a single node in the network.
 Each of these nodes is characterized by its \emph{activity level}, which
-is a representation of the fraction of active molecules of that species. Activity levels are 
-discretized into integer variables with a user-defined granularity, ranging from Boolean (2 levels) to 
-near-continuous (100 levels).
+represents the fraction of active molecules of that molecular species. When a molecule is known to be 
+constitutively active, changes in concentrations of that molecule are treated as changes in its activity level.
+Activity levels are discretized into integer variables with a user-defined granularity, ranging from 
+Boolean (2 levels) to near-continuous (100 levels).
 
-Detailed biochemical reaction mechanisms are abstracted to \emph{interactions}. These interactions preserve 
-cause-and-effect relationships between molecules and can represent either activations ($\rightarrow$) 
-or inhibitions ($\dashv$\,). Each occurrence of the interaction raises or lowers the activity level 
-of the downstream node by one discrete step, respectively. This aggregation of elementary reactions 
-into single interaction steps, reducesing the number of kinetic parameters involved, while preserving cause-and-effect relationships.
-For example, consider a reaction in which enzyme $E$ activates substrate kinase $S$, transferring
-a phosphate group from a molecule of ATP to a molecule of $S$. In biochemical
-terms, the reaction can be represented as
+Detailed biochemical reaction mechanisms are abstracted to \emph{interactions}, which can 
+represent either activations ($\rightarrow$) or inhibitions ($\dashv$\,). 
+This aggregation of elementary reactions into single interaction steps reduces the number of kinetic 
+parameters involved, while preserving cause-and-effect relationships.
+For example, consider a reaction in which enzyme $E$ phosphorylates and activates substrate $S$, 
+transferring a phosphate group from a molecule of ATP to a molecule of $S$. Biochemically, this reaction 
+can be represented as
 $$
 \mbox{\it E} + \mbox{\it S} + \mbox{\it ATP} \rightleftarrows \mbox{\it ES} + \mbox{\it ATP} \rightarrow \mbox{\it ES}^{\mbox{\scriptsize \it P}} + \mbox{\it ADP} \rightleftarrows \mbox{\it E} + \mbox{\it S}^{\mbox{\scriptsize\it P}} + \mbox{\it ADP},
 $$
 with conservation condition $\mbox{\it S}_{\mbox{\scriptsize\it tot}} = \mbox{\it S} + \mbox{\it S}^{\mbox{\scriptsize\it P}}$.\\
-The same reaction is abstracted in our model by the corresponding interaction
+In an ANIMO model this reaction is abstracted to the corresponding interaction
 $$
 \mbox{\it E} \rightarrow \mbox{\it S}.
 $$
-Each occurrence of the interaction $E \rightarrow S$ will increase the activity level of $S$ by one discrete step.
-The rate $R$ of occurrence of an interaction is defined by the user, who chooses a simplified interaction scenario
-and a scale factor $k$.
-The three available scenarios are based on abstract kinetic formulae:
+Each occurrence of the interaction $E \rightarrow S$ will increase the activity level of $S$ by one discrete step. 
+Since the activity level is defined as the active fraction of a molecular species, an increase in the active fraction
+automatically implies a decrease in the inactive fraction. Hence, the original conservation condition is always 
+satisfied.
+The interaction rate $R$, depends on the activity levels of the reactants involved and on a single kinetic
+parameter $k$ that is set by the user. 
+The three available interaction scenarios can be interpreted as abstracted kinetic rate laws:
 \begin{enumerate}
-  \item $R = k \times [E]$: the rate of occurrence depends only on the activity level of the upstream node
-  \item $R = k \times [E] \times [\mbox{\it S}_{\mbox{\scriptsize\it tot}} - S^{\mbox{\scriptsize\it P}}]$: the rate depends on the activity levels of both participants
-(note the dependence on the concentration of inactive substrate)
-  \item $R = k \times [E_1] \times [E_2]$: the rate depends on the activity levels of two user-selected reactants.
-This formula can be used to represent the so-called
-\emph{AND gate} kinetics, i.e. the case when the activity of a downstream node depends on the
-simultaneous presence of two upstream nodes.
+  \item $R = k \times [E]$: the interaction rate depends only on the activity level of the upstream node.
+  \item $R = k \times [E] \times [1 - S]$: the rate depends on the activity levels of both participants. This formula
+  gives the rate for an activating interaction, which depends on the presence of inactive substrate, 
+  $[1 -S]$. Instead, inhibitionsdepend on the level of active substrate, $[S]$.
+  \item $R = k \times [E_1] \times [E_2]$: This scenario can be used when the activition or inhibition
+  of a downstream node depends on the simultaneous activity of two upstream nodes. This scenario is comparable to an
+  \emph{AND-gate} in Boolean logic.
 \end{enumerate}
-The value of the constant $k$ can be either given numerically, or chosen among a pre-defined set of
-qualitative values, choosing from ``very slow'', ``slow'', ``normal'', ``fast'' and ``very fast''.
-
 We will show in Section~\ref{sec:results} that the abstraction proposed here preserves ample
-descriptiveness to capture experimental data in meaningful models.
+expressivity to capture the dynamic behavior of a biological network. 
 
 
 \subsection{Modelling interactions with Timed Automata}\label{subsec:timed-automata}
