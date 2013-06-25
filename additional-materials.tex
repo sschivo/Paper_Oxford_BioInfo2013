@@ -554,21 +554,41 @@ updates available for currently installed plug-ins.} will be shown.
 \section{Naming conventions}\label{suppl-sec:names}
 Table~\ref{suppl-tab:names} explains the abbreviations used in the paper.
 
-\begin{table}[!ht]
-%\begin{center}
-\begin{minipage}{\textwidth}
-\processtable{Explanation of the abbreviated names referring to molecular species
-in the main text.\label{suppl-tab:names}}
-{\begin{tabular}{lll}
-\hline\noalign{\vskip 2mm}
-  {\bfseries Abbreviation} & {\bfseries Full name} & {\bfseries UniProt$^1$ ID}\\[2mm]
+\begin{center}
+\begin{longtable}{lll}
+\caption{Explanation of the abbreviated names referring to molecular species
+in the main text.}\label{suppl-tab:names} \\
+%\begin{tabular}{lll}
 \hline
+\noalign{\vskip 2mm} {\bfseries Abbreviation} & {\bfseries Full name} \\[2mm]
+\hline
+\endfirsthead
+
+\multicolumn{3}{c}%
+{\scriptsize{\bfseries \tablename\ \thetable{}} \--\ continued from previous page} \\
+\hline
+\noalign{\vskip 2mm} {\bfseries Abbreviation} & {\bfseries Full name} \\[2mm]
+\hline
+\endhead
+
+\hline \multicolumn{3}{r}{{Continued on next page}} \\ %\hline
+\endfoot
+
+\hline
+\endlastfoot
+
 \noalign{\vskip 2mm}  Akt & protein kinase B & \\
 \noalign{\vskip 2mm}  AP-1 & activator protein 1 \\
 \noalign{\vskip 2mm}  Casp3 & caspase 3 & \\
 \noalign{\vskip 2mm}  Casp8 & caspase 8 & \\
 \noalign{\vskip 2mm}  c-Fos & proto-oncogeneprotein c-fos & \\
 \noalign{\vskip 2mm}  c-Jun & Jun activation domain binding protein & \\
+\noalign{\vskip 2mm}  CLK & clock & \\
+\noalign{\vskip 2mm}  CRY & cryptochrome & \\
+\noalign{\vskip 2mm}  CWO & clockwork orange & \\
+\noalign{\vskip 2mm}  CYC & cycle & \\
+\noalign{\vskip 2mm}  CYC/CLK & cycle-clock complex & \\
+\noalign{\vskip 2mm}  DBT & double-time kinase & \\
 \noalign{\vskip 2mm}  DISC1 & death-inducing signaling complex 1 & \\
 \noalign{\vskip 2mm}  DISC2 & death-inducing signaling complex 2 & \\
 \noalign{\vskip 2mm}  EGF & epidermal growth factor & \\
@@ -589,42 +609,45 @@ in the main text.\label{suppl-tab:names}}
 \noalign{\vskip 2mm}  MKK4/7 & dual specificity mitogen-activated protein kinase kinase 4/7 & \\
 \noalign{\vskip 2mm}  NF-kB & nuclear factor kappa-B & \\
 \noalign{\vskip 2mm}  p38 & mitogen-activated protein kinase p38 & \\
+\noalign{\vskip 2mm}  PDP1 & par-domain protein 1 & \\
+\noalign{\vskip 2mm}  PER & period & \\
+\noalign{\vskip 2mm}  PER/TIM-p & phosphorylated period-timeless complex & \\
 \noalign{\vskip 2mm}  RAF & Raf & \\
 \noalign{\vskip 2mm}  RAS & Ras GTPase-activating protein & \\
 \noalign{\vskip 2mm}  TGF$\alpha$ & transforming growth factor $\alpha$ & \\
 \noalign{\vskip 2mm}  TNF$\alpha$ & tumor necrosis factor-$\alpha$ & \\
 \noalign{\vskip 2mm}  TNFR & TNF receptor & \\
-\noalign{\vskip 2mm}  DBT & double-time kinase & \\
-\noalign{\vskip 2mm}  PER/TIM-p & phosphorylated period-timeless complex & \\
-\noalign{\vskip 2mm}  CYC/CLK & cycle-clock complex & \\
-\noalign{\vskip 2mm}  CYC & cycle & \\
-\noalign{\vskip 2mm}  CLK & clock & \\
-\noalign{\vskip 2mm}  PER & period & \\
 \noalign{\vskip 2mm}  TIM & timeless & \\
-\noalign{\vskip 2mm}  CWO & clockwork orange & \\
-\noalign{\vskip 2mm}  VRI & vrille & \\
-\noalign{\vskip 2mm}  PDP1 & par-domain protein 1 & \\
-\noalign{\vskip 2mm}  CRY & cryptochrome & \\
-\noalign{\vskip 2mm}  Last & Last & \\[2mm]
+\noalign{\vskip 2mm}  VRI & vrille & \\[2mm]
 \hline
-\end{tabular}}{$^1$ UniProt web page: \url{http://www.uniprot.org}}
-\end{minipage}
-%\end{center}
-\end{table}
+%\end{tabular}
+\end{longtable}
+\end{center}
 
-% TGFa = transforming growth factor a
-% EGF = epi-dermal growth factor
-% DISC1 = death-inducing signaling complex 1
-% IL-1ra = interleukin 1 receptor antagonist
-% IL-1a = interleukin 1 a
-% IL-1R = interleukin 1 receptor
-% EGFR = EGF receptor
-% DISC2 = death-inducing signaling complex2
-% MEKK1 = MAPK/ERK kinase kinase 1
-% IKK = inhibitor of nuclear factor kappa-B kinase
-% IRS1 (Y) = insulin recep-tor substrate 1 (Tyrosine 896)
-% RAS = Ras GTPase-activating protein
-% .
+
+
+
+\clearpage
+\section{Normalizing experimental data for use with ANIMO}\label{suppl-sec:normalization}
+Document S1 in the Supplemental Data of the work by~\citet{pathway-autocrine} contains
+three tables, named {\sf Replicates}, {\sf Averages} and {\sf DPLSR dataset}.
+The data we use to compare the results computed with ANIMO are based on the 
+values from the {\sf Averages} table.
+In particular, we compute activity data by performing a normalization on a $0\dots 100$ scale using this formula
+$$
+v_{\mbox{\scriptsize norm}} = \frac{v}{v_{\mbox{\scriptsize max}}} \times 100
+$$
+where $v$ is the datum to be normalized taken from the column $v$ in the {\sf Averages} table,
+$v_{\mbox{\scriptsize norm}}$ is the normalized value and
+$v_{\mbox{\scriptsize max}}$ is the maximum value over the whole column $v$ in the {\sf Replicates} table.
+For each series, we compute also the standard deviation using the triplicate measurements
+present in table {\sf Replicates}. The standard deviation is also normalized using the formula presented for the average.
+Each table produced with this process contains a subset of the columns from the {\sf Averages} table,
+and refers to one treatment condition only. A column with time references is added to the table in first position.
+Finally, a column named \emph{Number\_of\_levels} containing only the value $100$ (see the instructions
+at page~\pageref{}) is added at the rightmost position.
+The tables are all exported in .csv format to be used with ANIMO, and are included in the \emph{Model\_and\_data.zip}
+file in the additional materials of the present work.
 
 
 \clearpage
