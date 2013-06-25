@@ -60,17 +60,16 @@ expressivity to capture the dynamic behavior of a biological network.
 
 Timed Automata have been shown to be a powerful formalism to model biological processes
 ~\citep{ta-siebert,bartocci-oscillators,oded-ode-ta-discretization}. A timed automaton consists of locations
-and transitions between these locations~\ref{fig:abstraction-mek-erk} and a system of timed automata can be 
+and transitions between these locations~\ref{fig:abstraction-mek-erk}, and a system of timed automata can be 
 used to model a system of interacting molecules. At any time, each automaton is in a specific location, and together 
 these locations corresponds to a state of the biological system. Each timed automaton has a local clock 
 associated to it, allowing temporal control of transitions between locations. These transitions are used to 
 represent interactions between molecules. Fast interactions take less time than slow interactions 
-to perform each activation or inhibition step. We have previously described in detail how the 
+to perform an activation or inhibition step. We have previously described in detail how the 
 scenarios presented in Sect.~\ref{subsec:abstractions} can be used to calculate the timing of molecular 
-interactions to give a description of network dynamics (@@Ref Bibe@@). An example of a small Timed Automata model 
-illustrates the basic properties of \tas\~\ref{fig:abstraction-mek-erk}. 
+interactions to give a formal description of network dynamics (\citealt{animo-bibe}). An example of a small 
+Timed Automata model illustrates the basic properties of \tas\~\ref{fig:abstraction-mek-erk}. 
 This model describes the activation of extracellular regulated kinase (ERK) by MAPK ERK kinase (MEK).
-
 
 \def\mekTA{\includegraphics[scale=.098]{images/abstraction_ta_erk3}}
 \newlength\mekTAheight
@@ -84,25 +83,29 @@ This model describes the activation of extracellular regulated kinase (ERK) by M
 \qquad
 \subfloat[\label{subfig:erk}]{\begin{minipage}[c][\mekTAheight]{0.14\textwidth}\begin{center}\mekTA\end{center}\end{minipage}}
 \end{center}
-\caption{Parallel between an abstract activation interaction and its \tas\ model.
-{\bf \protect\subref{subfig:mek-erk}}~Classical depiction of a well-studied intracellular signal transduction interaction: protein
-MAPK-ERK kinase (MEK, active) activates downstream protein extracellular-regulated kinase (ERK, initially inactive).
-In this example, MEK activity is not regulated and ERK has three activity levels,
-completely inactive, halfway active and completely active.
-{\bf \protect\subref{subfig:mek}}~A \ta\ model of active MEK, consisting of one location (circle) and one
-transition (arrow). ${\sf t} < 20$ is termed an invariant on the location, allowing residence in this location as long as local
+\caption{Formalization of an activation interaction into a \tas\ model.
+{\bf \protect\subref{subfig:mek-erk}}~Classical depiction of a well-studied intracellular signal transduction 
+interaction: MEK activates downstream protein ERK.
+and ERK has three activity levels,
+completely inactive, 50 \% active and completely active.
+{\bf \protect\subref{subfig:mek}}~A \ta\ model of MEK, consisting of a single location (circle, active\_MEK) and 
+a single transition (arrow). In this example, MEK activity is not regulated and MEK is always active. ${\sf t} < 20$ 
+is termed an invariant on the location, allowing residence in this location as long as local
 clock time {\sf t} is smaller than $20$ units. ${\sf t} > 18$ is termed a guard on the transition, allowing the
 transition to take place when local clock {\sf t} is greater than $18$ units. Together, the invariant and guard in this
-example ensure that the transition must take place within the (continuous) time interval $18 < {\sf t} < 20$. When the
-transition takes place, the action {\sf activate\_Erk!} is performed (thus allowing the ERK automaton to reach the {\sf
-50\%\_active\_ERK} location) and the local clock coupled to this automaton is reset, ${\sf t} := 0$.
-This allows the reaction to occur another time, fully activating ERK.
+example ensure that the transition must take place within the continuous time interval $18 < {\sf t} < 20$. When the
+transition takes place, the action {\sf activate\_Erk!} is performed and the local clock is reset, ${\sf t} := 0$.
 {\bf \protect\subref{subfig:erk}}~A \ta\ model of ERK, consisting of three locations, {\sf inactive\_ERK}
-(the starting location), {\sf 50\%\_active\_ERK} and {\sf 100\%\_active\_ERK},
+(the starting location, indicated by a double circle), {\sf 50\%\_active\_ERK} and {\sf 100\%\_active\_ERK},
 and two transitions between the locations. A transition will take place when it is possible to synchronize with
 the corresponding action {\sf activate\_ERK!} in the MEK automaton.
 Each synchronization on channel {\sf activate\_ERK} represents the occurrence of the activating
-interaction between MEK and ERK, and allows ERK to eventually become completely active.}\label{fig:abstraction-mek-erk}
+interaction between MEK and ERK, and allows ERK to eventually become completely active. If this activation
+would is modeled with interaction scenario 1, $R = k \times [MEK]$, the second activation step has the same time 
+constraints as the first activation step, since the interaction rate only depends on MEK. In scenario 2, 
+$R = k \times [MEK] \times [1 - ERK]$, the time constraints are doubled after the first activation step, because only
+50 \% of inactive ERK is left. The second activation step will take twice the time of the first step.
+}\label{fig:abstraction-mek-erk}
 %\end{minipage}
 \end{figure}
 
@@ -111,31 +114,34 @@ interaction between MEK and ERK, and allows ERK to eventually become completely 
 
 
 \subsection{ANIMO}
-The modelling approach described in Section~\ref{subsec:abstractions} is implemented in the
-software tool ANIMO (Analysis of Networks with Interactive MOdelling, \citealt{animo-bibe}),
-a plug-in to the network visualization tool Cytoscape~\citep{cytoscape}. The visual interface of ANIMO
-is designed to allow the user to intuitively construct activity-based models, making the expansion
-and rewiring of a network a fast and user-friendly process (see Suppl. Video 1). An ANIMO model can
-be analysed through simulation, with the results automatically plotted as a graph.
+The modelling approach described in Section~\ref{subsec:abstractions} and Section~\ref{subsec:timed-automata}
+is implemented in the
+software tool ANIMO (Analysis of Networks with Interactive MOdelling, \citealt{animo-bibe}),as
+a plug-in to the network visualization tool Cytoscape~\citep{cytoscape}. The visual interface of Cytoscape
+makes the construction, expansion and rewiring of a network topology a fast and user-friendly process. 
+
+Each new node in the network has to be initialized with the number of activity levels and its initial activity. 
+For each interaction, a scenario needs to be selected, together with the corresponding kinetic parameter and 
+the interaction type: activation or inhibition. All settings can be readily adapted by double clicking, or via a 
+table of nodes or interactions. The ANIMO user workflow is explained in Suppl. Video 1.
+
+
+
+ANIMO automatically translates the user input to a \tas\ model, which is then simulated with the model 
+checking tool UPPAAL~\citep{uppaal}. The results are subsequently parsed and translated to a graph that shows
+the dynamic behavior of nodes in the network. 
+A schematic overview of this process is given in Supplementary Section~\ref{suppl-sec:animo-ta}.
+
 The dynamic behaviour of a model can then be interactively explored by
-acting on a slider to highlight time points in a simulation. The selected simulation
-point defines the appearance of the network: each node will be coloured depending on its activity level
-at the selected simulation instant. Moreover, experimental data can be matched against
-the predictions of a model, superposing time-based activity series to a graph produced from the model.
+moving a time slider underneath the graph to highlight time points in a simulation. In the network view,
+each node will be coloured according to its activity level at the selected time point. 
+Experimental data can be compared to the model by importing and superposing these data 
+upon an output graph from the model (Figure~\ref{fig:small-model} B,D,F).
 
-
-Each network built with ANIMO is automatically translated to
-a \tas\ model, which is then simulated with the model checking tool UPPAAL~\citep{uppaal},
-translating back the results in the proper user-friendly format
-(all parts of Figure~\ref{fig:small-model}, as well as similar figures
-in the rest of the paper, were taken from ANIMO's user interface).
-No training
-or prior knowledge on the use of \tas\ or UPPAAL is needed in order to benefit from ANIMO.
+No training or prior knowledge on the use of \tas\ or UPPAAL is needed in order to benefit from ANIMO.
 Nevertheless, the translation process can be followed in a transparent manner if
 desired by the user.
 
-The technical foundations of ANIMO have been described by us elsewhere~\citep{animo-bibe}. 
-An abstract overview on the \tas\ model can be found in Supplementary Section~\ref{suppl-sec:animo-ta}.
 
 
 \subsection{Using ANIMO to build a model based on data}\label{subsec:case-study}
@@ -188,5 +194,9 @@ negative feedback loop that down-regulates TNFR (TNF receptor). Note that adding
 {\bf (\protect\subref*{fig:small-model-fourth}, \protect\subref*{fig:small-model-fourth-graph})}~The model after addition of IKK, IL1-secretion (abstracting
 the autocrine IL-1 signalling described by~\citealp{pathway-autocrine}), Casp8 and Casp3, showing the late response to TNF$\alpha$ signalling.
 As the data set did not contain values for cleaved caspase-3, but only for its non-cleaved precursor pro-caspase-3,
-we computed the {\sf Casp3\_{}data} series as $100\% - [\mbox{\sf pro-Casp3}]$.}\label{fig:small-model}
+we computed the {\sf Casp3\_{}data} series as $100\% - [\mbox{\sf pro-Casp3}]$.
+
+image were taken from the ANIMO user interface.
+
+}\label{fig:small-model}
 \end{figure}
