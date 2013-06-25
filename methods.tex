@@ -19,7 +19,7 @@ Activity levels are discretized into integer variables with a user-defined granu
 Boolean (2 levels) to near-continuous (100 levels).
 
 Detailed biochemical reaction mechanisms are abstracted to \emph{interactions}, which can 
-represent either activations ($\rightarrow$) or inhibitions ($\dashv$\,). 
+represent either activations ($\rightarrow$) or inhibitions ($\dashv$). 
 This aggregation of elementary reactions into single interaction steps reduces the number of kinetic 
 parameters involved, while preserving cause-and-effect relationships.
 For example, consider a reaction in which enzyme $E$ phosphorylates and activates substrate $S$, 
@@ -35,16 +35,17 @@ $$
 $$
 Each occurrence of the interaction $E \rightarrow S$ will increase the activity level of $S$ by one discrete step. 
 Since the activity level is defined as the active fraction of a molecular species, an increase in the active fraction
-automatically implies a decrease in the inactive fraction. Hence, the original conservation condition is always 
+implies a decrease in the inactive fraction. Hence, the original conservation condition is automatically  
 satisfied.
-The interaction rate $R$, depends on the activity levels of the reactants involved and on a single kinetic
+The interaction rate, $R$, depends on the activity levels of the reactants involved and on a single kinetic
 parameter $k$ that is set by the user. 
 The three available interaction scenarios can be interpreted as abstracted kinetic rate laws:
 \begin{enumerate}
   \item $R = k \times [E]$: the interaction rate depends only on the activity level of the upstream node.
-  \item $R = k \times [E] \times [1 - S]$: the rate depends on the activity levels of both participants. This formula
-  gives the rate for an activating interaction, which depends on the presence of inactive substrate, 
-  $[1 -S]$. Instead, inhibitionsdepend on the level of active substrate, $[S]$.
+  \item $R = k \times [E] \times [1 - S]$ (activations) or $R = k \times [E] \times [S]$ (inhibitions): the rate 
+  depends on the activity levels of both the upstream and downstream participants. Activations depend on the 
+  presence of inactive substrate, \emph{[1 - S]}, whereas inhibitions depend on the level of active substrate,
+  \emph{[S]}.
   \item $R = k \times [E_1] \times [E_2]$: This scenario can be used when the activition or inhibition
   of a downstream node depends on the simultaneous activity of two upstream nodes. This scenario is comparable to an
   \emph{AND-gate} in Boolean logic.
@@ -57,17 +58,18 @@ expressivity to capture the dynamic behavior of a biological network.
 \def\ta{TA}
 \def\tas{TA}
 
-The formal model we propose here is based on Timed Automata~(\tas, \citealt{timed-automata-alur-dill}), which is a
-formalism developed for modelling dynamic concurrent systems in computer science where timing plays a central role.
-Being compositional in nature, \tas\ have been shown to be a suitable solution for
-modelling biological processes~\citep{ta-siebert,bartocci-oscillators,oded-ode-ta-discretization}.
-Our model is based on the abstraction presented in Sect.~\ref{subsec:abstractions}
-and uses the clock mechanism of \tas\ to represent interaction rates:
-a faster interaction will take less time than a slower interaction to perform one activation/inhibition step.
-
-Figure~\ref{fig:abstraction-mek-erk} contains a simplified \tas\ model of the activation of extracellular
-regulated kinase (ERK) by MAPK ERK kinase (MEK) that illustrates the basic properties of \tas.
-
+Timed Automata have been shown to be a powerful formalism to model biological processes
+~\citep{ta-siebert,bartocci-oscillators,oded-ode-ta-discretization}. A timed automaton consists of locations
+and transitions between these locations~\ref{fig:abstraction-mek-erk} and a system of timed automata can be 
+used to model a system of interacting molecules. At any time, each automaton is in a specific location, and together 
+these locations corresponds to a state of the biological system. Each timed automaton has a local clock 
+associated to it, allowing temporal control of transitions between locations. These transitions are used to 
+represent interactions between molecules. Fast interactions take less time than slow interactions 
+to perform each activation or inhibition step. We have previously described in detail how the 
+scenarios presented in Sect.~\ref{subsec:abstractions} can be used to calculate the timing of molecular 
+interactions to give a description of network dynamics (@@Ref Bibe@@). An example of a small Timed Automata model 
+illustrates the basic properties of \tas\~\ref{fig:abstraction-mek-erk}. 
+This model describes the activation of extracellular regulated kinase (ERK) by MAPK ERK kinase (MEK).
 
 
 \def\mekTA{\includegraphics[scale=.098]{images/abstraction_ta_erk3}}
