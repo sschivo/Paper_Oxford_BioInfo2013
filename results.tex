@@ -52,18 +52,21 @@ between the ANIMO model and the original ODE model is given in @@Supplementary m
 
 \subsection{Case study: using ANIMO to generate hypotheses}\label{subsec:case-study-larger}
 In order to validate our modeling approach,
-we construct a larger model of the signaling network downstream of TNF$\alpha$ and EGF, and formalize crosstalk between the pathways.
- We first modeled the two pathways in isolation~(Figs.~\ref{fig:large-model-tnf}, \ref{fig:large-model-egf}),
+we constructed a larger model of the signaling network downstream of TNF$\alpha$ and EGF, formalizing 
+the crosstalk that takes place between the pathways at different levels of cellular regulation.
+We first modeled the two pathways in isolation~(Figs.~\ref{fig:large-model-tnf}, \ref{fig:large-model-egf}),
 using information on protein interactions from
-the KEGG~\citep{kegg} and phosphosite~\citep{phosphosite} databases. These models were fitted to the data
-from the works by~\citet{pathway-compendium,pathway-autocrine}.
+the KEGG~\citep{kegg} and phosphosite~\citep{phosphosite} databases. These models were fitted to experimental data
+from studies by~\citet{pathway-compendium} and~\citet{pathway-autocrine}.
 We then merged the two pathways into a single model and added autocrine crosstalk between the pathways that has been
-reported previously~\citep{pathway-autocrine}.
-Briefly, stimulation with TNF$\alpha$ leads to a rapid release of TGF$\alpha$ ({\sf TGFa} in the model), which activates the EGF receptor ({\sf EGFR}).
+described by~\citet{pathway-autocrine}.
+Briefly, stimulation with TNF$\alpha$ leads to a rapid release of TGF$\alpha$ ({\sf TGFa} in the model), 
+which activates the EGF receptor ({\sf EGFR}).
 This activation causes secretion of IL-1$\alpha$ ({\sf IL-1a}) at later time points.
-The effect of IL-1$\alpha$ is down-regulated by the secretion of IL-1 receptor antagonist ({\sf IL-1ra}) downstream of TNF$\alpha$.
-The resulting model (Fig.~\ref{fig:large-model-tnf-egf-merged}) was compared to the experimental data for treatments with 100 ng/ml TNF alone
-and 100 ng/ml EGF alone (data not shown)~\citep{pathway-compendium}.
+The effect of IL-1$\alpha$ is down-regulated by the secretion of IL-1 receptor antagonist ({\sf IL-1ra}) 
+downstream of TNF$\alpha$.
+The resulting model (Fig.~\ref{fig:large-model-tnf-egf-merged}) was compared to the experimental data 
+for treatments with 100 ng/ml TNF alone and 100 ng/ml EGF alone (data not shown)~\citep{pathway-compendium}.
 
 At this point, the behavior of the model deviated from the data for some of the nodes.
 This is an interesting situation, as it requires
