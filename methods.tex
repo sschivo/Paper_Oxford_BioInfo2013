@@ -158,15 +158,17 @@ As a first step, we normalized measurements for each protein to the
 maximum value in the complete experiment. This normalization results in a nondimensionalized data set that 
 is suitable for use with ANIMO.
 
-
 In Figure~\ref{fig:small-model}, we show the stepwise construction of a model of a small part of the network that is
-able to account for measured variations in activity of inhibitor of nuclear factor kappa-B kinase (IKK), c-Jun N-terminal kinase-1 (JNK1),
-mitogen-activated protein kinase-activated protein kinase 2 (MK2), Caspase 8 (Casp8) and Caspase 3 (Casp3) upon stimulation with 100
-ng/ml TNF$\alpha$. In this example we aimed for inclusion of a minimum number of nodes in the network, while preserving biological relationships.
-Multi-step cascades were aggregated into a single step when possible. Parameters for all reactions were set manually, resulting in a close
-match between the model and the patterns observed in the dataset.
+able to account for measured variations in activity of inhibitor of nuclear factor kappa-B kinase (IKK), 
+c-Jun N-terminal kinase-1 (JNK1),
+mitogen-activated protein kinase-activated protein kinase 2 (MK2), Caspase 8 (Casp8) and Caspase 3 (Casp3) 
+upon stimulation with 100
+ng/ml TNF$\alpha$. In this example we aimed for inclusion of a minimum number of nodes in the network, 
+while preserving biological relationships.
+Multi-step cascades were aggregated into a single step when possible. Parameters for all reactions were 
+set manually, and a close match was obtained between the model and the patterns that are present in the dataset.
 
-A more comprehensive version of this model is presented in Section~\ref{subsec:case-study-larger}.
+A more comprehensive model based on the same dataset is presented in Section~\ref{subsec:case-study-larger}.
 
 \def\modelGraphScale{0.2}%0.148}%0.215}
 \def\legendGraphScale{0.23}%0.16}
@@ -189,8 +191,9 @@ useful for the piecewise refinement of the model.
 The graphs on the right show the dynamic behaviour of the corresponding models on the left, comparing it to the measured
 activity values by~\cite{pathway-compendium} (error bars represent the standard deviation).
 On the vertical axis, ``100'' represents the maximum protein activity in the complete experiment.
-A red vertical line in each graph highlights a selected time point in the time course:
-nodes in the corresponding model are coloured according to their activity at that time point.
+The red vertical line in each graph indicates a selected time point in the time course. 
+Nodes in the corresponding network representation are coloured according to their activity at that time point.
+All images in this figure are taken from the ANIMO user interface.
 {\bf (\protect\subref*{fig:small-model-first}, \protect\subref*{fig:small-model-first-graph})}~Basic model showing direct activation of JNK1 and MK2 by TNF$\alpha$.
 No peak dynamics are observed because no inactivating processes are present.
 {\bf (\protect\subref*{fig:small-model-third}, \protect\subref*{fig:small-model-third-graph})}~The model after addition of inactivating phosphatases and a
@@ -198,9 +201,5 @@ negative feedback loop that down-regulates TNFR (TNF receptor). Note that adding
 {\bf (\protect\subref*{fig:small-model-fourth}, \protect\subref*{fig:small-model-fourth-graph})}~The model after addition of IKK, IL1-secretion (abstracting
 the autocrine IL-1 signalling described by~\citealp{pathway-autocrine}), Casp8 and Casp3, showing the late response to TNF$\alpha$ signalling.
 As the data set did not contain values for cleaved caspase-3, but only for its non-cleaved precursor pro-caspase-3,
-we computed the {\sf Casp3\_{}data} series as $100\% - [\mbox{\sf pro-Casp3}]$.
-
-image were taken from the ANIMO user interface.
-
-}\label{fig:small-model}
+we computed the {\sf Casp3\_{}data} series as $100\% - [\mbox{\sf pro-Casp3}]$.}\label{fig:small-model}
 \end{figure}
