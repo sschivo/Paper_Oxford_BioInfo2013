@@ -1,16 +1,16 @@
 \subsection{Expressivity of ANIMO models}\label{sec:animo-drosophila}
-While allowing for a low degree of freedom in setting the parameters of models,
-ANIMO is still precise enough to describe the behavior of complex networks.
-The results obtained with ANIMO are comparable to the ones obtainable with other modeling
-approaches, but the modeling process in ANIMO requires considerably less expertise about the formal foundations.
-To demonstrate this, Figure~\ref{subfig:drosophila-model}
-represents an ANIMO model of the drosophila circadian clock based on the work by~\cite{drosophila-ode-model}, where ordinary
-differential equations (ODEs) were used.
-The cyclic behavior of the circadian clock is based on the alternating formation and destruction of the CYC/CLK (cycle/clock) protein complex.
-This is in turn regulated by a series of proteins which are produced as a consequence of CYC/CLK formation. The CWO (clockwork orange) protein
-is central to the network working, as it degrades the mRNA for most of the involved proteins, thus acting as an inhibitor counterbalancing
-the action of CYC/CLK.
-The positive influence of the light-regulated cryptochrome CRY on the degradation of TIM is a consequence of the passage between light and dark, allowing
+Results obtained with ANIMO are comparable to results with other modeling
+approaches. To demonstrate this, Figure~\ref{subfig:drosophila-model}
+represents an ANIMO model of the circadian clock in \emph{Drosophila Melanogaster}, based on the work 
+by~\cite{drosophila-ode-model}, where ordinary differential equations (ODEs) were used.
+The cyclic behavior of the circadian clock is based on the alternating formation and destruction of the 
+CYC/CLK (cycle/clock) protein complex.
+Concentration levels of this complex are in turn regulated by a series of proteins which are produced as 
+a consequence of CYC/CLK formation. The CWO (clockwork orange) protein
+is central to the functioning of the network, as it degrades the mRNA for most of the involved proteins. 
+As such, CWO act as an inhibitor that counterbalances the effect of CYC/CLK.
+The positive influence of the light-regulated cryptochrome CRY on the degradation of TIM is a consequence 
+of the passage between light and dark, allowing
 the circadian clock to synchronize to a time zone (see Suppl. Sect.~\ref{suppl:repressilator}).
 
 
@@ -22,26 +22,28 @@ the circadian clock to synchronize to a time zone (see Suppl. Sect.~\ref{suppl:r
 \subfloat[\label{subfig:drosophila-mrna}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph2}}\ 
 \subfloat[\label{subfig:drosophila-proteins}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph1}}
 \end{center}
-\caption{ANIMO model of the drosophila circadian clock {\bfseries \protect\subref{subfig:drosophila-model}}.
-Negative auto-loops on the nodes of the circadian clock network
-are also present in the model, following the example of the model by~\cite{drosophila-ode-model}, but are not
-represented here only for cosmetic purposes. Naming conventions follow the same rule
-as in the original model, with lower-case names representing mRNA, and upper-case names indicating proteins.\\
+\caption{ANIMO model of the circadian clock in \emph{Drosophila Melanogaster} {\bfseries \protect\subref{subfig:drosophila-model}}.
+Network topology of the ANIMO model. Autoregulatory negative feedback loops are present on each of the nodes of 
+the network, following the original model by~\cite{drosophila-ode-model}. These feedback loops ensure that 
+protein levels decrease over time, when activating inputs are absent. The feedback loops are not represented here 
+for cosmetic reasons and clarity. A table giving interaction scenarios and kinetic parameters for each of the nodes 
+is given in @@Supplementary material XX @@\\
 ANIMO plots of the concentration of
 mRNA~{\bfseries \protect\subref{subfig:drosophila-mrna}}
 and proteins~{\bfseries \protect\subref{subfig:drosophila-proteins}} over a period of 48~hours.
-Oscillations are shown here on an absolute scale, while the graphs in~\citep{drosophila-ode-model}
-are based on relative scales, where each series was normalized considering
-local minimum and maximum values.}\label{fig:drosophila}
+A more in-depth comparison with the original model is given in @@Supplementary material XX @@\\
+Naming conventions follow the same rules
+as in the original model, with lower-case names representing mRNA, and upper-case names indicating proteins.
+}\label{fig:drosophila}
 \end{figure}
 
 
-We see in Figures~\ref{subfig:drosophila-mrna} and~\ref{subfig:drosophila-proteins} that the modeling
-power of ANIMO is sufficient to reproduce the cyclic behavior of the model.
-In particular, the oscillations exhibited by the two models show the same periods and phases.
-Moreover, the ANIMO user interface allows for intuitive \emph{in silico} knock-out experiments,
-by manually disabling a node in the model. Such experiments have been done before~\citep{drosophila-ode-model} and
-give similar results in our model.
+The output of the ANIMO model in Figure~\ref{fig:drosophila} closely matches the original ODE model.
+In particular, the oscillations in both models show the same periods and phases.
+Due to the compositional nature of \tas\, ANIMO allows for intuitive \emph{in silico} knock-out experiments,
+by right-clicking a node in the model and disabling it. Such experiments have been done 
+before~\citep{drosophila-ode-model} and give similar results in our model. Details of the comparison
+between the ANIMO model and the original ODE model is given in @@Supplementary material XX @@.
 % The model we present here is to be intended only as an example of how a rapidly sketched ANIMO model can help
 % in reasoning over existing network models, and not as a complete explanation of the circadian clock network.
 % Producing a model that closely fits all experimental conditions for the studied network would be outside the scope of this paper.
