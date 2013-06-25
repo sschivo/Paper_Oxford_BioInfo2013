@@ -120,23 +120,25 @@ software tool ANIMO (Analysis of Networks with Interactive MOdelling, \citealt{a
 a plug-in to the network visualization tool Cytoscape~\citep{cytoscape}. The visual interface of Cytoscape
 makes the construction, expansion and rewiring of a network topology a fast and user-friendly process. 
 
-Each new node in the network has to be initialized with the number of activity levels and its initial activity. 
+When a new node is added to the network, it has to be initialized with the number of activity levels and 
+its initial activity. 
 For each interaction, a scenario needs to be selected, together with the corresponding kinetic parameter and 
 the interaction type: activation or inhibition. All settings can be readily adapted by double clicking, or via a 
-table of nodes or interactions. The ANIMO user workflow is explained in Suppl. Video 1.
+table of nodes or interactions. 
 
 ANIMO automatically translates the user input to a \tas\ model, which is then simulated with the model 
 checking tool UPPAAL~\citep{uppaal}. The results are subsequently parsed and translated to a graph that shows
 the dynamic behavior of nodes in the network. 
 A schematic overview of this process is given in Supplementary Section~\ref{suppl-sec:animo-ta}.
 No training or prior knowledge on the use of \tas\ or UPPAAL is needed in order to benefit from ANIMO.
-Nevertheless, the \tas\ model and the model checking process in UPPAAL are accessible when desired by the user.
+Nevertheless, the \tas\ model and the model checking process in UPPAAL can be accessed when desired by the user.
 
 The dynamic behaviour of a model can be interactively explored by
 moving a time slider underneath the graph to highlight time points in a simulation. In the network view,
 each node will be coloured according to its activity level at the selected time point. 
 Experimental data can be compared to the model by importing and superposing these data 
-upon an output graph from the model (Figure~\ref{fig:small-model} B,D,F).
+upon an output graph from the model (Figure~\ref{fig:small-model} B,D,F). The ANIMO user workflow and the 
+features described above are illustrated in Suppl. Video 1.
 
 
 
@@ -144,14 +146,17 @@ upon an output graph from the model (Figure~\ref{fig:small-model} B,D,F).
 
 
 \subsection{Using ANIMO to build a model based on data}\label{subsec:case-study}
-To illustrate the process of model building in ANIMO, we consider now an example based on a literature compendium of
-signal transduction events in HT-29 human colon carcinoma cells~\citep{pathway-compendium}. This data set comprises triplicate
+To illustrate the process of modeling with ANIMO, we show the construction of a small model based on a 
+literature compendium of signal transduction events in HT-29 human colon carcinoma cells~\citep{pathway-compendium}. 
+This data set comprises triplicate
 measurements of 11 different protein activities or post-translational modification states at 13 time points after
-treatment with different combinations of tumour necrosis factor-$\alpha$ (TNF$\alpha$), epidermal growth factor (EGF) and insulin.
-The data set contains relative protein levels and activities, and no absolute quantities, which is the typical situation in biochemistry.
+treatment with different combinations of tumour necrosis factor-$\alpha$ (TNF$\alpha$), epidermal growth factor 
+(EGF) and insulin.
+The data set contains relative protein levels and activities, which is a typical situation in biochemistry.
 
 As a first step, we normalized measurements for each protein to the
-maximum value in the complete experiment, resulting in a nondimensionalized data set that is suitable for use with ANIMO.
+maximum value in the complete experiment. This normalization results in a nondimensionalized data set that 
+is suitable for use with ANIMO.
 
 
 In Figure~\ref{fig:small-model}, we show the stepwise construction of a model of a small part of the network that is
