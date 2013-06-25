@@ -125,22 +125,21 @@ For each interaction, a scenario needs to be selected, together with the corresp
 the interaction type: activation or inhibition. All settings can be readily adapted by double clicking, or via a 
 table of nodes or interactions. The ANIMO user workflow is explained in Suppl. Video 1.
 
-
-
 ANIMO automatically translates the user input to a \tas\ model, which is then simulated with the model 
 checking tool UPPAAL~\citep{uppaal}. The results are subsequently parsed and translated to a graph that shows
 the dynamic behavior of nodes in the network. 
 A schematic overview of this process is given in Supplementary Section~\ref{suppl-sec:animo-ta}.
+No training or prior knowledge on the use of \tas\ or UPPAAL is needed in order to benefit from ANIMO.
+Nevertheless, the \tas\ model and the model checking process in UPPAAL are accessible when desired by the user.
 
-The dynamic behaviour of a model can then be interactively explored by
+The dynamic behaviour of a model can be interactively explored by
 moving a time slider underneath the graph to highlight time points in a simulation. In the network view,
 each node will be coloured according to its activity level at the selected time point. 
 Experimental data can be compared to the model by importing and superposing these data 
 upon an output graph from the model (Figure~\ref{fig:small-model} B,D,F).
 
-No training or prior knowledge on the use of \tas\ or UPPAAL is needed in order to benefit from ANIMO.
-Nevertheless, the translation process can be followed in a transparent manner if
-desired by the user.
+
+
 
 
 
