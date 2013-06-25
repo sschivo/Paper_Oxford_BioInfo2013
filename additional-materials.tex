@@ -568,7 +568,10 @@ as a graph of reactant activity levels. This workflow is described in Figure~\re
 \begin{minipage}{\textwidth}
   \includegraphics[width=\textwidth]{images/animo_simulation_workflow}
 \caption{The passages intercurring between the press of the \emph{Analyse network} button
-and the generation of an activity level graph.}\label{fig:animo-sim-workflow}
+and the generation of an activity level graph.
+A simulation produces, for each selected node, a series of pairs {\sf ($t$, $a$)},
+with $t$ a time instant along the simulation and $a$ an activity level. These data are
+then parsed and translated into a graph.}\label{fig:animo-sim-workflow}
 \end{minipage}
 \end{figure}
 
