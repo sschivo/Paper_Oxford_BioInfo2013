@@ -394,7 +394,7 @@ The \emph{Close} button is used to close the currently displayed results tab.
 Right clicking inside the graph area will bring up a menu that allows to perform some basic operations with the graph
 and its data:
 \begin{itemize}
-  \item \emph{Add data from CSV}: superpose the graph with other data series found in a \emph{.csv} (comma separated values) file. This file type can be
+  \item \emph{Add data from CSV}: \label{csv-import-format}superpose the graph with other data series found in a \emph{.csv} (comma separated values) file. This file type can be
 obtained for example by exporting data from the default Excel format. If you want the data in the \emph{.csv} file to be rescaled so
 that its maximum Y value coincides with the maximum in the plot, the data file needs to contain a column named (exactly)
 \emph{Number\_{}of\_{}levels}, on the first row of which the maximum of the scale for the \emph{.csv} data needs to be put. For example,
@@ -645,7 +645,7 @@ present in table {\sf Replicates}. The standard deviation is also normalized usi
 Each table produced with this process contains a subset of the columns from the {\sf Averages} table,
 and refers to one treatment condition only. A column with time references is added to the table in first position.
 Finally, a column named \emph{Number\_of\_levels} containing only the value $100$ (see the instructions
-at page~\pageref{}) is added at the rightmost position.
+on page~\pageref{csv-import-format}) is added at the rightmost position.
 The tables are all exported in .csv format to be used with ANIMO, and are included in the \emph{Model\_and\_data.zip}
 file in the additional materials of the present work.
 
