@@ -964,11 +964,12 @@ a stimulation of 100 ng/ml EGF.}\label{fig:large-model-egf}
 \begin{figure}[!tpb]
 \begin{minipage}{\textwidth}
 \centering
-  \includegraphics[width=\textwidth]{images/large_network_tnf_egf_merged_no_hyp_bis2}
-\caption{The model for the merged TNF$\alpha$ and EGF pathways before
-adding the hypotheses in Figure~\ref{fig:large-model-hypotheses}. Node colours represent the
-activity level of the corresponding modelled reactants at time $t = 15$ minutes after
-a stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.}\label{fig:large-model-tnf-egf-merged}
+  \subfloat{\includegraphics[width=\textwidth]{images/large_network_hypotheses7}}\\
+\subfloat{\includegraphics[scale=\legendScalaColori]{images/legenda_forme}} \subfloat{\includegraphics[scale=\legendScalaForme]{images/legenda_colori}}
+\caption{The merged model for the TNF$\alpha$-EGF pathway in which 
+the two hypotheses are highlighted. The first hypothesis is the dependence IL-1$\alpha$ expression on the 
+combined activity of ERK and JNK1. The second hypothesis assumes an as yet unidentified protein (Hyp2) to link EGFR to MEKK1.
+Node colors represent initial activity levels.}\label{fig:large-model-tnf-egf-merged}
 \end{minipage}
 \end{figure}
 

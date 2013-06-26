@@ -81,20 +81,19 @@ adaptation of the model can be used to generate novel testable hypotheses.
 \def\scalaGrafici{0.0709}%0.13}
 \begin{figure}[!htpb]
 \centering
- \subfloat[\label{fig:large-model-hypotheses}]{\includegraphics[scale=\largeModelScale]{images/large_network_hypotheses6}}\\
-\subfloat[\label{fig:large-model-complete}]{\includegraphics[scale=\largeModelScale]{images/large_network_legendg}}
-\\
- \subfloat{\includegraphics[scale=\legendScalaColori]{images/legenda_forme}}\\ \subfloat{\includegraphics[scale=\legendScalaForme]{images/legenda_colori}}
+ \subfloat[\label{fig:large-model-no-hypotheses}]{\includegraphics[scale=\largeModelScale]{images/large_network_merged_no_hypotheses}}\\
+\subfloat{\includegraphics[scale=\legendScalaColori]{images/legenda_forme}}\\ \subfloat{\includegraphics[scale=\legendScalaForme]{images/legenda_colori}}\\
+\addtocounter{subfigure}{-2}
+\subfloat[\label{fig:large-model-graph1}]{\includegraphics[scale=\scalaGrafici]{images/TGF100_TNF0_ho_hyp_IL-1a3}}
+\subfloat[\label{fig:large-model-graph3}]{\includegraphics[scale=\scalaGrafici]{images/TNF5_C225_no_hyp_JNK1_MK2}}
 \caption{Signaling network downstream of TNF$\alpha$ and EGF in human colon carcinoma cells.
-{\bf \protect\subref{fig:large-model-hypotheses}} The merged model for the TNF$\alpha$-EGF pathway in which 
-the two hypotheses are highlighted. The first hypothesis is the dependence IL-1$\alpha$ expression on the 
-combined activity of ERK and JNK1. The second hypothesis assumes an as yet unidentified protein (Hyp2) to link EGFR to MEKK1.
-Node colors represent initial activity levels.
-{\bf \protect\subref{fig:large-model-complete}} The same model after further specification of the two hypotheses. 
-Hypothesis 1 now assumes IL-1$\alpha$ expression to depend on AP-1 activity, which in turn requires 
-both c-Jun en c-Fos to be activated by JNK1 and ERK, respectively. Hypothesis 2 now assumes RAS as an activator 
-of MEKK1. Node colors represent the activity levels $15$ minutes
-after stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.}\label{fig:large-model-all}
+{\bf \protect\subref{fig:large-model-no-hypotheses}}
+The model for the merged TNF$\alpha$ and EGF pathways. Node colours represent the
+activity level of the corresponding modelled reactants at time $t = 15$ minutes after
+a stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
+{\bf \protect\subref{fig:large-model-graph1}}~Modeled production of IL-1$\alpha$ after stimulation with 100 ng/ml TGF$\alpha$ (24 hours).
+{\bf \protect\subref{fig:large-model-graph3}}~Modeled activation of JNK1 and MK2 after stimulation with 5 ng/ml TNF$\alpha$ (2 hours).
+}\label{fig:large-model-all}
 \end{figure}
 
 
@@ -123,23 +122,24 @@ promoter of IL-1$\alpha$, providing evidence for a role in the regulation of IL-
 expression~\citep{ap1-il1a}. Based on these findings in literature we included c-Jun and
 c-Fos in our model as transcriptional activators of IL-1$\alpha$ (Fig.\ref{fig:large-model-complete}).
 
-
 \begin{figure}[!tpb]
 \begin{center}
- \subfloat[\label{fig:large-model-graph1}]{\includegraphics[scale=\scalaGrafici]{images/TGF100_TNF0_ho_hyp_IL-1a3}}
- \subfloat[\label{fig:large-model-graph2}]{\includegraphics[scale=\scalaGrafici]{images/TGF100_vs_TNF100_hyp1_IL-1a4}}\\
- \subfloat[\label{fig:large-model-graph3}]{\includegraphics[scale=\scalaGrafici]{images/TNF5_hyp2_JNk1_MK2_3}}
- \subfloat[\label{fig:large-model-graph4}]{\includegraphics[scale=\scalaGrafici]{images/TNF5_C225_hyp2_JNk1_MK2_3}}
+\subfloat[\label{fig:large-model-complete}]{\includegraphics[scale=\largeModelScale]{images/large_network_legendg}}\\
+ \subfloat[\label{fig:large-model-graph2}]{\includegraphics[scale=\scalaGrafici]{images/TGF100_vs_TNF100_hyp1_IL-1a4}}
+ \subfloat[\label{fig:large-model-graph4}]{\includegraphics[scale=\scalaGrafici]{images/TNF5_C225_hyp2_JNK1_MK2}}
 \end{center}
 \caption{\scriptsize
-Comparison of simulation data obtained from the ANIMO model with experimental data.
-{\bf \protect\subref{fig:large-model-graph1}}~Modeled production of IL-1$\alpha$ after stimulation with 100 ng/ml TGF$\alpha$ (24 hours).
+{\bf \protect\subref{fig:large-model-complete}} The model for the merged TNF$\alpha$ and EGF pathways
+after addition of the two hypotheses. 
+Hypothesis 1 assumes IL-1$\alpha$ expression to depend on AP-1 activity, which in turn requires 
+both c-Jun en c-Fos to be activated by JNK1 and ERK, respectively. Hypothesis 2 assumes RAS as an activator 
+of MEKK1. Node colors represent the activity levels $15$ minutes
+after stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
 {\bf \protect\subref{fig:large-model-graph2}}~After the addition of the first hypothesis (activation of IL-1$\alpha$ production depending both
 on JNK1 and ERK): production of IL-1$\alpha$ after stimulation with 100 ng/ml TNF$\alpha$ (series {\sf IL-1a~(TNFa)})
 compared with stimulation with 100 ng/ml TGF$\alpha$ (series {\sf IL-1a~(TGFa)}) (24 hours).\\
-After the addition of the second hypothesis (activation of MEKK1 downstream of EGFR): {\bf \protect\subref{fig:large-model-graph3}}~stimulation with 5 ng/ml TNF$\alpha$ (2 hours),
-{\bf \protect\subref{fig:large-model-graph4}}~stimulation with 5 ng/ml TNF$\alpha$ + 10 $\mu$g/ml C225 (2 hours).
-Without the addition of the second hypothesis, the model behaves in both conditions as in {\bf \protect\subref{fig:large-model-graph3}}.\\
+{\bf \protect\subref{fig:large-model-graph4}}~After the addition of the second hypothesis (activation of MEKK1 downstream of EGFR):
+stimulation with 5 ng/ml TNF$\alpha$ + 10 $\mu$g/ml C225 (2 hours).\\
 Suppl. Sect.~\ref{suppl:parameters-tnf-egf} explains how the dosage of 5 ng/ml TNF$\alpha$ was represented in the model.}\label{fig:large-model-graph}
 \end{figure}
 
