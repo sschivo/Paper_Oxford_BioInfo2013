@@ -5,39 +5,45 @@ repetitions of the empirical cycle result in a stepwise increase in understandin
 until the goal is reached. For complex biological systems, computational modelling is 
 indispensable in this process. The mere act of creating 
 a computational model based on prior knowledge, experimental data and hypotheses 
-assist in gaining more insight in the system. 
+assists in gaining more insight in the system. 
 
 %Furthermore, \emph{in silico} experiments 
 %with the model can be used to make predictions that cannot be made by the human brain. 
 
 We developed a new modelling approach by proposing a series of abstractions from the detailed 
-molecular mechanisms of biological systems. These abstraction reduce the need for kinetic 
+molecular mechanisms of biological systems. These abstractions reduce the need for kinetic 
 parameters, while preserving enough expresivity for a useful description of the dynamic 
 behavior of biological networks. A novel modeling tool, ANIMO, allows 
 effective use of this approach and enables an intuitive construction of formal models.
 
-ANIMO is designed to make modelling more accessible to experts in biology,
-without the need to acquire additional training in a modeling formalism. Making use of the visual
-interface provided by Cytoscape, network representations are following biological conventions. The
-underlying formal model can be directly accessed by mouse-clicking on nodes and edges.
-
-
-
-ANIMO is not the first modeling tool to provide an interface to a
-modelling formalism.: that is already successfully done in many other tools.
-In Supplementary Section~\ref{suppl:comparison-table} we show a
-comparison between ANIMO and other tools for modelling biological networks.
+ANIMO is by no means the first modeling tool to provide an interface to a
+modelling formalism. Such interfaces exist in many other tools (@@REFs@@). With its
+focus on user-friendliness and intuitive modeling, ANIMO's main contribution lies 
+in making coputational modelling more accessible to experts in biology.
+Making use of the visual
+interface provided by Cytoscape, network representations are following biological conventions. 
+Model parameters are kept to a minimum and can be directly accessed by mouse-clicking on 
+nodes and edges. Because of the automatic translation of the network topology and 
+user-defined parameters into an underlying formal model, training in the use of formal methods 
+is not needed. In Supplementary Section~\ref{suppl:comparison-table}, a more in-depth
+comparison between ANIMO and other modeling tools is given. For this comparison we selected a tool
+for each of the most commonly used formalisms, and used criteria with a strong focus on 
+user-friendliness.
 
 In Section~\ref{sec:animo-drosophila}, we described the construction of an ANIMO
-model with a behaviour similar to an ODE model that had been
-published previously~\citep{drosophila-ode-model}. The biggest
+model of the ciracadian clock in \emph{Drosophila Melanogaster}. This model
+captured the dynamics of the regualtory network and led to similar 
+conclusions as an ODE model that had been
+published previously~\citep{drosophila-ode-model}. This finding supports the use of
+the series of modeling abstractions that we proposed. The biggest
 difference between the construction of these models is that the latter
 is constructed by writing a system of mathematical equations, together
-with an algorithm for simulation. Drawing a number of network
-nodes for the molecules involved and linking these nodes with directed
-cause-and-effect relationships is a more intuitive way of model
-construction. A single parameter then defines the strength of each
-interaction. Further contributing to an interactive modelling process
+with an algorithm for simulation. In ANIMO, instead, a number of network
+nodes is drawn for the molecules involved. These nodes are linked by directed
+interactions that represent cause-and-effect relationships. 
+A single parameter defines the strength of each
+interaction. This approach is a more intuitive way of model
+construction. Further contributing to an interactive modelling process
 is the compositionality of the model. Each node in the network
 can be disabled at any time by the user, or extra nodes can be added,
 without having to change any of the existing interactions.
