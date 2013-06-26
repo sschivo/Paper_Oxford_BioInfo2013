@@ -70,7 +70,7 @@ for treatments with 100 ng/ml TNF alone and 100 ng/ml EGF alone (data not shown)
 
 At this point, the behavior of the model deviated from the data for some of the nodes.
 This is an interesting situation, as it requires
-modifications to the model, that can be interpreted as new hypotheses. Below we give two examples and show how
+modifications to the model, that can be interpreted as new hypotheses. Below, we give two examples and show how
 adaptation of the model can be used to generate novel testable hypotheses.
 
 
@@ -86,31 +86,41 @@ adaptation of the model can be used to generate novel testable hypotheses.
 \\
  \subfloat{\includegraphics[scale=\legendScalaColori]{images/legenda_forme}}\\ \subfloat{\includegraphics[scale=\legendScalaForme]{images/legenda_colori}}
 \caption{Signaling network downstream of TNF$\alpha$ and EGF in human colon carcinoma cells.
-{\bf \protect\subref{fig:large-model-hypotheses}} The merged model for the TNF$\alpha$-EGF pathway in which the two hypotheses are highlighted. Node colors represent initial activity levels.
-{\bf \protect\subref{fig:large-model-complete}} The TNF$\alpha$-EGF model with the modified hypotheses. Node colors represent the activity levels $15$ minutes
+{\bf \protect\subref{fig:large-model-hypotheses}} The merged model for the TNF$\alpha$-EGF pathway in which 
+the two hypotheses are highlighted. The first hypothesis is the dependence IL-1$\alpha$ expression on the 
+combined activity of ERK and JNK1. The second hypothesis assumes an as yet unidentified protein (Hyp2) to link EGFR to MEKK1.
+Node colors represent initial activity levels.
+{\bf \protect\subref{fig:large-model-complete}} The same model after further specification of the two hypotheses. 
+Hypothesis 1 now assumes IL-1$\alpha$ expression to depend on AP-1 activity, which in turn requires 
+both c-Jun en c-Fos to be activated by JNK1 and ERK, respectively. Hypothesis 2 now assumes RAS as an activator 
+of MEKK1. Node colors represent the activity levels $15$ minutes
 after stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.}\label{fig:large-model-all}
 \end{figure}
 
 
 Experimentally,
-treatment with only TGF$\alpha$ does not lead to secretion of IL-1$\alpha$, for which
- TNF$\alpha$ is also required~\citep{pathway-autocrine}.
-However, in the first version of the model TGF$\alpha$ treatment was sufficient for
- IL-1$\alpha$ expression (Fig.~\ref{fig:large-model-graph1}). Given the time delay until secretion of IL-1$\alpha$, it can be
- expected that \emph{de novo} synthesis of IL-1$\alpha$ is required and that both
- TNF$\alpha$ and TGF$\alpha$ are needed to activate transcription of the IL-1$\alpha$ gene.
- JNK1 and ERK signal downstream of TNF$\alpha$ and TGF$\alpha$, respectively, and are known
-to affect the activity of many transcription factors. We altered the model to make
- activation of IL-1$\alpha$ expression dependent on both JNK1 activity and ERK activity
+treatment with TGF$\alpha$ alone does not lead to secretion of IL-1$\alpha$. Instead, a costimulation with 
+TGF$\alpha$ and TNF$\alpha$ is required~\citep{pathway-autocrine}.
+However, in the first version of the model, treatment with TGF$\alpha$ was sufficient for
+IL-1$\alpha$ expression (Fig.~\ref{fig:large-model-graph1}). Given the time delay until secretion of IL-1$\alpha$, it can be
+expected that \emph{de novo} synthesis of IL-1$\alpha$ is required and that both
+TNF$\alpha$ and TGF$\alpha$ are needed to activate transcription of the IL-1$\alpha$ gene.
+JNK1 and ERK signal downstream of TNF$\alpha$ and TGF$\alpha$, respectively, and are known
+to affect the activity of multiple transcription factors. We altered the model to make
+activation of IL-1$\alpha$ expression dependent on both JNK1 activity and ERK activity
 (Fig.~\ref{fig:large-model-hypotheses}, arrows linking {\sf JNK1} and {\sf ERK} to {\sf IL-1a gene}).
- After this modification to the model, IL-1$\alpha$ was no longer secreted
-upon stimulation with TGF$\alpha$ alone, which greatly improved the fit between the measured IL-1$\alpha$ levels and the model (see
- Fig.~\ref{fig:large-model-graph2}). This hypothesis of IL-1$\alpha$ as a target of combined JNK1 activity and
- ERK activity is supported in literature. Transcription factors c-Jun and c-Fos together
- form a heterodimer known as AP-1 and are activated by JNK1 and ERK,
+After this modification to the model, IL-1$\alpha$ was no longer secreted
+upon stimulation with TGF$\alpha$ alone, which greatly improved the fit between the measured IL-1$\alpha$ 
+levels and the model (Fig.~\ref{fig:large-model-graph2}). This hypothesis could now be used to 
+design a new experiment to validate IL-1$\alpha$ as a target of combined JNK1 activity and ERK activity in 
+HT-29 cells. For example, kinase inhibitors specific to JNK1 and ERK could be used to confirm that activity of 
+both kinases is required for expression and secretion of IL-1$\alpha$. Performing the experiment is beyond 
+the scope of this study, but this hypothesis finds support in literature. 
+Transcription factors c-Jun and c-Fos together
+form a heterodimer known as AP-1 and are activated by JNK1 and ERK,
 respectively~\citep{jnk-signaling,cfos-cjun}. AP-1 has been reported to bind to the
- promoter of IL-1$\alpha$, supporting its role in the regulation of IL-1$\alpha$
- expression~\citep{ap1-il1a}. Based on these findings in literature we included c-Jun and
+promoter of IL-1$\alpha$, providing evidence for a role in the regulation of IL-1$\alpha$
+expression~\citep{ap1-il1a}. Based on these findings in literature we included c-Jun and
 c-Fos in our model as transcriptional activators of IL-1$\alpha$ (Fig.\ref{fig:large-model-complete}).
 
 
@@ -134,31 +144,34 @@ Suppl. Sect.~\ref{suppl:parameters-tnf-egf} explains how the dosage of 5 ng/ml T
 \end{figure}
 
 
-As a second example we considered the behavior of JNK1 and MK2. In the model, both
- proteins were located downstream of TNF$\alpha$ but not TGF$\alpha$ or EGF. Hence, the
- model did not show an effect of C225, a pharmacological inhibitor of ligand-EGFR
- binding, on activation of JNK1 or MK2 after stimulation with TNF$\alpha$. However, experimental
-data show that C225 strongly reduces activation of JNK1 and MK2 upon stimulation with TNF$\alpha$~\citep{pathway-autocrine}.
+As a second example, we considered the behavior of JNK1 and MK2. In the model, both
+proteins were located downstream of TNF$\alpha$ but not TGF$\alpha$ or EGF. Hence, the
+model did not show an effect of C225, a pharmacological inhibitor of ligand-EGFR
+binding, on activation of JNK1 or MK2 after stimulation with TNF$\alpha$. However, experimental
+data show that C225 strongly reduces activation of JNK1 and MK2 upon stimulation with 
+TNF$\alpha$~\citep{pathway-autocrine}.
 This fact is indicative of a role for EGFR in activation of JNK1 and MK2. Since both JNK1 and MK2
- are located downstream of MAPK/ERK kinase kinase 1 (MEKK1), we hypothesized that activation
- of MEKK1 is dependent on
- both TNF$\alpha$-signaling and TGF$\alpha$-signaling. In the model we added a new
- hypothetical node {\sf Hyp~2} (hypothesis~2) to link EGFR to MEKK1 (Fig~\ref{fig:large-model-hypotheses}).
-This addition led to an improved fit of the model to the data upon treatment with TNF$\alpha$ + C225, while preserving the fit
-for the other conditions~(Figs.~\ref{fig:large-model-graph3}, \ref{fig:large-model-graph4}). Activation of both MK2 and JNK1
+are located downstream of MAPK/ERK kinase kinase 1 (MEKK1), we hypothesized that activation
+of MEKK1 is dependent on
+both TNF$\alpha$-signaling and TGF$\alpha$-signaling. In the model we added a new
+hypothetical node {\sf Hyp~2} (hypothesis~2) to link EGFR to MEKK1 (Fig~\ref{fig:large-model-hypotheses}).
+This addition led to an improved fit of the model to the data upon treatment with TNF$\alpha$ + C225, 
+while preserving the fit
+for the other conditions~(Figs.~\ref{fig:large-model-graph3}, \ref{fig:large-model-graph4}). 
+Activation of both MK2 and JNK1
 was then strongly suppressed by C225 (Fig.~\ref{fig:large-model-graph4}).
- Stimulation with EGF alone did not lead to activation of JNK1 and MK2.
+Stimulation with EGF alone did not lead to activation of JNK1 and MK2.
 These data support the validity of the modification to the model.
- Further support for a link between EGFR and MEKK1 was found in literature. Specifically,
+Further support for a link between EGFR and MEKK1 was found in literature. Specifically,
 Ras GTPase-activating protein (Ras) has been reported as a direct activator of
- MEKK1~\citep{ras-mekk1}. EGFR is a well-known and potent activator of Ras,
- which is why it was already in our network~\citep{kegg}.
+MEKK1~\citep{ras-mekk1}. EGFR is a well-known and potent activator of Ras,
+which is why it was already in our network~\citep{kegg}.
 Other studies also report activation of JNK1 and phosphorylation of c-Jun downstream of Ras, which is consistent with
- an interaction between Ras and MEKK1~\citep{cfos-cjun,ras-jnk1}.
+an interaction between Ras and MEKK1~\citep{cfos-cjun,ras-jnk1}.
 Based on these findings, we adapted
- our model by removing the {\sf Hyp~2} node and creating a direct interaction between Ras
- and MEKK1 (Fig.~\ref{fig:large-model-complete}). Together, our model suggests that EGFR activity is required but not sufficient for
- activation of JNK1 and MK2 in HT-29 cells.
+our model by removing the {\sf Hyp~2} node and creating a direct interaction between Ras
+and MEKK1 (Fig.~\ref{fig:large-model-complete}). Together, our model suggests that EGFR activity is required 
+but not sufficient for activation of JNK1 and MK2 in HT-29 cells.
 
 
 There are other nodes for which the experimental data deviates from the model in one or more of the experimental conditions.
