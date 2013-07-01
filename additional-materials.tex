@@ -329,10 +329,10 @@ click once the slider in the \emph{parameter} box to activate it, and then move 
 
 \begin{table}[!ht]
 \begin{minipage}{\textwidth}
-\processtable{The settings for the edges (reactions) in the example.\label{tab:setting-edges}}
+\processtable{The settings for the edges (interactions) in the example.\label{tab:setting-edges}}
 {\begin{tabular}{llll}%|c|c|c|c|}
 \hline\noalign{\vskip 2mm}
-  {\bfseries Reaction} & {\bfseries Scenario} & {\bfseries Parameter value} & {\bfseries Influence}\\[2mm]
+  {\bfseries Interaction} & {\bfseries Scenario} & {\bfseries Parameter value} & {\bfseries Influence}\\[2mm]
 \hline
 \noalign{\vskip 2mm}  A $\rightarrow$ B & 1 & Fast & Activation\\[5mm]
 \noalign{\vskip 2mm}  B $\rightarrow$ C & 1 & Medium & Activation\\[5mm]
@@ -516,13 +516,13 @@ The application of some basic strategies when setting the parameters for a netwo
 the less experienced users to considerably shorten the modelling time.
 First of all, it is important to proceed in a \emph{top-to-bottom} order, trying to match
 a component to the corresponding data before inserting the components downstream thereof.
-Second, when choosing the kinetic parameter for a reaction, we advise to first use the qualitative settings (very slow, slow, medium, fast, very fast):
-this allows to define the relative speeds of the reactions as soon as possible,
+Second, when choosing the kinetic parameter for an interaction, we advise to first use the qualitative settings (very slow, slow, medium, fast, very fast):
+this allows to define the relative speeds of the interactions as soon as possible,
 leaving the more precise parameter setting procedure as a follow-up step. Finally, as can be seen from
 the parameter settings of Section~\ref{sec:modeling-network-example}, in order to obtain a peak
 behaviour it is particularly important that
-a negative feedback is present (as an example, see the reactions involving B and C in Tab.~\ref{tab:setting-edges}),
-and that the inactivating reaction in the loop is faster than the ones activating the target node.
+a negative feedback is present (as an example, see the interactions involving B and C in Tab.~\ref{tab:setting-edges}),
+and that the inactivating interaction in the loop is faster than the ones activating the target node.
 
 A final note on the \emph{seconds/step} button. This button allows to define the time granularity
 of the simulations, but it is not strictly necessary to choose a very precise value.
