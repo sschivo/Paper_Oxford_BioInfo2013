@@ -19,7 +19,7 @@ Activity levels are discretized into integer variables with a user-defined granu
 Boolean (2 levels) to near-continuous (100 levels).
 
 Detailed biochemical reaction mechanisms are abstracted to \emph{interactions}, which can 
-represent either activations ($\rightarrow$) or inhibitions ($\dashv$\,). 
+represent either activations ($\rightarrow$) or inhibitions ($\dashv$\hspace{0.1em}). 
 This aggregation of elementary reactions into single interaction steps reduces the number of kinetic 
 parameters involved, while preserving cause-and-effect relationships.
 For example, consider a reaction in which enzyme $E$ phosphorylates and activates substrate $S$, 
@@ -69,7 +69,8 @@ to perform an activation or inhibition step. We have previously described in det
 scenarios presented in Section~\ref{subsec:abstractions} can be used to calculate the timing of molecular 
 interactions to give a description of network dynamics~\citep{animo-bibe}. Figure~\ref{fig:abstraction-mek-erk}
 presents a small example that illustrates the basic properties of \tas. 
-This model describes the activation of extracellular regulated kinase (ERK) by MAPK ERK kinase (MEK).
+This model describes the activation of ERK by MEK\footnote{All acronyms used in this paper
+and their corresponding UniProt IDs are listed in Suppl. Sect.~\ref{suppl-sec:names}.}.
 
 \def\mekTA{\includegraphics[scale=.098]{images/abstraction_ta_erk3}}
 \newlength\mekTAheight
@@ -151,8 +152,7 @@ To illustrate the process of modelling with ANIMO, we show the construction of a
 literature compendium of signal transduction events in HT-29 human colon carcinoma cells~\citep{pathway-compendium}. 
 This data set comprises triplicate
 measurements of 11 different protein activities or post-translational modification states at 13 time points after
-treatment with different combinations of tumour necrosis factor-$\alpha$ (TNF$\alpha$), epidermal growth factor 
-(EGF) and insulin.
+treatment with different combinations of TNF$\alpha$, EGF and insulin.
 The data set contains relative protein levels and activities, which is a typical situation in biochemistry.
 
 As a first step, we normalized measurements for each protein to the
@@ -160,11 +160,8 @@ maximum value in the complete experiment. This normalization results in a nondim
 is suitable for use with ANIMO.
 
 In Figure~\ref{fig:small-model}, we show the stepwise construction of a model of a small part of the network that is
-able to account for measured variations in activity of inhibitor of nuclear factor kappa-B kinase (IKK), 
-c-Jun N-terminal kinase-1 (JNK1),
-mitogen-activated protein kinase-activated protein kinase 2 (MK2), Caspase 8 (Casp8) and Caspase 3 (Casp3) 
-upon stimulation with 100
-ng/ml TNF$\alpha$. In this example we aimed for inclusion of a minimum number of nodes in the network, 
+able to account for measured variations in activity of IKK, JNK1, MK2, Casp8 and Casp3 upon stimulation with 100~ng/ml TNF$\alpha$.
+In this example we aimed for inclusion of a minimum number of nodes in the network, 
 while preserving biological relationships.
 Multi-step cascades were aggregated into a single step when possible. Parameters for all reactions were 
 set manually, and a close match was obtained between the model and the patterns that are present in the dataset.
@@ -198,7 +195,7 @@ All images in this figure are taken from the ANIMO user interface.
 {\bf (\protect\subref*{fig:small-model-first}, \protect\subref*{fig:small-model-first-graph})}~Basic model showing direct activation of JNK1 and MK2 by TNF$\alpha$.
 No peak dynamics are observed because no inactivating processes are present.
 {\bf (\protect\subref*{fig:small-model-third}, \protect\subref*{fig:small-model-third-graph})}~The model after addition of inactivating phosphatases and a
-negative feedback loop that down-regulates TNFR (TNF receptor). Note that adding TNFR internalization or phosphatases alone would not be enough to reproduce activity peaks.
+negative feedback loop that down-regulates TNFR. Note that adding TNFR internalization or phosphatases alone would not be enough to reproduce activity peaks.
 {\bf (\protect\subref*{fig:small-model-fourth}, \protect\subref*{fig:small-model-fourth-graph})}~The model after addition of IKK, IL1-secretion (abstracting
 the autocrine IL-1 signalling described by~\citealp{pathway-autocrine}), Casp8 and Casp3, showing the late response to TNF$\alpha$ signalling.
 As the data set did not contain values for cleaved caspase-3, but only for its non-cleaved precursor pro-caspase-3,
