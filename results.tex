@@ -84,22 +84,22 @@ adaptation of the model can be used to generate novel testable hypotheses.
  \subfloat[\label{fig:large-model-no-hypotheses}]{\includegraphics[scale=\largeModelScale]{images/large_network_merged_no_hypotheses}}\\
 %\subfloat{\includegraphics[scale=\legendScalaColori]{images/legenda_forme}}\\ \subfloat{\includegraphics[scale=\legendScalaForme]{images/legenda_colori}}\\
 \subfloat{\includegraphics[scale=\legendScalaColori]{images/legenda_forme_e_colori}}\\
-\addtocounter{subfigure}{-2}
+\addtocounter{subfigure}{-1}
 \subfloat[\label{fig:large-model-graph1}]{\includegraphics[scale=\scalaGrafici]{images/TGF100_TNF0_ho_hyp_IL-1a3}}
 \subfloat[\label{fig:large-model-graph3}]{\includegraphics[scale=\scalaGrafici]{images/TNF5_C225_no_hyp_JNK1_MK2}}
-\caption{Signaling network downstream of TNF$\alpha$ and EGF in human colon carcinoma cells.
+\caption{Signalling network downstream of TNF$\alpha$ and EGF in human colon carcinoma cells.
 {\bf \protect\subref{fig:large-model-no-hypotheses}}
 The model for the merged TNF$\alpha$ and EGF pathways. Node colours represent the
 activity level of the corresponding modelled reactants at time $t = 15$ minutes after
 a stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
-{\bf \protect\subref{fig:large-model-graph1}}~Modeled production of IL-1$\alpha$ after stimulation with 100 ng/ml TGF$\alpha$ (24 hours).
-{\bf \protect\subref{fig:large-model-graph3}}~Modeled activation of JNK1 and MK2 after stimulation with 5 ng/ml TNF$\alpha$ (2 hours).
+{\bf \protect\subref{fig:large-model-graph1}}~Modelled production of IL-1$\alpha$ after stimulation with 100 ng/ml TGF$\alpha$ (24 hours).
+{\bf \protect\subref{fig:large-model-graph3}}~Modelled activation of JNK1 and MK2 after stimulation with 5 ng/ml TNF$\alpha$ (2 hours).
 }\label{fig:large-model-all}
 \end{figure}
 
 
 Experimentally,
-treatment with TGF$\alpha$ alone does not lead to secretion of IL-1$\alpha$. Instead, a costimulation with 
+treatment with TGF$\alpha$ alone does not lead to secretion of IL-1$\alpha$. Instead, a co-stimulation with 
 TGF$\alpha$ and TNF$\alpha$ is required~\citep{pathway-autocrine}.
 However, in the first version of the model, treatment with TGF$\alpha$ was sufficient for
 IL-1$\alpha$ expression (Fig.~\ref{fig:large-model-graph1}). Given the time delay until secretion of IL-1$\alpha$, it can be
@@ -134,7 +134,7 @@ c-Fos in our model as transcriptional activators of IL-1$\alpha$ (Fig.\ref{fig:l
 after addition of the two hypotheses. 
 Hypothesis 1 assumes IL-1$\alpha$ expression to depend on AP-1 activity, which in turn requires 
 both c-Jun en c-Fos to be activated by JNK1 and ERK, respectively. Hypothesis 2 assumes RAS as an activator 
-of MEKK1. Node colors represent the activity levels $15$ minutes
+of MEKK1. Node colours represent the activity levels $15$ minutes
 after stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
 {\bf \protect\subref{fig:large-model-graph2}}~After the addition of the first hypothesis (activation of IL-1$\alpha$ production depending both
 on JNK1 and ERK): production of IL-1$\alpha$ after stimulation with 100 ng/ml TNF$\alpha$ (series {\sf IL-1a~(TNFa)})
@@ -145,7 +145,7 @@ Suppl. Sect.~\ref{suppl:parameters-tnf-egf} explains how the dosage of 5 ng/ml T
 \end{figure}
 
 
-As a second example, we considered the behavior of JNK1 and MK2. In the model, both
+As a second example, we considered the behaviour of JNK1 and MK2. In the model, both
 proteins were located downstream of TNF$\alpha$ but not TGF$\alpha$ or EGF. Hence, the
 model did not show an effect of C225, a pharmacological inhibitor of ligand-EGFR
 binding, on activation of JNK1 or MK2 after stimulation with TNF$\alpha$. However, experimental
@@ -154,7 +154,7 @@ TNF$\alpha$~\citep{pathway-autocrine}.
 This fact is indicative of a role for EGFR in activation of JNK1 and MK2. Since both JNK1 and MK2
 are located downstream of MAPK/ERK kinase kinase 1 (MEKK1), we hypothesized that activation
 of MEKK1 is dependent on
-both TNF$\alpha$-signaling and TGF$\alpha$-signaling. In the model we added a new
+both TNF$\alpha$-signalling and TGF$\alpha$-signalling. In the model we added a new
 hypothetical node {\sf Hyp~2} (hypothesis~2) to link EGFR to MEKK1 (Fig~\ref{fig:large-model-hypotheses}).
 This addition led to an improved fit of the model to the data upon treatment with TNF$\alpha$ + C225, 
 while preserving the fit
@@ -177,6 +177,6 @@ but not sufficient for activation of JNK1 and MK2 in HT-29 cells.
 
 There are other nodes for which the experimental data deviates from the model in one or more of the experimental conditions.
 A comparison between model and experimental data can be found in Figures~\ref{fig:differences1}, \ref{fig:differences2} and~\ref{fig:differences3}.
-A complete deciphering of the signaling events
-in this biological system is outside the scope of this paper. Instead, we illustrated how interactive modeling of the dynamic behavior
+A complete deciphering of the signalling events
+in this biological system is outside the scope of this paper. Instead, we illustrated how interactive modelling of the dynamic behaviour
 of a signal transduction network can be used to extend previous pathway topologies and can lead to the generation of novel hypotheses.
