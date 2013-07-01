@@ -1,15 +1,15 @@
 \subsection{Expressivity of ANIMO models}\label{sec:animo-drosophila}
 Results obtained with ANIMO are comparable to results with other modeling
 approaches. To demonstrate this, Figure~\ref{subfig:drosophila-model}
-represents an ANIMO model of the circadian clock in \emph{Drosophila Melanogaster}, based on the work 
+represents an ANIMO model of the circadian clock in \emph{Drosophila Melanogaster}, based on the work
 by~\cite{drosophila-ode-model}, where ordinary differential equations (ODEs) were used.
-The cyclic behavior of the circadian clock is based on the alternating formation and destruction of the 
+The cyclic behavior of the circadian clock is based on the alternating formation and destruction of the
 CYC/CLK protein complex.
-Concentration levels of this complex are in turn regulated by a series of proteins which are produced as 
+Concentration levels of this complex are in turn regulated by a series of proteins which are produced as
 a consequence of CYC/CLK formation. The CWO protein
-is central to the functioning of the network, as it degrades the mRNA for most of the involved proteins. 
+is central to the functioning of the network, as it degrades the mRNA for most of the involved proteins.
 As such, CWO act as an inhibitor that counterbalances the effect of CYC/CLK.
-The positive influence of the light-regulated cryptochrome CRY on the degradation of TIM is a consequence 
+The positive influence of the light-regulated cryptochrome CRY on the degradation of TIM is a consequence
 of the passage between day and night, allowing
 the circadian clock to synchronize to a time zone (see Suppl. Sect.~\ref{suppl:repressilator}).
 
@@ -19,13 +19,13 @@ the circadian clock to synchronize to a time zone (see Suppl. Sect.~\ref{suppl:r
 \begin{figure}[!htpb]
 \begin{center}
 \subfloat[\label{subfig:drosophila-model}]{\includegraphics[width=0.49\textwidth]{images/drosophila_model5}}\ %0.85\textwidth
-\subfloat[\label{subfig:drosophila-mrna}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph2}}\ 
+\subfloat[\label{subfig:drosophila-mrna}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph2}}\
 \subfloat[\label{subfig:drosophila-proteins}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph1}}
 \end{center}
 \caption{ANIMO model of the circadian clock in \emph{Drosophila Melanogaster} {\bfseries \protect\subref{subfig:drosophila-model}}.
-Network topology of the ANIMO model. Autoregulatory negative feedback loops are present on each of the nodes of 
-the network, following the original model by~\cite{drosophila-ode-model}. These feedback loops ensure that 
-protein levels decrease over time, when activating inputs are absent. The feedback loops are not represented here 
+Network topology of the ANIMO model. Autoregulatory negative feedback loops are present on each of the nodes of
+the network, following the original model by~\cite{drosophila-ode-model}. These feedback loops ensure that
+protein levels decrease over time, when activating inputs are absent. The feedback loops are not represented here
 for cosmetic reasons and clarity.\\% Model parameters for nodes and interactions can be found in Supplementary Section~\ref{suppl-sec:animo-drosophila}.\\
 ANIMO plots of the concentration of
 mRNA~{\bfseries \protect\subref{subfig:drosophila-mrna}}
@@ -39,7 +39,7 @@ as in the original model, with lower-case names representing mRNA, and upper-cas
 The output of the ANIMO model in Figure~\ref{fig:drosophila} closely matches the original ODE model.
 In particular, the oscillations in both models show the same periods and phases.
 Due to the compositional nature of \tas\, ANIMO allows for intuitive \emph{in silico} knock-out experiments,
-by right-clicking a node in the model and disabling it. Such experiments have been done 
+by right-clicking a node in the model and disabling it. Such experiments have been done
 before~\citep{drosophila-ode-model} and give similar results in our model. Details of the comparison
 between the ANIMO model and the original ODE model is given in Supplementary Section~\ref{suppl-sec:animo-drosophila}.
 
@@ -47,7 +47,7 @@ between the ANIMO model and the original ODE model is given in Supplementary Sec
 
 \subsection{Case study: using ANIMO to generate hypotheses}\label{subsec:case-study-larger}
 In order to validate our modeling approach,
-we constructed a larger model of the signaling network downstream of TNF$\alpha$ and EGF, formalizing 
+we constructed a larger model of the signaling network downstream of TNF$\alpha$ and EGF, formalizing
 the crosstalk that takes place between the pathways at different levels of cellular regulation.
 We first modeled the two pathways in isolation~(Figs.~\ref{fig:large-model-tnf}, \ref{fig:large-model-egf}),
 using information on protein interactions from
@@ -55,12 +55,12 @@ the KEGG~\citep{kegg} and phosphosite~\citep{phosphosite} databases. These model
 from studies by~\citet{pathway-compendium} and~\citet{pathway-autocrine}.
 We then merged the two pathways into a single model and added autocrine crosstalk between the pathways that has been
 described by~\citet{pathway-autocrine}.
-Briefly, stimulation with TNF$\alpha$ leads to a rapid release of TGF$\alpha$ ({\sf TGFa} in the model), 
+Briefly, stimulation with TNF$\alpha$ leads to a rapid release of TGF$\alpha$ ({\sf TGFa} in the model),
 which activates the EGF receptor ({\sf EGFR}).
 This activation causes secretion of IL-1$\alpha$ ({\sf IL-1a}) at later time points.
-The effect of IL-1$\alpha$ is down-regulated by the secretion of IL-1 receptor antagonist ({\sf IL-1ra}) 
+The effect of IL-1$\alpha$ is down-regulated by the secretion of IL-1 receptor antagonist ({\sf IL-1ra})
 downstream of TNF$\alpha$.
-The resulting model (Fig.~\ref{fig:large-model-no-hypotheses}) was compared to the experimental data 
+The resulting model (Fig.~\ref{fig:large-model-no-hypotheses}) was compared to the experimental data
 for treatments with 100 ng/ml TNF alone and 100 ng/ml EGF alone (data not shown)~\citep{pathway-compendium}.
 
 At this point, the behavior of the model deviated from the data for some of the nodes.
@@ -94,7 +94,7 @@ a stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
 
 
 Experimentally,
-treatment with TGF$\alpha$ alone does not lead to secretion of IL-1$\alpha$. Instead, a co-stimulation with 
+treatment with TGF$\alpha$ alone does not lead to secretion of IL-1$\alpha$. Instead, a co-stimulation with
 TGF$\alpha$ and TNF$\alpha$ is required~\citep{pathway-autocrine}.
 However, in the first version of the model, treatment with TGF$\alpha$ was sufficient for
 IL-1$\alpha$ expression (Fig.~\ref{fig:large-model-graph1}). Given the time delay until secretion of IL-1$\alpha$, it can be
@@ -105,12 +105,12 @@ to affect the activity of multiple transcription factors. We altered the model t
 activation of IL-1$\alpha$ expression dependent on both JNK1 activity and ERK activity
 (Suppl. Fig.~\ref{fig:large-model-hypotheses}, arrows linking {\sf JNK1} and {\sf ERK} to {\sf IL-1a gene}).
 After this modification to the model, IL-1$\alpha$ was no longer secreted
-upon stimulation with TGF$\alpha$ alone, which greatly improved the fit between the measured IL-1$\alpha$ 
-levels and the model (Fig.~\ref{fig:large-model-graph2}). This hypothesis could now be used to 
-design a new experiment to validate IL-1$\alpha$ as a target of combined JNK1 activity and ERK activity in 
-HT-29 cells. For example, kinase inhibitors specific to JNK1 and ERK could be used to confirm that activity of 
-both kinases is required for expression and secretion of IL-1$\alpha$. Performing the experiment is beyond 
-the scope of this study, but this hypothesis finds support in literature. 
+upon stimulation with TGF$\alpha$ alone, which greatly improved the fit between the measured IL-1$\alpha$
+levels and the model (Fig.~\ref{fig:large-model-graph2}). This hypothesis could now be used to
+design a new experiment to validate IL-1$\alpha$ as a target of combined JNK1 activity and ERK activity in
+HT-29 cells. For example, kinase inhibitors specific to JNK1 and ERK could be used to confirm that activity of
+both kinases is required for expression and secretion of IL-1$\alpha$. Performing the experiment is beyond
+the scope of this study, but this hypothesis finds support in literature.
 Transcription factors c-Jun and c-Fos together
 form a heterodimer known as AP-1 and are activated by JNK1 and ERK,
 respectively~\citep{jnk-signaling,cfos-cjun}. AP-1 has been reported to bind to the
@@ -126,9 +126,9 @@ c-Fos in our model as transcriptional activators of IL-1$\alpha$ (Fig.\ref{fig:l
 \end{center}
 \caption{\scriptsize
 {\bf \protect\subref{fig:large-model-complete}} The model for the merged TNF$\alpha$ and EGF pathways
-after addition of the two hypotheses (highlighted). 
-Hypothesis 1 assumes IL-1$\alpha$ expression to depend on AP-1 activity, which in turn requires 
-both c-Jun en c-Fos to be activated by JNK1 and ERK, respectively. Hypothesis 2 assumes RAS as an activator 
+after addition of the two hypotheses (highlighted).
+Hypothesis 1 assumes IL-1$\alpha$ expression to depend on AP-1 activity, which in turn requires
+both c-Jun en c-Fos to be activated by JNK1 and ERK, respectively. Hypothesis 2 assumes RAS as an activator
 of MEKK1. Node colours represent the activity levels $15$ minutes
 after stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
 {\bf \protect\subref{fig:large-model-graph2}}~After the addition of the first hypothesis (activation of IL-1$\alpha$ production depending both
@@ -144,7 +144,7 @@ As a second example, we considered the behaviour of JNK1 and MK2. In the model, 
 proteins were located downstream of TNF$\alpha$ but not TGF$\alpha$ or EGF. Hence, the
 model did not show an effect of C225, a pharmacological inhibitor of ligand-EGFR
 binding, on activation of JNK1 or MK2 after stimulation with TNF$\alpha$. However, experimental
-data show that C225 strongly reduces activation of JNK1 and MK2 upon stimulation with 
+data show that C225 strongly reduces activation of JNK1 and MK2 upon stimulation with
 TNF$\alpha$~\citep{pathway-autocrine}.
 This fact is indicative of a role for EGFR in activation of JNK1 and MK2. Since both JNK1 and MK2
 are located downstream of MEKK1, we hypothesized that activation
@@ -163,7 +163,9 @@ Other studies also report activation of JNK1 and phosphorylation of c-Jun downst
 an interaction between Ras and MEKK1~\citep{cfos-cjun,ras-jnk1}.
 Based on these findings, we adapted
 our model by removing the {\sf Hyp~2} node and creating a direct interaction between Ras
-and MEKK1 (Fig.~\ref{fig:large-model-complete}). Together, our model suggests that EGFR activity is required 
+and MEKK1 (Fig.~\ref{fig:large-model-complete}). Experimentally, the role of Ras could be confirmed by using a
+pharmacological inhibitor of Ras activity, and measuring the effect of this inhibitor on the activation of JNK1 and MK2.
+Together, our model suggests that EGFR activity is required
 but not sufficient for activation of JNK1 and MK2 in HT-29 cells.
 
 
