@@ -16,46 +16,49 @@ parameters, while preserving enough expresivity for a useful description of the 
 behavior of biological networks. A novel modeling tool, ANIMO, allows 
 effective use of this approach and enables an intuitive construction of formal models.
 
-ANIMO is by no means the first modeling tool to provide an interface to a
+ANIMO is not the first modeling tool to provide an interface to a
 modelling formalism. Such interfaces exist in many other tools (@@REFs@@). With its
-focus on user-friendliness and intuitive modelling, ANIMO's main contribution lies 
-in making computational modelling more accessible to experts in biology.
+focus on user-friendliness and intuitive modeling, ANIMO's main contribution lies 
+in making coputational modelling more accessible to experts in biology.
 Making use of the visual
 interface provided by Cytoscape, network representations are following biological conventions. 
 Model parameters are kept to a minimum and can be directly accessed by mouse-clicking on 
 nodes and edges. Because of the automatic translation of the network topology and 
 user-defined parameters into an underlying formal model, training in the use of formal methods 
 is not needed. In Supplementary Section~\ref{suppl:comparison-table}, a more in-depth
-comparison between ANIMO and other modelling tools is given. For this comparison we selected a tool
+comparison between ANIMO and other modeling tools is given. For this comparison we selected a tool
 for each of the most commonly used formalisms, and used criteria with a strong focus on 
 user-friendliness.
 
 In Section~\ref{sec:animo-drosophila}, we described the construction of an ANIMO
-model of the circadian clock in \emph{Drosophila Melanogaster}. This model
-captured the dynamics of the regulatory network and led to similar 
+model of the ciracadian clock in \emph{Drosophila Melanogaster}. This model
+captured the dynamics of the regualtory network and led to similar 
 conclusions as an ODE model that had been
 published previously~\citep{drosophila-ode-model}. This finding supports the use of
-the series of modelling abstractions that we proposed. The biggest
+the series of modeling abstractions that we proposed. The biggest
 difference between the construction of these models is that the latter
 is constructed by writing a system of mathematical equations, together
 with an algorithm for simulation. In ANIMO, instead, a number of network
-nodes is drawn for the molecules involved. These nodes are linked by directed
-interactions that represent cause-and-effect relationships. 
-A single parameter defines the strength of each
-interaction. This approach is a more intuitive way of model
-construction. Further contributing to an interactive modelling process
+nodes is drawn for the molecules involved. 
+These nodes are then linked by directed
+interactions that represent cause-and-effect relationships, with a single parameter 
+that defines the strength of each
+interaction. This is a more intuitive approach to construct a model.
+Further contributing to an interactive modelling process
 is the compositionality of the model. Each node in the network
 can be disabled at any time by the user, or extra nodes can be added,
 without having to change any of the existing interactions.
 
 In Section~\ref{subsec:case-study-larger}, we showed the construction of an executable model
 of signalling events downstream of
-TNF$\alpha$ and EGF in human colon carcinoma cells. The same data set has been used for
-previous modelling studies, based on partial least-squares regression and fuzzy logic~\citep{pathway-leastsquare,pathway-fuzzy}.
-The partial least-squares regression model describes an abstract data-driven model that uses statistical correlations
+TNF$\alpha$ and EGF in human colon carcinoma cells. This data set has been used for
+previous modelling studies, based on partial least-squares regression and fuzzy 
+logic~\citep{pathway-leastsquare,pathway-fuzzy}.
+The partial least-squares regression model describes an abstract data-driven model 
+that uses statistical correlations
 to relate signal transduction events to various cellular decisions. This type of modelling is
 very useful in uncovering new and unexpected relations. It is also successful in making
-predictions, but gives little direct insight in dynamic behaviour. Fuzzy
+predictions, but gives little direct in the dynamic behaviour of the network. Fuzzy
 logic analysis led to a model that gave a better fit to the dynamic network behaviour than
 discrete logic (Boolean) models. Inspection of the inputs to the logical gates that were used
 to model protein behaviour led to the prediction of novel interactions between proteins,
@@ -63,27 +66,22 @@ showing the usefulness of this approach. For most of the proteins, such as JNK1,
 used as an input parameter. For example, the logical gates ``if TNF$\alpha$ is high
 \emph{AND} time is low, then JNK1 is high'' and ``if TNF$\alpha$ is high \emph{AND} time is
 high, then JNK1 is low'' were used to
-describe the dynamic behaviour of JNK1. Although this leads to a useful and representative
-description of the dynamic behaviour of JNK1, it gives no insight in the dynamics
-of activation and inactivation. Furthermore, in many cases peaks in protein activity were
-not reproduced by the fuzzy logic model.
+describe the dynamic behaviour of JNK1. Although this leads to a representative
+description of the dynamic behaviour of JNK1, peaks in protein activity at early time points were
+not reproduced by the fuzzy logic model. Moreover, it gives no insight in the molecular interactions 
+that are involved in activation or inhibition.
 
+In this study, we used the same data set and performed a single round of the empirical cycle. This cycle starts off with the experiments carried out by ~\citet{pathway-compendium}. We used the resulting experimental data, together with knowledge from curated databases~\citep{kegg,phosphosite} to construct an executable model of the biological system.
 In contrast with the two approaches described above, ANIMO is aimed at the construction of
 more mechanistic models, mimicking biochemical interactions \emph{in silico}. This way of modelling
 gives a different type of insight. In the process of model construction, we extended a
 prior-knowledge network with time-dependent extracellular crosstalk that has been reported
-previously~\citep{pathway-autocrine}. We then introduced two additional layers of
-crosstalk, at the signal transduction and transcriptional level, to
-improve the fit of the model to the data. These modifications can be interpreted as novel testable hypotheses,
-and are supported in literature.
+previously~\citep{pathway-autocrine}. To come up with possible explanations for a disagreement
+between experimental data, two additional layers of
+crosstalk were introduced, at the signal transduction and transcriptional level. These modifications 
+improved the fit of the model to the data and can be interpreted as novel testable hypotheses.
+Finally, we proposed new experiments that could be carried out to test these hypotheses, closing the empirical cycle. 
 Together, our model sheds more light on the intricate
-entanglement between the TNF$\alpha$ and EGF pathways at multiple cellular levels and will
-provide a starting point for further investigation.
-
-ANIMO is leading to a new paradigm for interactive
-representation of biological networks. Networks in digital textbooks and articles can be
-displayed as animations amenable to modifications by readers. Repositories of formal
-descriptions of signalling modules could be used to put together executable signalling
-networks. A more user-friendly way of interacting with dynamic network models will lead to a
-more thorough understanding of biological networks and will accelerate hypothesis-driven
-research.
+entanglement between the TNF$\alpha$ and EGF pathways at multiple cellular levels.
+But above all,  the model provides an excellent starting point for further investigation.
+Every new round in the empirical cycle will lift the understanding of the system to a higher level, leading to an incremental build-up of knowledge and an upward empirical spiral. Being intuitively accessible, ANIMO models facilitate sharing knowledge within and between groups and encourage collaborations.
