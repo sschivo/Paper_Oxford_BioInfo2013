@@ -847,7 +847,45 @@ a period of three days.}\label{fig:repressilator}
 
 
 \subsection{ANIMO model of the Drosophila circadian clock}\label{suppl-sec:animo-drosophila}
-Comparison between ODE and ANIMO models.
+We compared the simulation results from the ANIMO model presented in Figure~\ref{fig:drosophila}
+with the ODE model described by~\citet{drosophila-ode-model}. The raw data coming from the
+two models were aligned to have a roughly close initial point, and all amplitudes were normalized
+following the procedure described in Suppl. Sect.~\ref{suppl-sec:normalization}. The results
+of this comparison can be seen in Figure~\ref{suppl-fig:grafici-drosophila}.
+
+\def\drosophilaGraphScale{0.0685}
+\renewcommand*\thesubfigure{}
+\begin{figure}[!htb]
+\begin{minipage}{\textwidth}
+  \centering
+\begin{tabular}{ccc}
+\subfloat[clk]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/clk}} &
+\subfloat[CLK]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/CLK}} &
+\subfloat[CRY]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/CRY}} \\
+\subfloat[cwo]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/cwo}} &
+\subfloat[CWO]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/CWO}} &
+\subfloat[CYC/CLK]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/CYC-CLK}} \\
+\subfloat[pdp1]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/pdp1}} &
+\subfloat[PDP1]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/PDP1}} &
+\subfloat[per]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/per}} \\
+\subfloat[PER]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/PER}} &
+\subfloat[PER/TIM]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/PER-TIM}} &
+\subfloat[tim]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/tim}} \\
+\subfloat[TIM]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/TIM}} &
+\subfloat[vri]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/vri}} &
+\subfloat[VRI]{\includegraphics[scale=\drosophilaGraphScale]{images/Circadian/VRI}}
+\end{tabular}
+\caption{Comparing the simulation results from the ANIMO and ODE models of
+\emph{Drosophila Melanogaster} circadian clock. Blue lines ({\sf \_{}ANIMO} series)
+represent data from the ANIMO model in Figure~\ref{subfig:drosophila-model},
+while red lines ({\sf \_{}ODE} series) represent data from the ODE model by~\citet{drosophila-ode-model}.\label{suppl-fig:grafici-drosophila}}
+\end{minipage}
+\end{figure}
+
+Most of the molecules represented in the two models evolve with the same period and phase.
+CLK and clk in the ANIMO model have
+a small oscillation range (their values change by around 10\%\ during a simulation),
+so their behaviour match the continuous model less precisely.
 % The parameters of the ANIMO model used to represent the \emph{Drosophila Melanogaster} circadian clock in Section~\ref{sec:animo-drosophila}
 % are given in Tables~\ref{tab:drosophila-model-reactants} and~\ref{tab:drosophila-model-reactions}.
 %

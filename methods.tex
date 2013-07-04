@@ -28,8 +28,8 @@ can be represented as
 $$
 \mbox{\it E} + \mbox{\it S} + \mbox{\it ATP} \rightleftarrows \mbox{\it ES} + \mbox{\it ATP} \rightarrow \mbox{\it ES}^{\mbox{\scriptsize \it P}} + \mbox{\it ADP} \rightleftarrows \mbox{\it E} + \mbox{\it S}^{\mbox{\scriptsize\it P}} + \mbox{\it ADP},
 $$
-with conservation condition $\mbox{\it S}_{\mbox{\scriptsize\it tot}} = \mbox{\it S} + \mbox{\it S}^{\mbox{\scriptsize\it P}}$.\\
-In an ANIMO model this reaction is abstracted to the corresponding interaction
+with conservation condition $\mbox{\it S} + \mbox{\it S}^{\mbox{\scriptsize\it P}} = \mbox{constant}$ and $\mbox{\it ATP} + \mbox{\it ADP} = \mbox{constant}$.\\
+Under the assumption of ATP constantly being replenished by the cell, this reaction is abstracted in ANIMO to the corresponding interaction
 $$
 \mbox{\it E} \rightarrow \mbox{\it S}.
 $$
@@ -197,7 +197,8 @@ No peak dynamics are observed because no inactivating processes are present.
 {\bf (\protect\subref*{fig:small-model-third}, \protect\subref*{fig:small-model-third-graph})}~The model after addition of inactivating phosphatases and a
 negative feedback loop that down-regulates TNFR. Note that adding TNFR internalization or phosphatases alone would not be enough to reproduce activity peaks.
 {\bf (\protect\subref*{fig:small-model-fourth}, \protect\subref*{fig:small-model-fourth-graph})}~The model after addition of IKK, IL1-secretion (abstracting
-the autocrine IL-1 signalling described by~\citealp{pathway-autocrine}), Casp8 and Casp3, showing the late response to TNF$\alpha$ signalling.
+the autocrine IL-1 signalling described by~\citealp{pathway-autocrine}), Casp8 and Casp3, showing the late response to TNF$\alpha$ signalling.\\
+The {\sf \_{}data} suffix identifies experimental data; all other series are computed by ANIMO.\\
 As the data set did not contain values for cleaved caspase-3, but only for its non-cleaved precursor pro-caspase-3,
 we computed the {\sf Casp3\_{}data} series as $100\% - [\mbox{\sf pro-Casp3}]$.}\label{fig:small-model}
 \end{figure}

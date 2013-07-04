@@ -19,17 +19,17 @@ the circadian clock to synchronize to a time zone (see Suppl. Sect.~\ref{suppl:r
 \begin{figure}[!htpb]
 \begin{center}
 \subfloat[\label{subfig:drosophila-model}]{\includegraphics[width=0.49\textwidth]{images/drosophila_model5}}\ %0.85\textwidth
-\subfloat[\label{subfig:drosophila-mrna}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph2}}\
-\subfloat[\label{subfig:drosophila-proteins}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph1}}
+% \subfloat[\label{subfig:drosophila-mrna}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph2}}\
+% \subfloat[\label{subfig:drosophila-proteins}]{\includegraphics[scale=\drosophilaGraphScale]{images/drosophila_graph1}}
 \end{center}
 \caption{ANIMO model of the circadian clock in \emph{Drosophila Melanogaster} {\bfseries \protect\subref{subfig:drosophila-model}}.
 Network topology of the ANIMO model. Autoregulatory negative feedback loops are present on each of the nodes of
 the network, following the original model by~\cite{drosophila-ode-model}. These feedback loops ensure that
-protein levels decrease over time, when activating inputs are absent. The feedback loops are not represented here
-for cosmetic reasons and clarity.\\% Model parameters for nodes and interactions can be found in Supplementary Section~\ref{suppl-sec:animo-drosophila}.\\
-ANIMO plots of the concentration of
-mRNA~{\bfseries \protect\subref{subfig:drosophila-mrna}}
-and proteins~{\bfseries \protect\subref{subfig:drosophila-proteins}} over a period of 48~hours.\\
+protein levels decrease over time when activating inputs are absent. The feedback loops are not represented here
+for cosmetic reasons and clarity.
+% \\ ANIMO plots of the concentration of
+% mRNA~{\bfseries \protect\subref{subfig:drosophila-mrna}}
+% and proteins~{\bfseries \protect\subref{subfig:drosophila-proteins}} over a period of 48~hours.\\
 Naming conventions follow the same rules
 as in the original model, with lower-case names representing mRNA, and upper-case names indicating proteins.
 }\label{fig:drosophila}
@@ -37,11 +37,12 @@ as in the original model, with lower-case names representing mRNA, and upper-cas
 
 
 The output of the ANIMO model in Figure~\ref{fig:drosophila} closely matches the original ODE model.
-In particular, the oscillations in both models show the same periods and phases.
+In particular, the oscillations in both models show the same periods and phases (see Suppl. Fig~\ref{suppl-fig:grafici-drosophila}).
 Due to the compositional nature of \tas\, ANIMO allows for intuitive \emph{in silico} knock-out experiments,
 by right-clicking a node in the model and disabling it. Such experiments have been done
-before~\citep{drosophila-ode-model} and give similar results in our model. Details of the comparison
-between the ANIMO model and the original ODE model is given in Supplementary Section~\ref{suppl-sec:animo-drosophila}.
+before~\citep{drosophila-ode-model} and give similar results in our model.
+% Details of the comparison
+% between the ANIMO model and the original ODE model is given in Supplementary Section~\ref{suppl-sec:animo-drosophila}.
 
 
 
@@ -89,7 +90,8 @@ activity level of the corresponding modelled reactants at time $t = 15$ minutes 
 a stimulation of 100 ng/ml TNF$\alpha$ + 100 ng/ml EGF.
 {\bf \protect\subref{fig:large-model-graph1}}~Modelled production of IL-1$\alpha$ after stimulation with 100 ng/ml TGF$\alpha$ (24 hours).
 {\bf \protect\subref{fig:large-model-graph3}}~Modelled activation of JNK1 and MK2 after stimulation with 5 ng/ml TNF$\alpha$ + 10 $\mu$g/ml C225 (2 hours).
-}\label{fig:large-model-all}
+\\
+The {\sf \_{}data} suffix identifies experimental data; all other series are computed by ANIMO.}\label{fig:large-model-all}
 \end{figure}
 
 
@@ -136,7 +138,8 @@ on JNK1 and ERK): production of IL-1$\alpha$ after stimulation with 100 ng/ml TN
 compared with stimulation with 100 ng/ml TGF$\alpha$ (series {\sf IL-1a~(TGFa)}) (24 hours).\\
 {\bf \protect\subref{fig:large-model-graph4}}~After the addition of the second hypothesis (activation of MEKK1 downstream of EGFR):
 stimulation with 5 ng/ml TNF$\alpha$ + 10 $\mu$g/ml C225 (2 hours).
-Suppl. Sect.~\ref{suppl:parameters-tnf-egf} explains how the dosage of 5 ng/ml TNF$\alpha$ was represented in the model.}\label{fig:large-model-graph}
+Suppl. Sect.~\ref{suppl:parameters-tnf-egf} explains how the dosage of 5 ng/ml TNF$\alpha$ was represented in the model.\\
+The {\sf \_{}data} suffix identifies experimental data; all other series are computed by ANIMO.}\label{fig:large-model-graph}
 \end{figure}
 
 
