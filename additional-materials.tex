@@ -123,10 +123,18 @@ In order to run ANIMO, a desktop or laptop computer is needed with the following
   \item Cytoscape~\citep{cytoscape}: see Section~\ref{sec:install-cytoscape}
   \item UPPAAL~\citep{uppaal}: see Section~\ref{sec:install-uppaal}
 \end{itemize}
-Each works under Windows~(\winsymbol), Mac-OS~(\macsymbol) and all most common GNU/Linux~(\linuxsymbol) distributions.
+The software to run Java-based programs is provided for free by Oracle. More information
+is available on the \url{java.com} website.
+Cytoscape is an open source project released under the terms of the GNU Lesser General Public License.
+UPPAAL is developed by a collaboration by the universities of Uppsala (Sweden) and Aalborg (Denmark),
+and is free for non-commercial applications in academia only.
+
+All of these softwares work under Windows~(\winsymbol), Mac-OS~(\macsymbol) and all most common GNU/Linux~(\linuxsymbol) distributions.
 If the requirements are already met, ANIMO can be directly installed following the instructions in Section~\ref{sec:install-animo}.\\
 \emph{Note}: when required to type something, the text to input will be represented ``{\tt like this}'': the quotation marks
-are not intended to be typed.
+are not intended to be typed.\\
+In case of problems accessing a web site with Microsoft Internet Explorer, we advise to try with a different web browser (such as Mozilla Firefox or
+Google Chrome) or to update Internet Explorer.
 
 \subsection{Java}\label{sec:install-java}
 \begin{enumerate}
@@ -140,40 +148,13 @@ logo:~\ubuntusymbol), type ``{\tt terminal}'' and click the Terminal icon.}
 \item Type ``{\tt java}'' and press Return. If a brief error message like ``{\tt unknown command}'' is shown, Java needs to be
 installed: please proceed to step~\ref{step:install-java}. Otherwise, please continue to Section~\ref{sec:install-cytoscape}.
 \item\label{step:install-java}
-\winmaclinux{Point your web browser to \url{java.sun.com}.\\
-Click \emph{Downloads}, then on \emph{Java SE} (can be usually found under \emph{Popular Downloads}, or by performing
-a search inside the text of the web page).\\
-Choose \emph{Java Platform (JDK)}, and select \emph{Accept License Agreement}.\\
-Choose the correct package to download, based on your platform: if you have a 32 bit installation, choose the version
-named \emph{Windows x86}, otherwise
-choose the \emph{Windows x64} package.\\
-After the download, double click the installer and install Java. You don't need to register with Oracle, so you can
-close the browser when it opens at the end of the installation.\\
-To check that Java has been correctly installed, open the console (see the instructions of
-step~\ref{step:open-console} in Section~\ref{sec:install-java})
-and type ``{\tt java}'', followed by Return. If you get the message ``{\tt unknown command}'', read on.
-Otherwise, skip the rest of this
-section and continue with the installation of Cytoscape (Sec.~\ref{sec:install-cytoscape}).\\
-Open \emph{My Computer}, and enter the local disc (C). Usually, Java is installed in ``{\tt Program
-Files$\backslash{}$Java}''. In that directory,
-there should be a directory named {\tt jdk1.6.nnnn} with {\tt nnnn} = some numbers.
-Inside this directory, there is a {\tt bin} directory. Copy the complete path to that {\tt bin} directory (it should be
-something similar to
-``{\tt C:$\backslash{}$Program Files$\backslash{}$Java$\backslash{}$jdk1.6.0\_{}26$\backslash{}$bin}'').
-Go to Control Panel (Start $\rightarrow$ Settings $\rightarrow$ Control Panel) and look for the \emph{System} icon.
-In the System properties window, select the \emph{Advanced} tab, and then click the \emph{Environment variables}
-button.
-In the upper part of the new window, look for a property named \emph{PATH}. If present, double click it,
-otherwise click the button \emph{New} (pay attention that you focus on the {\bfseries upper} part of the window).
-Check that \emph{Variable name} says \emph{PATH}. If you have clicked \emph{New}, you must insert the word ``{\tt PATH}''
-yourself.
-\emph{Variable value} can correspond to an empty field, and in that case you have to paste the path you copied at
-the previous step.
-If there is something else in that field, go to the end of the field, add a ``{\tt ;}'' and paste the path after the ``{\tt ;}''.\\
-Click \emph{OK} in both the \emph{Environment variables} and \emph{System properties} windows.\\
-Open a {\bfseries new} console (using one that is already open will not update the PATH variable), and try again to type
-``{\tt java}'' and press Return. This time, a longer
-message should be shown instead of the ``{\tt unknown command}'' message. Java has been successfully installed.}%
+\winmaclinux{Point your web browser to \url{java.com}.\\
+Click \emph{Free Java Download}, then on \emph{Agree and Start Free Download}.\\
+If asked for permission to run the installer, grant that permission.\\
+After the download, double click the installer and install Java following the guided steps.\\
+To check that Java has been correctly installed, a web page is automatically opened at
+the end of the installation process. Click on \emph{Verify Java version}. If a \emph{Congratulations!} message is shown,
+Java has been successfully installed. Otherwise, please try again or contact Java support.}%
 {Go to \emph{Applications} $\rightarrow$ \emph{Utilities} $\rightarrow$ \emph{Java Preferences}.\\
 If the Java Preferences window is shown, Java is already installed, otherwise the system will prompt you to install
 it. Follow the instructions and Java will be correctly installed at the end of the procedure.}%
@@ -181,14 +162,16 @@ it. Follow the instructions and Java will be correctly installed at the end of t
 \emph{Install} button
 will appear next to the name of the package: click that button and Java will be correctly installed.\\
 If you run another distribution, use your package manager in a similar way. If you cannot find OpenJDK, there may be
-the possibility to install \emph{Sun Java Development Kit (JDK)} instead.}
+the possibility to install \emph{Oracle Java Development Kit (JDK)} instead.}
 \end{enumerate}
 
 
 \subsection{Cytoscape}\label{sec:install-cytoscape}
-Cytoscape can be found at the address \url{www.cytoscape.org/download.html}: an automatic installer
-program can be downloaded. Please note that you need to accept Cytoscape's terms of use before being able to start the download.
-Choose the latest version (at least 2.8.3), possibly using a platform specific installer. For Windows, you can choose \emph{64bit} only
+Cytoscape can be found at the address \url{www.cytoscape.org/download.php}: an automatic installer
+program can be downloaded. Please note that you need to register and accept Cytoscape's terms of use
+before being able to start the download.
+Choose the latest 2.x version (at least 2.8.3, on the left column),
+possibly using a platform specific installer. For Windows, you can choose \emph{64bit} only
 if you know that your computer can run 64bit programs, otherwise it is safe to choose \emph{32bit}.
 % \begin{enumerate}
 % \item Point your browser to \url{www.cytoscape.org/download.html}.
@@ -206,8 +189,8 @@ if you know that your computer can run 64bit programs, otherwise it is safe to c
 academic use. Information and contacts for commercial licenses can be found on the web site.
 \item Click the \emph{Download} link, and choose the latest \emph{development} version (at least 4.1) for your operating system.
 \item Fill in the required contact information and click the \emph{Accept and download} button to download UPPAAL.\\
-\emph{Note}: problems with the registration on UPPAAL website have been reported when using some versions of Internet Explorer.
-If the registration is unsuccessful, please consider changing your web browser.
+\emph{Note}: problems with the registration on UPPAAL website have been reported when using some versions of Microsoft Internet Explorer.
+If the registration is unsuccessful, please consider updating Internet Explorer or changing your web browser.
 \item Unzip the downloaded file to a known location: UPPAAL will be installed there.
 \item\label{step:mac-install-uppaal} Complete UPPAAL installation. \macpc{Open the UPPAAL installation location in Finder,
 drop the \emph{UPPAAL.App} icon in your \emph{Applications} folder,
@@ -215,15 +198,15 @@ and copy the \emph{verifyta} executable file to a known location. The installati
 go to Section~\ref{sec:install-animo}.}{Open a console (this was done in Sec.~\ref{sec:install-java}, step
 number~\ref{step:open-console}), type ``\url{cd} \url{PATH_TO_THE_UPPAAL_DIRECTORY}'' and press Return;
 \url{PATH_TO_THE_UPPAAL_DIRECTORY} is the path to the directory where you installed UPPAAL. It can be for example
-``\url{c:\Users\myuser\Desktop\uppaal-4.1.7}'',
+``\url{c:\Users\myuser\Desktop\uppaal-4.1.15}'',
  or
-``\url{/home/myuser/programs/uppaal-4.1.7}''.\\
+``\url{/home/myuser/programs/uppaal-4.1.15}''.\\
 \winsymbol\ \emph{Note}: some Windows users may have access only to specific partitions (D:, Z:,\dots): in that case,
 please first change to the corresponding
-drive letter where the downloaded file was extracted. For example: if UPPAAL is located in \url{d:\myuser\Programs\uppaal-4.1.7},
+drive letter where the downloaded file was extracted. For example: if UPPAAL is located in \url{d:\myuser\Programs\uppaal-4.1.15},
 the two commands to be entered are\\
 ``\url{d:}''\\
-``\url{cd} \url{\user\Programs\uppaal-4.1.7}''}
+``\url{cd} \url{\user\Programs\uppaal-4.1.15}''}
 \item Type ``{\tt java -jar uppaal.jar}'' and press Return.
 \item The license for UPPAAL will be automatically acquired, and the main window of UPPAAL user interface will appear:
 you may now close that window.
@@ -243,7 +226,7 @@ window will open.
 (you may need to scroll down: it should appear after \emph{Cytoscape}).
 \item The panel on the left shows a smaller list of plugins: under \emph{Available for Install} $\rightarrow$
 \emph{Analysis},
-select \emph{ANIMO v1.28}.
+select \emph{ANIMO v1.37}.
 \item Click the \emph{Install} button. The ANIMO tool will be automatically downloaded and installed.
 \item The tool will ask you to indicate the position of the \emph{verifyta} executable, which is the tool to verify Timed Automata models.
 You can find it in the \emph{bin} (\emph{bin-Linux}, \emph{bin-Win32}, \dots\ depending on your operating system) directory inside the
@@ -293,7 +276,7 @@ the properties of a node have been inserted, confirm the choice with the \emph{S
 \hline\noalign{\vskip 2mm}
   A & 15 & 15 & Cytokine & Yes & No\\[5mm]
   B & 15 & 0 & Receptor & Yes & No\\[5mm]
-  C & 15 & 0 & Phosphatase & Yes & No\\[5mm]
+  C & 15 & 0 & Other & Yes & No\\[5mm]
   D & 100 & 0 & Kinase & Yes & Yes\\[5mm]
   E & 1 & 1 & Phosphatase & Yes & No\\[2mm]
 \hline
@@ -331,14 +314,15 @@ click once the slider in the \emph{parameter} box to activate it, and then move 
 \begin{minipage}{\textwidth}
 \processtable{The settings for the edges (interactions) in the example.\label{tab:setting-edges}}
 {\begin{tabular}{llll}%|c|c|c|c|}
+\ \\
 \hline\noalign{\vskip 2mm}
-  {\bfseries Interaction} & {\bfseries Scenario} & {\bfseries Parameter value} & {\bfseries Influence}\\[2mm]
+  {\bfseries Interaction} & {\bfseries Influence} & {\bfseries Scenario} & {\bfseries Parameter value}\\[2mm]
 \hline
-\noalign{\vskip 2mm}  A $\rightarrow$ B & 1 & Fast & Activation\\[5mm]
-\noalign{\vskip 2mm}  B $\rightarrow$ C & 1 & Medium & Activation\\[5mm]
-\noalign{\vskip 2mm}  C $\rightarrow$ B & 1 & V. Fast & Inhibition\\[5mm]
-\noalign{\vskip 2mm}  B $\rightarrow$ D & 1 & Medium & Activation\\[5mm]
-\noalign{\vskip 2mm}  E $\rightarrow$ D & 2 & 0.00015 & Inhibition\\[2mm]
+\noalign{\vskip 2mm}  A $\rightarrow$ B & Activation & 1 & Medium \\[5mm]
+\noalign{\vskip 2mm}  B $\rightarrow$ C & Activation & 1 & Slow \\[5mm]
+\noalign{\vskip 2mm}  C $\rightarrow$ B & Inhibition & 1 & Fast \\[5mm]
+\noalign{\vskip 2mm}  B $\rightarrow$ D & Activation & 1 & Slow \\[5mm]
+\noalign{\vskip 2mm}  E $\rightarrow$ D & Inhibition & 2 & V. Slow \\[2mm]
 \hline
 \end{tabular}}{}
 \end{minipage}
@@ -357,11 +341,10 @@ click once the slider in the \emph{parameter} box to activate it, and then move 
 \setcounter{enumi}{\value{miocounterperenumerate}}
 \item In the \emph{Control Panel} activate the \emph{ANIMO} tab by clicking its title.
 \item Click the \emph{Choose seconds/step} button. A new dialogue window will appear: you can
-%just click \emph{OK} to confirm that you request a time resolution of 12 seconds.
-safely choose a time resolution of 12 seconds per step and click \emph{OK}.
+safely choose a time resolution of 1 second per step and click \emph{OK}.
 \item Click the \emph{Analyse network} button.
 \item After a few seconds the \emph{Results Panel} should appear on the right,
-showing a plot of the activity level of reactant D over a time course of 240 minutes.
+showing a plot of the activity level of reactant D over a time course of 120 minutes.
 Figure~\ref{fig:rete-esempio} shows the resulting network and graph plot.
 \end{enumerate}
 
@@ -544,7 +527,7 @@ it is the normal behaviour.
 
 If an updated version of ANIMO is available, it will appear
 under the category \emph{Updatable Plugins} $\rightarrow$
-\emph{Analysis} $\rightarrow$ \emph{ANIMO v1.28}. If no plug-in can be updated, a message stating \emph{No
+\emph{Analysis} $\rightarrow$ \emph{ANIMO v1.37}. If no plug-in can be updated, a message stating \emph{No
 updates available for currently installed plug-ins.} will be shown.
 
 
@@ -817,7 +800,7 @@ number of levels of a node. This allows to adapt a model to the quality of exper
 \section{Additional notes}
 
 \subsection{Simulating the day-night cycle}\label{suppl:repressilator}
-The model presented in Figure~\ref{subfig:drosophila-model} contains a node
+The model presented in Figure~\ref{fig:drosophila-model} contains a node
 labelled {\sf Day/Night}. That node abstracts our representation
 of the cyclic alternation of day and night, which causes the variations
 in cryptochrome ({\sf cry}): these oscillations allow the network
@@ -847,7 +830,7 @@ a period of three days.}\label{fig:repressilator}
 
 
 \subsection{ANIMO model of the Drosophila circadian clock}\label{suppl-sec:animo-drosophila}
-We compared the simulation results from the ANIMO model presented in Figure~\ref{fig:drosophila}
+We compared the simulation results from the ANIMO model presented in Figure~\ref{fig:drosophila-model}
 with the ODE model described by~\citet{drosophila-ode-model}. The raw data coming from the
 two models were aligned to have a roughly close initial point, and all amplitudes were normalized
 following the procedure described in Suppl. Sect.~\ref{suppl-sec:normalization}. The results
@@ -877,7 +860,7 @@ of this comparison can be seen in Figure~\ref{suppl-fig:grafici-drosophila}.
 \end{tabular}
 \caption{Comparing the simulation results from the ANIMO and ODE models of
 \emph{Drosophila Melanogaster} circadian clock. Blue lines ({\sf \_{}ANIMO} series)
-represent data from the ANIMO model in Figure~\ref{subfig:drosophila-model},
+represent data from the ANIMO model in Figure~\ref{fig:drosophila-model},
 while red lines ({\sf \_{}ODE} series) represent data from the ODE model by~\citet{drosophila-ode-model}.\label{suppl-fig:grafici-drosophila}}
 \end{minipage}
 \end{figure}
@@ -1075,7 +1058,7 @@ Table~\ref{tab:tool-comparison} shows the comparison between ANIMO and the selec
 \begin{table}[!hbt]
 \begin{minipage}{\textwidth}
 \processtable{Comparison between ANIMO and some existing approaches to modelling biological systems.
-A ``Yes'' under a column indicates that the modelling tool (mostly) fulfils the parameter, ``No'' indicates very limited or no fulfilment.
+A ``Yes'' under a column indicates that the modelling tool (mostly) fulfils the parameter, ``No'' indicates very limited or no fulfilment.\\
 \label{tab:tool-comparison}}
 {\begin{tabular}{p{4cm}p{1.8cm}p{1.8cm}p{1.5cm}p{1.8cm}p{1.8cm}p{2cm}}
 \toprule
